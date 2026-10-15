@@ -1,26 +1,279 @@
 @import "tailwindcss";
+@import "../styles/tokens.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@layer base {
+  * {
+    border-color: var(--border-subtle);
+  }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  html {
+    color-scheme: light;
+    scroll-behavior: smooth;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: var(--font-sans), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  /* Keyboard Focus Indicators for Accessibility */
+  :focus-visible {
+    outline: 2px solid var(--brand-blue);
+    outline-offset: 2px;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Base Utility Classes */
+.bg-subtle-pattern {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(1, 21, 59, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(1, 21, 59, 0.03) 1px, transparent 1px);
 }
+
+.bg-blueprint-grid {
+  background-size: 24px 24px;
+  background-image: 
+    linear-gradient(to right, rgba(1, 21, 59, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(1, 21, 59, 0.04) 1px, transparent 1px);
+}
+
+.bg-dots-pattern {
+  background-size: 20px 20px;
+  background-image: radial-gradient(rgba(1, 21, 59, 0.07) 1px, transparent 1px);
+}
+
+.text-gradient-navy {
+  background: linear-gradient(135deg, #01153B 30%, #00B3FF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-brand {
+  background: linear-gradient(135deg, #01153B 0%, #031E4D 60%, #00B3FF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ==========================================================================
+   Motion System: Keyframes & Utilities (Phase A Foundation)
+   ========================================================================== */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes dropdownIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes flowDash {
+  to {
+    stroke-dashoffset: -20;
+  }
+}
+
+/* Reusable Animation Classes */
+.animate-fadeIn {
+  animation: fadeIn var(--duration-normal) var(--ease-out-smooth) both;
+}
+
+.animate-dropdownIn,
+.animate-in.fade-in {
+  animation: dropdownIn var(--duration-fast) var(--ease-out-smooth) both;
+}
+
+/* Reusable SVG data-flow definition (reusable utility; not globally activated) */
+.animate-flowDash {
+  animation: flowDash 1.5s linear infinite;
+}
+
+/* Reusable Motion Timing & Transition Utilities */
+.duration-fast {
+  transition-duration: var(--duration-fast);
+  animation-duration: var(--duration-fast);
+}
+
+.duration-normal {
+  transition-duration: var(--duration-normal);
+  animation-duration: var(--duration-normal);
+}
+
+.duration-slow {
+  transition-duration: var(--duration-slow);
+  animation-duration: var(--duration-slow);
+}
+
+.ease-out-smooth {
+  transition-timing-function: var(--ease-out-smooth);
+  animation-timing-function: var(--ease-out-smooth);
+}
+
+.ease-in-out-smooth {
+  transition-timing-function: var(--ease-in-out-smooth);
+  animation-timing-function: var(--ease-in-out-smooth);
+}
+
+.transition-motion-fast {
+  transition-property: color, background-color, border-color, opacity, box-shadow, transform;
+  transition-duration: var(--duration-fast);
+  transition-timing-function: var(--ease-out-smooth);
+}
+
+.transition-motion-normal {
+  transition-property: color, background-color, border-color, opacity, box-shadow, transform;
+  transition-duration: var(--duration-normal);
+  transition-timing-function: var(--ease-out-smooth);
+}
+
+/* ==========================================================================
+   Phase B2: Premium Interaction Enhancements (Buttons, Links & Cards)
+   ========================================================================== */
+
+/* Primary CTA Buttons & Links (Brand Orange #FF6F00) */
+a[class*="bg-[#FF6F00]"],
+button[class*="bg-[#FF6F00]"] {
+  transition-property: color, background-color, border-color, box-shadow, transform;
+  transition-duration: var(--duration-normal);
+  transition-timing-function: var(--ease-out-smooth);
+}
+
+a[class*="bg-[#FF6F00]"]:hover,
+button[class*="bg-[#FF6F00]"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -4px rgba(255, 111, 0, 0.35);
+}
+
+a[class*="bg-[#FF6F00]"]:active,
+button[class*="bg-[#FF6F00]"]:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* Secondary CTA Buttons & Bordered Actions */
+a[class*="border-white/20"],
+a[class*="border-slate-700"]:not([class*="aspect"]):not([class*="grid"]) {
+  transition-property: color, background-color, border-color, box-shadow, transform;
+  transition-duration: var(--duration-normal);
+  transition-timing-function: var(--ease-out-smooth);
+}
+
+a[class*="border-white/20"]:hover,
+a[class*="border-slate-700"]:not([class*="aspect"]):not([class*="grid"]):hover {
+  transform: translateY(-2px);
+}
+
+a[class*="border-white/20"]:active,
+a[class*="border-slate-700"]:not([class*="aspect"]):not([class*="grid"]):active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* Directional Arrow Movement on Interactive Elements */
+.group:hover .group-hover\:translate-x-1,
+.group:hover svg.group-hover\:translate-x-1 {
+  transform: translateX(4px);
+}
+
+.group:hover .group-hover\:translate-x-0\.5,
+.group:hover svg.group-hover\:translate-x-0\.5 {
+  transform: translateX(2px);
+}
+
+/* Interactive Card Elevations */
+.interactive-card {
+  transition-property: color, background-color, border-color, box-shadow, transform;
+  transition-duration: var(--duration-normal);
+  transition-timing-function: var(--ease-out-smooth);
+}
+
+/* ==========================================================================
+   Reduced Motion Accessibility (prefers-reduced-motion: reduce)
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+
+  /* Disable non-essential and decorative movement */
+  .animate-fadeIn,
+  .animate-dropdownIn,
+  .animate-flowDash,
+  .animate-in,
+  .animate-pulse {
+    animation: none !important;
+  }
+
+  /* Reduce transition durations without breaking functional loading indicators */
+  :not(.animate-spin) {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+
+  /* Suppress hover translation transforms for reduced motion */
+  .hover\:-translate-y-0\.5:hover,
+  .hover\:-translate-y-1:hover,
+  .hover\:translate-x-0\.5:hover,
+  .hover\:translate-x-1:hover,
+  .group-hover\:translate-x-0\.5,
+  .group-hover\:translate-x-1,
+  .group-hover\:scale-105,
+  .group-hover\:scale-\[1\.02\],
+  a[class*="bg-[#FF6F00]"]:hover,
+  button[class*="bg-[#FF6F00]"]:hover,
+  a[class*="bg-[#FF6F00]"]:active,
+  button[class*="bg-[#FF6F00]"]:active,
+  a[class*="border-white/20"]:hover,
+  a[class*="border-slate-700"]:hover,
+  a[class*="border-white/20"]:active,
+  a[class*="border-slate-700"]:active {
+    transform: none !important;
+  }
+}
+
+/* ==========================================================================
+   Prose Typography styles for dynamic Supabase Blog Articles
+   ========================================================================== */
+.prose {
+  color: #334155;
+  line-height: 1.75;
+}
+.prose h1 { font-size: 2rem; font-weight: 800; margin-top: 2rem; margin-bottom: 1rem; color: #01153B; letter-spacing: -0.025em; line-height: 1.25; }
+.prose h2 { font-size: 1.625rem; font-weight: 700; margin-top: 2rem; margin-bottom: 0.875rem; color: #01153B; letter-spacing: -0.02em; border-bottom: 1px solid #f1f5f9; padding-bottom: 0.5rem; line-height: 1.3; }
+.prose h3 { font-size: 1.3rem; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.625rem; color: #031E4D; line-height: 1.35; }
+.prose h4 { font-size: 1.125rem; font-weight: 600; margin-top: 1.25rem; margin-bottom: 0.5rem; color: #031E4D; }
+.prose p { margin-bottom: 1.25rem; line-height: 1.75; color: #334155; }
+.prose ul { list-style-type: disc; margin-left: 1.5rem; margin-bottom: 1.25rem; }
+.prose ol { list-style-type: decimal; margin-left: 1.5rem; margin-bottom: 1.25rem; }
+.prose li { margin-bottom: 0.4rem; line-height: 1.65; color: #334155; }
+.prose blockquote { border-left: 3px solid #00B3FF; padding-left: 1.25rem; font-style: italic; color: #031E4D; margin: 1.5rem 0; background: rgba(0, 179, 255, 0.04); padding-top: 0.75rem; padding-bottom: 0.75rem; border-radius: 0 0.5rem 0.5rem 0; }
+.prose pre { background: #01153B; color: #f8fafc; padding: 1.25rem 1.5rem; border-radius: 0.75rem; overflow-x: auto; font-family: monospace; font-size: 0.875rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(1, 21, 59, 0.15); border: 1px solid rgba(255,255,255,0.08); }
+.prose code { background: #f1f5f9; color: #01153B; padding: 0.2rem 0.45rem; border-radius: 0.3rem; font-size: 0.875em; font-family: monospace; font-weight: 600; }
+.prose pre code { background: transparent; color: inherit; padding: 0; font-size: inherit; font-weight: normal; }
+.prose hr { border-top: 1px solid #e2e8f0; margin: 2rem 0; }
+.prose a { color: #00B3FF; text-decoration: underline; font-weight: 500; text-underline-offset: 3px; }
+.prose a:hover { color: #031E4D; }
+.prose img { max-width: 100%; border-radius: 0.75rem; margin: 1.5rem 0; box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+.prose table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.875rem; }
+.prose th, .prose td { border: 1px solid #e2e8f0; padding: 0.75rem 1rem; text-align: left; }
+.prose th { background: #f8fafc; font-weight: 600; color: #01153B; }
+
+
+
