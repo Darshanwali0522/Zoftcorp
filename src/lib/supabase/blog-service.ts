@@ -122,8 +122,20 @@ function mapRecordToPost(record: RawPostRecord): DynamicBlogPost {
 }
 
 function getSupabaseEnv() {
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
-  const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
+  let url = (process.env.NEXT_PUBLIC_SUPABASE_URL || '').trim();
+  let key = (process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '').trim();
+
+  // Strip surrounding quotes if present from environment variable values
+  if ((url.startsWith('"') && url.endsWith('"')) || (url.startsWith("'") && url.endsWith("'"))) {
+    url = url.slice(1, -1).trim();
+  }
+  if ((key.startsWith('"') && key.endsWith('"')) || (key.startsWith("'") && key.endsWith("'"))) {
+    key = key.slice(1, -1).trim();
+  }
+
+  // Strip trailing slashes from URL
+  url = url.replace(/\/+$/, '');
+
   const isConfigured = Boolean(url && key && !url.includes('placeholder') && !key.includes('placeholder'));
   return { url, key, isConfigured };
 }
