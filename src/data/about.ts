@@ -118,6 +118,18 @@ export const ECOSYSTEM_TECHNOLOGIES: EcosystemTechnology[] = [
 
 export const ABOUT_DESTINATIONS: AboutDestination[] = [
   {
+    title: 'LEADERSHIP',
+    description:
+      'Meet the executive leadership and specialized practice leaders driving Zoftcorp.',
+    href: '/about-us/leadership',
+  },
+  {
+    title: 'VISION & MISSION',
+    description:
+      'Our foundational commitment and architectural vision for enterprise data systems.',
+    href: '/about-us/vision-mission',
+  },
+  {
     title: 'COMPANY STORY',
     description: 'Understand the story and evolution behind ZOFT.',
     href: '/about-us/company-story',

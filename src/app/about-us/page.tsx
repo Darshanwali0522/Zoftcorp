@@ -15,6 +15,8 @@ import {
   ECOSYSTEM_TECHNOLOGIES,
   ABOUT_DESTINATIONS,
 } from '@/data/about';
+import { LeadershipSection } from '@/components/sections/about/leadership-section';
+import { VisionMissionSection } from '@/components/sections/about/vision-mission-section';
 
 export const metadata: Metadata = {
   title: 'About Us | ZOFT Corp',
@@ -163,6 +165,9 @@ export default function AboutUsPage() {
           </div>
         </div>
       </section>
+
+      {/* 2.5. VISION & MISSION */}
+      <VisionMissionSection id="vision-mission" />
 
       {/* 3. HOW ZOFT THINKS */}
       <section className="relative bg-[#01153B] text-white py-24 md:py-32 overflow-hidden border-b border-slate-800">
@@ -320,6 +325,9 @@ export default function AboutUsPage() {
           </div>
         </div>
       </section>
+
+      {/* 5.5. COMPANY LEADERSHIP */}
+      <LeadershipSection id="leadership" />
 
       {/* 6. OUR TECHNOLOGY ECOSYSTEM */}
       <section className="relative bg-slate-50/60 text-[#01153B] py-20 md:py-28 border-b border-slate-200/80">

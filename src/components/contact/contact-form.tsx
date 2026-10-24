@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, FormEvent, useEffect } from 'react';
-import { Send, CheckCircle, RefreshCw } from 'lucide-react';
+import { Send, CheckCircle, RefreshCw, AlertCircle } from 'lucide-react';
 import { CONTACT_TOPICS, CONTACT_DISCOVERY_OPTIONS } from '@/data/contact';
 
 interface ContactFormProps {
@@ -37,6 +37,8 @@ export const ContactForm: React.FC<ContactFormProps> = ({ selectedTopic, onTopic
 
   const [errors, setErrors] = useState<FormErrors>({});
   const [submissionState, setSubmissionState] = useState<'idle' | 'submitting' | 'submitted'>('idle');
+  const [apiError, setApiError] = useState<string | null>(null);
+  const [honeypot, setHoneypot] = useState('');
 
   useEffect(() => {
     if (selectedTopic && formData.topic !== selectedTopic) {
@@ -72,7 +74,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ selectedTopic, onTopic
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
     if (!validate()) {
@@ -80,11 +82,42 @@ export const ContactForm: React.FC<ContactFormProps> = ({ selectedTopic, onTopic
     }
 
     setSubmissionState('submitting');
+    setApiError(null);
 
-    // Simulate clean async submission boundary (frontend isolated architecture)
-    setTimeout(() => {
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          firstName: formData.firstName.trim(),
+          lastName: formData.lastName.trim(),
+          workEmail: formData.workEmail.trim(),
+          topic: formData.topic.trim(),
+          message: formData.message.trim() || undefined,
+          referralSource: formData.referralSource.trim() || undefined,
+          formSource: 'contact_page',
+          website: honeypot,
+        }),
+      });
+
+      const result = await response.json().catch(() => null);
+
+      if (!response.ok || !result?.success) {
+        const errorMsg =
+          result?.error || 'Unable to submit your request at this time. Please try again or email us directly.';
+        setApiError(errorMsg);
+        setSubmissionState('idle');
+        return;
+      }
+
       setSubmissionState('submitted');
-    }, 600);
+    } catch (err) {
+      console.error('[ContactForm] Network error during submission:', err);
+      setApiError('A network error occurred. Please check your connection and try again.');
+      setSubmissionState('idle');
+    }
   };
 
   const handleReset = () => {
@@ -97,6 +130,8 @@ export const ContactForm: React.FC<ContactFormProps> = ({ selectedTopic, onTopic
       referralSource: '',
     });
     setErrors({});
+    setApiError(null);
+    setHoneypot('');
     setSubmissionState('idle');
     if (onTopicReset) {
       onTopicReset();
@@ -106,29 +141,30 @@ export const ContactForm: React.FC<ContactFormProps> = ({ selectedTopic, onTopic
   return (
     <div className="bg-[#01153B] border border-white/10 rounded-2xl p-6 sm:p-10 shadow-2xl backdrop-blur-sm">
       {submissionState === 'submitted' ? (
-        <div className="text-center py-10 space-y-6">
+        <div className="text-center py-10 space-y-6" role="status" aria-live="polite">
           <div className="w-16 h-16 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center mx-auto border border-emerald-500/20">
             <CheckCircle className="w-8 h-8" />
           </div>
 
           <div className="space-y-2">
             <h3 className="text-2xl font-bold text-white font-sans">
-              Form Ready for Submission
+              Thank You, {formData.firstName}!
             </h3>
             <p className="text-sm font-mono text-emerald-400 font-medium">
-              Frontend Architecture Verified &amp; Connection Ready
+              Inquiry Successfully Received
             </p>
           </div>
 
           <p className="text-slate-300 text-sm max-w-md mx-auto leading-relaxed">
-            Thank you, <span className="text-white font-semibold">{formData.firstName}</span>. Your request details regarding{' '}
-            <span className="text-[#00B3FF] font-semibold">{formData.topic}</span> ({formData.workEmail}) have been validated by the client architecture and are prepared for API connection.
+            Your request details regarding{' '}
+            <span className="text-[#00B3FF] font-semibold">{formData.topic}</span> have been received. Our advisory engineering team will review your context and respond to{' '}
+            <span className="text-white font-medium">{formData.workEmail}</span>.
           </p>
 
           <div className="pt-4">
             <button
               onClick={handleReset}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-xs font-mono font-semibold uppercase tracking-wider bg-[#031E4D] text-slate-200 hover:text-white hover:bg-[#072B6B] transition-colors focus-visible:outline-2 focus-visible:outline-[#00B3FF]"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-xs font-mono font-semibold uppercase tracking-wider bg-[#031E4D] text-slate-200 hover:text-white hover:bg-[#072B6B] transition-colors focus-visible:outline-2 focus-visible:outline-[#00B3FF] cursor-pointer"
             >
               <RefreshCw className="w-3.5 h-3.5" />
               <span>Submit Another Request</span>
@@ -137,6 +173,34 @@ export const ContactForm: React.FC<ContactFormProps> = ({ selectedTopic, onTopic
         </div>
       ) : (
         <form onSubmit={handleSubmit} noValidate className="space-y-6">
+          {/* Honeypot field for spam bots - hidden from real users */}
+          <div style={{ display: 'none' }} aria-hidden="true">
+            <label htmlFor="contact-page-website">Website</label>
+            <input
+              id="contact-page-website"
+              name="website"
+              type="text"
+              tabIndex={-1}
+              autoComplete="off"
+              value={honeypot}
+              onChange={(e) => setHoneypot(e.target.value)}
+            />
+          </div>
+
+          {/* Accessible API Error Banner */}
+          {apiError && (
+            <div
+              role="alert"
+              className="p-4 rounded-xl bg-red-950/40 border border-red-500/50 text-red-200 text-sm flex items-start gap-3"
+            >
+              <AlertCircle className="w-5 h-5 text-red-400 shrink-0 mt-0.5" />
+              <div className="space-y-0.5">
+                <p className="font-semibold text-white">Submission Error</p>
+                <p className="text-xs text-red-300">{apiError}</p>
+              </div>
+            </div>
+          )}
+
           {/* Row 1: First Name & Last Name */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div className="space-y-2">

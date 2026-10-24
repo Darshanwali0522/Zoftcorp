@@ -7,7 +7,8 @@ export interface DatabaseTechItem {
   id: string;
   name: string;
   tag: string;
-  description: string;
+  descriptor: string;
+  supportingCopy: string;
   specs: string[];
   icon: React.ReactNode;
 }
@@ -16,24 +17,27 @@ const DATABASE_TECHNOLOGIES: DatabaseTechItem[] = [
   {
     id: "sql-server",
     name: "SQL Server",
-    tag: "01 // ENTERPRISE DATA ENGINE",
-    description: "Enterprise-grade reliability for mission-critical workloads.",
+    tag: "01",
+    descriptor: "High-concurrency enterprise engine",
+    supportingCopy: "Enterprise-grade reliability for mission-critical workloads.",
     specs: ["Always On Availability Groups", "Query Store & Plan Diagnostics", "In-Memory OLTP"],
     icon: <Database className="w-5 h-5" />,
   },
   {
     id: "postgresql",
     name: "PostgreSQL",
-    tag: "02 // ADVANCED RELATIONAL ENGINE",
-    description: "Enterprise-grade reliability for mission-critical workloads.",
+    tag: "02",
+    descriptor: "Advanced open-source power",
+    supportingCopy: "Enterprise capabilities and scaling with zero licensing fees.",
     specs: ["Multi-Tenant Partitioning", "pgvector & Extensions", "Connection Pooling (PgBouncer)"],
     icon: <Server className="w-5 h-5" />,
   },
   {
     id: "mysql",
     name: "MySQL",
-    tag: "03 // WEB & SAAS ENGINE",
-    description: "Lightweight, fast, and proven for web and SaaS applications.",
+    tag: "03",
+    descriptor: "Web & SaaS data layer",
+    supportingCopy: "Proven, high-throughput performance for high-scale apps.",
     specs: ["InnoDB Engine Tuning", "Read Replica Topologies", "Group Replication"],
     icon: <Cpu className="w-5 h-5" />,
   },
@@ -41,7 +45,11 @@ const DATABASE_TECHNOLOGIES: DatabaseTechItem[] = [
 
 export const DatabaseTechnologySection: React.FC = () => {
   return (
-    <section className="relative w-full bg-white text-[#01153B] border-y border-slate-200/90 py-16 sm:py-20 lg:py-24">
+    <section
+      id="database-technology"
+      aria-label="Engineered for your stack"
+      className="relative w-full bg-white text-[#01153B] border-y border-slate-200/90 py-16 sm:py-20 lg:py-24"
+    >
       {/* Background Architectural Blueprint Pattern */}
       <div className="absolute inset-0 bg-blueprint-grid opacity-30 pointer-events-none" />
 
@@ -56,13 +64,12 @@ export const DatabaseTechnologySection: React.FC = () => {
                 DATABASE TECHNOLOGY
               </span>
 
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#01153B] tracking-tight leading-tight font-sans">
-                Optimized Databases. <br />
-                <span className="text-[#01153B]">Backed by Proven Technology Depth.</span>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#01153B] tracking-tight leading-tight font-sans uppercase">
+                ENGINEERED FOR YOUR STACK
               </h2>
 
               <p className="text-slate-600 text-base sm:text-lg font-normal leading-relaxed max-w-xl font-sans">
-                Powered by experienced architects who understand the database technologies behind critical business systems.
+                Deep expertise across the database engines your business depends on.
               </p>
             </div>
 
@@ -80,14 +87,17 @@ export const DatabaseTechnologySection: React.FC = () => {
                     <div className="space-y-2 flex-1">
                       <div className="flex flex-wrap items-center justify-between gap-2">
                         <span className="text-[10px] font-mono font-bold text-[#00B3FF] uppercase tracking-wider">
-                          {tech.tag}
+                          {`${tech.tag} // ${tech.name}`}
+                        </span>
+                        <span className="text-xs font-mono font-semibold text-slate-500">
+                          {tech.descriptor}
                         </span>
                       </div>
                       <h3 className="text-xl font-bold text-[#01153B] group-hover:text-[#00B3FF] transition-colors font-sans">
                         {tech.name}
                       </h3>
                       <p className="text-sm text-slate-600 leading-relaxed font-sans">
-                        {tech.description}
+                        {tech.supportingCopy}
                       </p>
                       {/* Technical Specs Tags */}
                       <div className="flex flex-wrap gap-2 pt-1">

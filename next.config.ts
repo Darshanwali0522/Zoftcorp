@@ -4,6 +4,20 @@ const nextConfig: NextConfig = {
   /* config options here */
   cacheComponents: true,
   partialPrefetching: true,
+  async redirects() {
+    return [
+      {
+        source: '/careers',
+        destination: '/about-us/career',
+        permanent: true,
+      },
+      {
+        source: '/insights/events',
+        destination: '/insights/webinar',
+        permanent: true,
+      },
+    ];
+  },
   images: {
     remotePatterns: [
       {

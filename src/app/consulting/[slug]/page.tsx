@@ -8,6 +8,8 @@ import { ConsultingDetailVisualBreak } from '@/components/sections/consulting-de
 import { ConsultingDetailApproach } from '@/components/sections/consulting-detail/consulting-detail-approach';
 import { ConsultingDetailDeliverables } from '@/components/sections/consulting-detail/consulting-detail-deliverables';
 import { ConsultingDetailCTA } from '@/components/sections/consulting-detail/consulting-detail-cta';
+import { CloudDatabaseFinOpsView } from '@/components/sections/finops/cloud-database-finops-view';
+import { DPDPComplianceView } from '@/components/sections/compliance/dpdp-compliance-view';
 import { ServiceJsonLd, BreadcrumbJsonLd } from '@/components/seo/json-ld';
 
 interface SubPageProps {
@@ -24,6 +26,59 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: SubPageProps): Promise<Metadata> {
   const resolvedParams = await params;
+
+  if (resolvedParams.slug === 'cloud-finops') {
+    const pageUrl = `https://zoftcorp.com/consulting/cloud-finops`;
+    return {
+      title: 'Cloud & Database FinOps | ZOFT Corp',
+      description:
+        "FinOps goes beyond savings. It’s the discipline of turning technology spend into measurable business value. We don’t just optimize or manage costs — we embed FinOps culture.",
+      alternates: {
+        canonical: pageUrl,
+      },
+      openGraph: {
+        title: 'Cloud & Database FinOps | ZOFT Corp',
+        description:
+          "FinOps goes beyond savings. It’s the discipline of turning technology spend into measurable business value. We don’t just optimize or manage costs — we embed FinOps culture.",
+        url: pageUrl,
+        siteName: 'ZOFT Corp',
+        type: 'website',
+      },
+      twitter: {
+        card: 'summary_large_image',
+        title: 'Cloud & Database FinOps | ZOFT Corp',
+        description:
+          "FinOps goes beyond savings. It’s the discipline of turning technology spend into measurable business value. We don’t just optimize or manage costs — we embed FinOps culture.",
+      },
+    };
+  }
+
+  if (resolvedParams.slug === 'compliance-governance') {
+    const pageUrl = `https://zoftcorp.com/consulting/compliance-governance`;
+    return {
+      title: 'DPDP Compliance | ZOFT Corp',
+      description:
+        'We help enterprises align with India’s Digital Personal Data Protection Act (DPDP) — embedding compliance into databases, cloud platforms, and business processes so you stay secure, resilient, and penalty-proof.',
+      alternates: {
+        canonical: pageUrl,
+      },
+      openGraph: {
+        title: 'DPDP Compliance | ZOFT Corp',
+        description:
+          'We help enterprises align with India’s Digital Personal Data Protection Act (DPDP) — embedding compliance into databases, cloud platforms, and business processes so you stay secure, resilient, and penalty-proof.',
+        url: pageUrl,
+        siteName: 'ZOFT Corp',
+        type: 'website',
+      },
+      twitter: {
+        card: 'summary_large_image',
+        title: 'DPDP Compliance | ZOFT Corp',
+        description:
+          'We help enterprises align with India’s Digital Personal Data Protection Act (DPDP) — embedding compliance into databases, cloud platforms, and business processes so you stay secure, resilient, and penalty-proof.',
+      },
+    };
+  }
+
   const capability = CONSULTING_CAPABILITIES_DATA.find((c) => c.id === resolvedParams.slug);
 
   if (!capability) {
@@ -57,6 +112,15 @@ export async function generateMetadata({ params }: SubPageProps): Promise<Metada
 
 export default async function ConsultingSubPage({ params }: SubPageProps) {
   const resolvedParams = await params;
+
+  if (resolvedParams.slug === 'cloud-finops') {
+    return <CloudDatabaseFinOpsView />;
+  }
+
+  if (resolvedParams.slug === 'compliance-governance') {
+    return <DPDPComplianceView />;
+  }
+
   const capability = CONSULTING_CAPABILITIES_DATA.find((c) => c.id === resolvedParams.slug);
 
   if (!capability) {

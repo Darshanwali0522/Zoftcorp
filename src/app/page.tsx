@@ -1,8 +1,12 @@
 import React from "react";
 import { Metadata } from "next";
 import { HomeHero } from "@/components/sections/hero/home-hero";
-import { DatabaseTechnologySection } from "@/components/sections/database-technology/database-technology-section";
 import { ServicesSection } from "@/components/sections/services/services-section";
+import { ZoftcorpStandardSection } from "@/components/sections/standard/zoftcorp-standard-section";
+import { ProblemToDecisionSection } from "@/components/sections/decision/problem-to-decision-section";
+import { DatabaseTechnologySection } from "@/components/sections/database-technology/database-technology-section";
+import { CaseStudiesSection } from "@/components/sections/case-studies/case-studies-section";
+import { FAQSection } from "@/components/sections/faq/faq-section";
 import { PlatformsSection } from "@/components/sections/platforms/platforms-section";
 import { ExpertiseSection } from "@/components/sections/expertise/expertise-section";
 import { IndustriesSection } from "@/components/sections/industries/industries-section";
@@ -36,8 +40,12 @@ export default function HomePage() {
   return (
     <div className="w-full">
       <HomeHero />
-      <DatabaseTechnologySection />
       <ServicesSection />
+      <ZoftcorpStandardSection />
+      <ProblemToDecisionSection />
+      <DatabaseTechnologySection />
+      <CaseStudiesSection />
+      <FAQSection />
       <PlatformsSection />
       <ExpertiseSection />
       <IndustriesSection />

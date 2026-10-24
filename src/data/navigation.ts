@@ -30,49 +30,6 @@ export interface NavItem {
 
 export const MAIN_NAVIGATION: NavItem[] = [
   {
-    id: 'consulting',
-    label: 'Consulting',
-    href: '/consulting',
-    type: 'dropdown',
-    categories: [
-      {
-        categoryTitle: 'Consulting Capabilities',
-        items: [
-          {
-            title: 'AI-Ready Architectures',
-            href: '/consulting/ai-ready-architectures',
-            description: 'Design technology foundations for modern AI workloads and evolving enterprise demands.',
-          },
-          {
-            title: 'Cloud & Database Strategy',
-            href: '/consulting/cloud-database-strategy',
-            description: 'Align cloud infrastructure and database architecture with long-term technology goals.',
-          },
-          {
-            title: 'Cloud FinOPs',
-            href: '/consulting/cloud-finops',
-            description: 'Greater visibility and discipline for cloud and database spending.',
-          },
-          {
-            title: 'Compliance & Governance',
-            href: '/consulting/compliance-governance',
-            description: 'Practical governance frameworks for secure, reliable, and accountable environments.',
-          },
-          {
-            title: 'Performance Audits',
-            href: '/consulting/performance-audits',
-            description: 'Identify database and architecture bottlenecks affecting operational efficiency.',
-          },
-          {
-            title: 'Fractional Architect',
-            href: '/consulting/fractional-architect',
-            description: 'Extend your technical leadership with experienced architecture guidance.',
-          },
-        ],
-      },
-    ],
-  },
-  {
     id: 'offerings',
     label: 'Our Offerings',
     href: '/offerings',
@@ -82,24 +39,44 @@ export const MAIN_NAVIGATION: NavItem[] = [
         categoryTitle: 'Core Offerings',
         items: [
           {
-            title: 'Vector DB Integration',
-            href: '/offerings/vector-db-integration',
-            description: 'Semantic indexing and vector database integration for enterprise platforms.',
+            title: 'Cloud & Data FinOps',
+            href: '/consulting/cloud-finops',
+            description: 'Cloud and database spend governance, telemetry-driven right-sizing, and cost discipline.',
           },
+          {
+            title: 'Performance Tuning',
+            href: '/offerings/performance-tuning-delivery',
+            description: 'Deep query optimization, buffer contention elimination, and execution plan stabilization.',
+          },
+          {
+            title: 'Resilience and Compliance',
+            href: '/consulting/compliance-governance',
+            description: 'High availability architecture, zero-data-loss failover protocols, and operational resilience.',
+          },
+          {
+            title: 'DPDP Assessment',
+            href: '/consulting/compliance-governance',
+            description: 'Statutory DPDP Act compliance audit, data flow mapping, and readiness roadmap.',
+          },
+          {
+            title: 'Specialized Managed Services',
+            href: '/offerings/managed-dba-services',
+            description: 'Next-gen 24/7 proactive DBaaS, automated provisioning, patching, and high availability.',
+          },
+        ],
+      },
+      {
+        categoryTitle: 'Advanced Platforms & Engineering',
+        items: [
           {
             title: 'Database Migrations and Transformations',
             href: '/offerings/database-migrations-and-transformations',
-            description: 'Modernize and refactor database environments with structured cutover protocols.',
+            description: 'Zero-downtime homogeneous and heterogeneous enterprise database migrations.',
           },
           {
-            title: 'Performance Tuning Delivery',
-            href: '/offerings/performance-tuning-delivery',
-            description: 'Deep-seated query tuning, buffer optimization, and contention elimination.',
-          },
-          {
-            title: 'Managed DBA Services',
-            href: '/offerings/managed-dba-services',
-            description: '24/7 proactive monitoring, backup validation, and operational administration.',
+            title: 'Vector DB Integration',
+            href: '/offerings/vector-db-integration',
+            description: 'Semantic indexing and vector database integration for enterprise platforms.',
           },
           {
             title: 'Data Engineering and Analytics',
@@ -115,12 +92,6 @@ export const MAIN_NAVIGATION: NavItem[] = [
         ],
       },
     ],
-  },
-  {
-    id: 'zoftstudio',
-    label: 'ZoftStudio',
-    href: '/zoftstudio',
-    type: 'link',
   },
   {
     id: 'insights',
@@ -142,9 +113,9 @@ export const MAIN_NAVIGATION: NavItem[] = [
             description: 'Engineering deep dives into complex database and cloud engagements.',
           },
           {
-            title: 'Webinar',
-            href: '/insights/webinar',
-            description: 'Technical webinars and architecture discussions.',
+            title: 'Events',
+            href: '/insights/events',
+            description: 'Technical webinars, executive sessions, and architecture discussions.',
           },
           {
             title: 'Meet ups',
@@ -156,14 +127,30 @@ export const MAIN_NAVIGATION: NavItem[] = [
     ],
   },
   {
-    id: 'about',
-    label: 'About Us',
+    id: 'careers',
+    label: 'Careers',
+    href: '/careers',
+    type: 'link',
+  },
+  {
+    id: 'company',
+    label: 'Company',
     href: '/about-us',
     type: 'dropdown',
     categories: [
       {
         categoryTitle: 'Company',
         items: [
+          {
+            title: 'Leadership',
+            href: '/about-us/leadership',
+            description: 'Executive leadership and specialized practice leaders.',
+          },
+          {
+            title: 'Vision & Mission',
+            href: '/about-us/vision-mission',
+            description: 'Our foundational commitment and architectural vision.',
+          },
           {
             title: 'Company Story',
             href: '/about-us/company-story',
@@ -197,14 +184,15 @@ export const MAIN_NAVIGATION: NavItem[] = [
               },
             ],
           },
-          {
-            title: 'Career',
-            href: '/about-us/career',
-            description: 'Join our team of database and cloud systems engineers.',
-          },
         ],
       },
     ],
+  },
+  {
+    id: 'zoftstudio',
+    label: 'ZoftStudio',
+    href: '/zoftstudio',
+    type: 'link',
   },
   {
     id: 'contact',

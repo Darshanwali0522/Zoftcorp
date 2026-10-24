@@ -329,7 +329,7 @@ function ComplianceGovernanceDiagram({ className }: { className?: string }) {
       </div>
 
       <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-[11px] font-mono text-slate-300">
-        <span>Frameworks: SOC2 / ISO 27001 / HIPAA / GDPR</span>
+        <span>Frameworks: DPDP / ISO 27001 / ISO 27701 / SOC2</span>
         <span className="text-emerald-400 font-semibold">Continuous Enforcement</span>
       </div>
     </div>

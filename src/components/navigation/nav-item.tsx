@@ -171,13 +171,17 @@ export const NavItem: React.FC<NavItemProps> = ({ item }) => {
             "absolute top-full left-0 mt-2 z-50 rounded-xl bg-white border border-slate-200 shadow-xl p-6 text-slate-900 animate-dropdownIn",
             "before:content-[''] before:absolute before:-top-3 before:left-0 before:right-0 before:h-3",
             item.type === "mega-menu"
-              ? "w-[720px] -left-36 grid grid-cols-12 gap-6"
+              ? "w-[720px] left-0 grid grid-cols-12 gap-6"
               : "w-[380px]"
           )}
         >
           <div
             className={cn(
-              item.type === "mega-menu" ? "col-span-8 space-y-6" : "space-y-4"
+              item.type === "mega-menu"
+                ? item.featuredBanner
+                  ? "col-span-8 space-y-6"
+                  : "col-span-12 grid grid-cols-1 md:grid-cols-2 gap-6"
+                : "space-y-4"
             )}
           >
             {item.categories?.map((cat, idx) => (

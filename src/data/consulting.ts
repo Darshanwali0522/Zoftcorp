@@ -214,10 +214,10 @@ export const CONSULTING_CAPABILITIES_DATA: ConsultingCapabilityDetail[] = [
   {
     id: 'cloud-finops',
     number: '03',
-    name: 'Cloud FinOPs',
+    name: 'Cloud & Database FinOps',
     description:
-      'Bring greater visibility and discipline to cloud and database spending while maintaining the performance, reliability, and infrastructure capabilities your organization depends on.',
-    ctaText: 'Explore Cloud FinOPs →',
+      'FinOps goes beyond savings. It’s the discipline of turning technology spend into measurable business value. We don’t just optimize or manage costs — we embed FinOps culture.',
+    ctaText: 'Explore Cloud & Database FinOps →',
     href: '/consulting/cloud-finops',
     image: '/images/consulting/cloud-finops.jpg',
     alt: 'Enterprise cloud infrastructure photography demonstrating visibility, scale, efficiency, and infrastructure control',
@@ -313,8 +313,8 @@ export const CONSULTING_CAPABILITIES_DATA: ConsultingCapabilityDetail[] = [
     number: '04',
     name: 'Compliance & Governance',
     description:
-      'Build practical governance and control foundations that help technology environments remain secure, accountable, and aligned with organizational requirements.',
-    ctaText: 'Explore Compliance & Governance →',
+      'We help enterprises align with India’s Digital Personal Data Protection Act (DPDP) — embedding compliance into databases, cloud platforms, and business processes so you stay secure, resilient, and penalty-proof.',
+    ctaText: 'Explore DPDP Compliance →',
     href: '/consulting/compliance-governance',
     image: '/images/consulting/compliance-governance.jpg',
     alt: 'Enterprise security, compliance governance, controlled infrastructure environment, and technical operations',

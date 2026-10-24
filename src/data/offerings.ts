@@ -368,10 +368,10 @@ export const OFFERINGS_DATA: OfferingDetailItem[] = [
     id: 'performance-tuning-delivery',
     number: '03',
     category: 'PERFORMANCE',
-    title: 'Performance Tuning Delivery',
+    title: 'Performance Tuning',
     description:
-      'Improve database and workload performance through structured analysis, optimization, implementation, and technical delivery.',
-    ctaText: 'Explore Performance Tuning Delivery',
+      'Faster Queries. Lower Costs. Better Business. When execution paths degrade, queries spike, and technical debt compounds, we tune databases to deliver speed, resilience, and measurable outcomes.',
+    ctaText: 'Explore Performance Tuning',
     href: '/offerings/performance-tuning-delivery',
     image: '/images/offerings/performance-tuning-delivery.jpg',
     alt: 'High-performance enterprise infrastructure and database performance tuning environment',

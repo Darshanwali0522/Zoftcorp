@@ -9,25 +9,16 @@ export const Footer: React.FC = () => {
 
   const footerSections = [
     {
-      title: "Consulting",
-      links: [
-        { label: "AI-Ready Architectures", href: "/consulting/ai-ready-architectures" },
-        { label: "Cloud & Database Strategy", href: "/consulting/cloud-database-strategy" },
-        { label: "Cloud FinOPs", href: "/consulting/cloud-finops" },
-        { label: "Compliance & Governance", href: "/consulting/compliance-governance" },
-        { label: "Performance Audits", href: "/consulting/performance-audits" },
-        { label: "Fractional Architect", href: "/consulting/fractional-architect" },
-      ],
-    },
-    {
       title: "Our Offerings",
       links: [
-        { label: "Vector DB Integration", href: "/offerings/vector-db-integration" },
+        { label: "Cloud & Data FinOps", href: "/consulting/cloud-finops" },
+        { label: "Performance Tuning", href: "/offerings/performance-tuning-delivery" },
+        { label: "Resilience and Compliance", href: "/consulting/compliance-governance" },
+        { label: "DPDP Assessment", href: "/consulting/compliance-governance" },
+        { label: "Specialized Managed Services", href: "/offerings/managed-dba-services" },
         { label: "Database Migrations and Transformations", href: "/offerings/database-migrations-and-transformations" },
-        { label: "Performance Tuning Delivery", href: "/offerings/performance-tuning-delivery" },
-        { label: "Managed DBA Services", href: "/offerings/managed-dba-services" },
+        { label: "Vector DB Integration", href: "/offerings/vector-db-integration" },
         { label: "Data Engineering and Analytics", href: "/offerings/data-engineering-and-analytics" },
-        { label: "Industries", href: "/offerings/data-engineering-and-analytics/industries" },
       ],
     },
     {
@@ -35,17 +26,19 @@ export const Footer: React.FC = () => {
       links: [
         { label: "Blogs", href: "/insights/blogs" },
         { label: "Case Studies", href: "/insights/case-studies" },
-        { label: "Webinar", href: "/insights/webinar" },
+        { label: "Events", href: "/insights/events" },
         { label: "Meet ups", href: "/insights/meet-ups" },
       ],
     },
     {
       title: "About Us",
       links: [
+        { label: "Leadership", href: "/about-us/leadership" },
+        { label: "Vision & Mission", href: "/about-us/vision-mission" },
         { label: "Company Story", href: "/about-us/company-story" },
         { label: "Why Zoftcorp?", href: "/about-us/why-zoftcorp" },
         { label: "Partnerships", href: "/about-us/partnerships" },
-        { label: "Career", href: "/about-us/career" },
+        { label: "Careers", href: "/careers" },
       ],
     },
   ];
@@ -53,7 +46,7 @@ export const Footer: React.FC = () => {
   return (
     <footer className="bg-[#01153B] border-t border-slate-800 pt-16 pb-12 text-slate-300 font-sans">
       <Container>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-10 pb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12">
           {/* Brand Info Column */}
           <div className="lg:col-span-2 space-y-4">
             <LogoWrapper size="lg" />

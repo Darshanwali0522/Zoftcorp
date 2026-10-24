@@ -22,26 +22,26 @@ export const HomeHero: React.FC = () => {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00B3FF] opacity-75" />
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-[#00B3FF]" />
                 </span>
-                <span>CLOUD &amp; DATABASE EXPERTS • BOUTIQUE CONSULTING AGILITY</span>
+                <span>ENTERPRISE CLOUD &amp; DATABASE ADVISORY</span>
               </span>
             </div>
 
             {/* Main Headline with Confident Editorial Scale */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-[66px] font-extrabold text-[#01153B] tracking-tight leading-[1.04] max-w-2xl font-sans">
-              Enterprise Technology. <br className="hidden sm:inline" />
-              <span className="text-[#01153B]">Built for Reliability.</span>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-[62px] font-extrabold text-[#01153B] tracking-tight leading-[1.08] max-w-2xl font-sans">
+              Cloud and Database Experts <br className="hidden sm:inline" />
+              Powered by AI
             </h1>
 
             {/* Supporting Copy with Calibrated Measure */}
             <p className="text-slate-600 text-lg sm:text-xl font-normal leading-relaxed max-w-xl font-sans">
-              ZOFT delivers practical cloud, database, and data engineering solutions backed by experienced experts—helping organizations reduce infrastructure costs, accelerate query performance, and operate critical systems.
+              Delivering Enterprise-grade consulting with boutique consulting Agility
             </p>
 
             {/* CTA Group with High-Contrast Hierarchy (Brand Orange Primary Action) */}
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <Link href="/contact">
                 <Button variant="primary" size="lg" className="min-w-[180px] text-base font-semibold shadow-md hover:shadow-lg">
-                  Talk to an Expert
+                  Optimize Now
                 </Button>
               </Link>
               <Link
@@ -53,51 +53,51 @@ export const HomeHero: React.FC = () => {
               </Link>
             </div>
 
-            {/* Architectural Capability Focus Ledger */}
-            <div className="pt-8 border-t border-slate-200/90 grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-2xl">
-              <div className="p-3 rounded-lg hover:bg-slate-50 transition-colors border border-transparent hover:border-slate-200">
-                <span className="text-[10px] font-mono font-bold text-[#00B3FF] block uppercase tracking-wider">
-                  01 // CLOUD
-                </span>
-                <span className="text-xs font-bold text-[#01153B] block mt-1">
-                  Architecture &amp; Migration
-                </span>
-                <span className="text-[11px] text-slate-500 block mt-0.5 leading-tight">
-                  Multi-cloud alignment
-                </span>
+            {/* 3 Value Points Ledger */}
+            <div className="pt-8 border-t border-slate-200/90 grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl">
+              <div className="p-4 rounded-xl bg-slate-50/70 hover:bg-white transition-all duration-200 border border-slate-200/80 hover:border-[#00B3FF]/40 shadow-2xs">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#00B3FF]" />
+                  <span className="text-[10px] font-mono font-bold text-[#00B3FF] uppercase tracking-wider">
+                    01 // FINOPS
+                  </span>
+                </div>
+                <p className="text-sm font-bold text-[#01153B] leading-snug">
+                  20–30% Savings
+                </p>
+                <p className="text-xs text-slate-500 mt-1 leading-normal font-sans">
+                  on cloud &amp; database spend
+                </p>
               </div>
-              <div className="p-3 rounded-lg hover:bg-slate-50 transition-colors border border-transparent hover:border-slate-200">
-                <span className="text-[10px] font-mono font-bold text-[#00B3FF] block uppercase tracking-wider">
-                  02 // DATABASE
-                </span>
-                <span className="text-xs font-bold text-[#01153B] block mt-1">
-                  Performance Tuning
-                </span>
-                <span className="text-[11px] text-slate-500 block mt-0.5 leading-tight">
-                  Query &amp; engine tuning
-                </span>
+
+              <div className="p-4 rounded-xl bg-slate-50/70 hover:bg-white transition-all duration-200 border border-slate-200/80 hover:border-[#00B3FF]/40 shadow-2xs">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#00B3FF]" />
+                  <span className="text-[10px] font-mono font-bold text-[#00B3FF] uppercase tracking-wider">
+                    02 // PERFORMANCE
+                  </span>
+                </div>
+                <p className="text-sm font-bold text-[#01153B] leading-snug">
+                  Faster Databases
+                </p>
+                <p className="text-xs text-slate-500 mt-1 leading-normal font-sans">
+                  with expert tuning
+                </p>
               </div>
-              <div className="p-3 rounded-lg hover:bg-slate-50 transition-colors border border-transparent hover:border-slate-200">
-                <span className="text-[10px] font-mono font-bold text-[#00B3FF] block uppercase tracking-wider">
-                  03 // DATA
-                </span>
-                <span className="text-xs font-bold text-[#01153B] block mt-1">
-                  Platform Engineering
-                </span>
-                <span className="text-[11px] text-slate-500 block mt-0.5 leading-tight">
-                  Pipelines &amp; streaming
-                </span>
-              </div>
-              <div className="p-3 rounded-lg hover:bg-slate-50 transition-colors border border-transparent hover:border-slate-200">
-                <span className="text-[10px] font-mono font-bold text-[#00B3FF] block uppercase tracking-wider">
-                  04 // SYSTEMS
-                </span>
-                <span className="text-xs font-bold text-[#01153B] block mt-1">
-                  Reliability Advisory
-                </span>
-                <span className="text-[11px] text-slate-500 block mt-0.5 leading-tight">
-                  Mission-critical systems
-                </span>
+
+              <div className="p-4 rounded-xl bg-slate-50/70 hover:bg-white transition-all duration-200 border border-slate-200/80 hover:border-[#00B3FF]/40 shadow-2xs">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#00B3FF]" />
+                  <span className="text-[10px] font-mono font-bold text-[#00B3FF] uppercase tracking-wider">
+                    03 // COMPLIANCE
+                  </span>
+                </div>
+                <p className="text-sm font-bold text-[#01153B] leading-snug">
+                  Stay Secure &amp; Compliant
+                </p>
+                <p className="text-xs text-slate-500 mt-1 leading-normal font-sans">
+                  with resilience built in
+                </p>
               </div>
             </div>
           </div>

@@ -7,10 +7,14 @@ import { ArrowRight } from 'lucide-react';
 import { VERIFIED_SERVICES } from '@/data/services';
 
 const SERVICE_HREFS: Record<string, string> = {
+  'cloud-data-finops': '/consulting/cloud-finops',
   'db-finops': '/consulting/cloud-finops',
+  'dpdp-compliance': '/consulting/compliance-governance',
+  'resilience-compliance': '/consulting/compliance-governance',
   'performance-tuning': '/offerings/performance-tuning-delivery',
-  'managed-services': '/offerings/managed-dba-services',
+  'migration-transformations': '/offerings/database-migrations-and-transformations',
   'migration-transformation': '/offerings/database-migrations-and-transformations',
+  'managed-services': '/offerings/managed-dba-services',
 };
 
 export function ServicesSection() {
@@ -66,12 +70,10 @@ export function ServicesSection() {
             CORE SERVICES
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white mb-4 font-sans leading-[1.12]">
-            Expertise That Solves
-            <br />
-            <span className="text-slate-300 font-normal">What Matters.</span>
+            Our Services Make You Compliant, Optimized, and Cost-Efficient.
           </h2>
           <p className="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl font-sans">
-            From database performance and cloud cost optimization to managed operations and modernization, ZOFT helps organizations build technology environments that perform reliably.
+            Expertise that transforms complexity into confidence.
           </p>
         </div>
 
@@ -100,7 +102,7 @@ export function ServicesSection() {
                   onClick={() => setActiveId(service.id)}
                   onMouseEnter={() => setActiveId(service.id)}
                   onKeyDown={(e) => handleKeyDown(e, idx)}
-                  className={`group text-left py-4 sm:py-5 px-4 transition-all duration-200 ease-out relative focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00B3FF] focus-visible:ring-inset ${
+                  className={`group text-left py-3.5 sm:py-4 px-4 transition-all duration-200 ease-out relative focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00B3FF] focus-visible:ring-inset ${
                     isActive
                       ? 'bg-[#031E4D] pl-5 sm:pl-6 shadow-xs'
                       : 'hover:bg-[#031E4D]/60 hover:pl-5 text-slate-400'
@@ -124,14 +126,14 @@ export function ServicesSection() {
                     </span>
                     <div className="flex-1 min-w-0">
                       <span
-                        className={`block text-lg sm:text-xl font-bold tracking-tight transition-colors duration-200 truncate ${
+                        className={`block text-base sm:text-lg font-bold tracking-tight transition-colors duration-200 truncate ${
                           isActive ? 'text-white' : 'text-slate-300 group-hover:text-white'
                         }`}
                       >
                         {service.title}
                       </span>
                       <p className="text-xs sm:text-sm text-[#00B3FF] font-medium mt-0.5 font-sans truncate">
-                        “{service.tagline}”
+                        “{service.description}”
                       </p>
                     </div>
                   </div>
@@ -160,15 +162,12 @@ export function ServicesSection() {
                   {/* Detail Card (BESIDE the image) */}
                   <div className="md:col-span-6 lg:col-span-7 flex flex-col justify-between bg-[#031E4D]/90 border border-slate-700/80 rounded-2xl p-5 sm:p-6 backdrop-blur-sm shadow-xl space-y-4">
                     <div className="space-y-3.5">
-                      {/* Header with Title, Tagline, and CTA */}
+                      {/* Header with Title and CTA */}
                       <div className="flex flex-wrap items-baseline justify-between gap-2 border-b border-slate-700/80 pb-3.5">
                         <div className="min-w-0">
                           <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight font-sans">
                             {service.title}
                           </h3>
-                          <span className="text-xs sm:text-sm font-semibold text-[#00B3FF] italic mt-0.5 block font-sans">
-                            “{service.tagline}”
-                          </span>
                         </div>
                         <Link
                           href={href}
@@ -180,8 +179,8 @@ export function ServicesSection() {
                       </div>
 
                       {/* Description */}
-                      <p className="text-slate-300 leading-relaxed font-sans text-xs sm:text-sm">
-                        {service.description}
+                      <p className="text-base font-semibold text-[#00B3FF] leading-relaxed font-sans italic">
+                        “{service.description}”
                       </p>
 
                       {/* Deliverables */}
@@ -269,10 +268,7 @@ export function ServicesSection() {
                     {service.title}
                   </h3>
                   <p className="text-sm font-semibold text-[#00B3FF] mb-3 italic">
-                    “{service.tagline}”
-                  </p>
-                  <p className="text-slate-300 text-sm leading-relaxed font-sans">
-                    {service.description}
+                    “{service.description}”
                   </p>
                 </div>
 
