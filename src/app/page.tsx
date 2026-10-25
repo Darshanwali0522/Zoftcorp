@@ -7,10 +7,6 @@ import { ProblemToDecisionSection } from "@/components/sections/decision/problem
 import { DatabaseTechnologySection } from "@/components/sections/database-technology/database-technology-section";
 import { CaseStudiesSection } from "@/components/sections/case-studies/case-studies-section";
 import { FAQSection } from "@/components/sections/faq/faq-section";
-import { PlatformsSection } from "@/components/sections/platforms/platforms-section";
-import { ExpertiseSection } from "@/components/sections/expertise/expertise-section";
-import { IndustriesSection } from "@/components/sections/industries/industries-section";
-import { GrowBusinessSection } from "@/components/sections/grow-business/grow-business-section";
 import { ContactSection } from "@/components/sections/contact/contact-section";
 
 export const metadata: Metadata = {
@@ -46,10 +42,6 @@ export default function HomePage() {
       <DatabaseTechnologySection />
       <CaseStudiesSection />
       <FAQSection />
-      <PlatformsSection />
-      <ExpertiseSection />
-      <IndustriesSection />
-      <GrowBusinessSection />
       <ContactSection />
     </div>
   );

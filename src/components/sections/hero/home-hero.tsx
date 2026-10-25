@@ -40,8 +40,8 @@ export const HomeHero: React.FC = () => {
             {/* CTA Group with High-Contrast Hierarchy (Brand Orange Primary Action) */}
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <Link href="/contact">
-                <Button variant="primary" size="lg" className="min-w-[180px] text-base font-semibold shadow-md hover:shadow-lg">
-                  Optimize Now
+                <Button variant="primary" size="lg" className="min-w-[210px] text-base font-semibold shadow-md hover:shadow-lg">
+                  Get a Free consultation
                 </Button>
               </Link>
               <Link
@@ -53,49 +53,52 @@ export const HomeHero: React.FC = () => {
               </Link>
             </div>
 
-            {/* 3 Value Points Ledger */}
-            <div className="pt-8 border-t border-slate-200/90 grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl">
-              <div className="p-4 rounded-xl bg-slate-50/70 hover:bg-white transition-all duration-200 border border-slate-200/80 hover:border-[#00B3FF]/40 shadow-2xs">
-                <div className="flex items-center gap-2 mb-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#00B3FF]" />
-                  <span className="text-[10px] font-mono font-bold text-[#00B3FF] uppercase tracking-wider">
+            {/* 3 Value Points Ledger — Prominent Scannable Benefits */}
+            <div className="pt-10 border-t border-slate-200/90 grid grid-cols-1 sm:grid-cols-3 gap-4 lg:gap-5 max-w-3xl">
+              {/* Benefit 1 */}
+              <div className="p-5 rounded-2xl bg-white hover:bg-slate-50/50 transition-all duration-200 border border-slate-200/90 hover:border-[#00B3FF]/50 shadow-xs hover:shadow-sm">
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="w-2 h-2 rounded-full bg-[#00B3FF]" />
+                  <span className="text-[11px] font-mono font-bold text-[#00B3FF] uppercase tracking-wider">
                     01 // FINOPS
                   </span>
                 </div>
-                <p className="text-sm font-bold text-[#01153B] leading-snug">
+                <h2 className="text-lg sm:text-xl font-extrabold text-[#01153B] tracking-tight leading-snug">
                   20–30% Savings
-                </p>
-                <p className="text-xs text-slate-500 mt-1 leading-normal font-sans">
+                </h2>
+                <p className="text-sm text-slate-600 mt-1.5 leading-normal font-sans font-medium">
                   on cloud &amp; database spend
                 </p>
               </div>
 
-              <div className="p-4 rounded-xl bg-slate-50/70 hover:bg-white transition-all duration-200 border border-slate-200/80 hover:border-[#00B3FF]/40 shadow-2xs">
-                <div className="flex items-center gap-2 mb-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#00B3FF]" />
-                  <span className="text-[10px] font-mono font-bold text-[#00B3FF] uppercase tracking-wider">
+              {/* Benefit 2 */}
+              <div className="p-5 rounded-2xl bg-white hover:bg-slate-50/50 transition-all duration-200 border border-slate-200/90 hover:border-[#FF6F00]/50 shadow-xs hover:shadow-sm">
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="w-2 h-2 rounded-full bg-[#FF6F00]" />
+                  <span className="text-[11px] font-mono font-bold text-[#FF6F00] uppercase tracking-wider">
                     02 // PERFORMANCE
                   </span>
                 </div>
-                <p className="text-sm font-bold text-[#01153B] leading-snug">
+                <h2 className="text-lg sm:text-xl font-extrabold text-[#01153B] tracking-tight leading-snug">
                   Faster Databases
-                </p>
-                <p className="text-xs text-slate-500 mt-1 leading-normal font-sans">
+                </h2>
+                <p className="text-sm text-slate-600 mt-1.5 leading-normal font-sans font-medium">
                   with expert tuning
                 </p>
               </div>
 
-              <div className="p-4 rounded-xl bg-slate-50/70 hover:bg-white transition-all duration-200 border border-slate-200/80 hover:border-[#00B3FF]/40 shadow-2xs">
-                <div className="flex items-center gap-2 mb-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#00B3FF]" />
-                  <span className="text-[10px] font-mono font-bold text-[#00B3FF] uppercase tracking-wider">
+              {/* Benefit 3 */}
+              <div className="p-5 rounded-2xl bg-white hover:bg-slate-50/50 transition-all duration-200 border border-slate-200/90 hover:border-[#00B3FF]/50 shadow-xs hover:shadow-sm">
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="w-2 h-2 rounded-full bg-[#00B3FF]" />
+                  <span className="text-[11px] font-mono font-bold text-[#00B3FF] uppercase tracking-wider">
                     03 // COMPLIANCE
                   </span>
                 </div>
-                <p className="text-sm font-bold text-[#01153B] leading-snug">
+                <h2 className="text-lg sm:text-xl font-extrabold text-[#01153B] tracking-tight leading-snug">
                   Stay Secure &amp; Compliant
-                </p>
-                <p className="text-xs text-slate-500 mt-1 leading-normal font-sans">
+                </h2>
+                <p className="text-sm text-slate-600 mt-1.5 leading-normal font-sans font-medium">
                   with resilience built in
                 </p>
               </div>

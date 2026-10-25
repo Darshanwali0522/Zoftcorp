@@ -7,19 +7,24 @@ export interface LogoWrapperProps {
   className?: string;
   size?: "sm" | "md" | "lg";
   href?: string;
+  variant?: "header" | "footer";
 }
 
 export const LogoWrapper: React.FC<LogoWrapperProps> = ({
   className,
   size = "md",
   href = "/",
+  variant = "header",
 }) => {
-  // Height ratios preserving official ZOFT logo dimensions
+  // Aspect ratio calibrated to official Zoftcorp horizontal lockup (~4.68:1 ratio)
   const dimensions = {
-    sm: { height: 28, width: 140 },
-    md: { height: 36, width: 180 },
-    lg: { height: 44, width: 220 },
+    sm: { height: 28, width: 131 },
+    md: { height: 36, width: 168 },
+    lg: { height: 44, width: 206 },
   };
+
+  const isFooter = variant === "footer";
+  const logoSrc = isFooter ? "/brand/zoft-logo-footer.png" : "/brand/zoftcorp-logo-blue.png";
 
   const logoContent = (
     <div
@@ -30,12 +35,16 @@ export const LogoWrapper: React.FC<LogoWrapperProps> = ({
       aria-label="ZOFT Corp Home Page"
     >
       <Image
-        src="/brand/zoft-logo.png"
+        src={logoSrc}
         alt="ZOFT Corp Logo"
         width={dimensions[size].width}
         height={dimensions[size].height}
-        className="h-auto w-auto object-contain max-h-11"
+        className={cn(
+          "h-auto w-auto object-contain",
+          size === "sm" ? "max-h-8" : size === "md" ? "max-h-10" : "max-h-12"
+        )}
         priority
+        unoptimized
       />
     </div>
   );

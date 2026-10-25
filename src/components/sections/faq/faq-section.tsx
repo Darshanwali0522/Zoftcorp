@@ -1,17 +1,9 @@
 "use client";
 
 import React, { useState } from "react";
-import { ChevronDown, HelpCircle, ShieldCheck, DollarSign, Gauge, ArrowRightLeft, Cpu } from "lucide-react";
+import { ChevronDown, HelpCircle } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { FAQ_CATEGORIES } from "@/data/faq";
-
-const CATEGORY_ICONS: Record<string, React.ReactNode> = {
-  "dpdp-audit-compliance": <ShieldCheck className="w-4 h-4 text-[#00B3FF]" />,
-  "cloud-database-finops": <DollarSign className="w-4 h-4 text-[#FF6F00]" />,
-  "performance-tuning": <Gauge className="w-4 h-4 text-[#00B3FF]" />,
-  "migrations-transformations": <ArrowRightLeft className="w-4 h-4 text-[#01153B]" />,
-  "managed-services": <Cpu className="w-4 h-4 text-[#00B3FF]" />,
-};
 
 export const FAQSection: React.FC = () => {
   // Allow multiple accordion items to be open simultaneously
@@ -25,6 +17,9 @@ export const FAQSection: React.FC = () => {
       [id]: !prev[id],
     }));
   };
+
+  // Direct list of all FAQ questions without category grouping or labels
+  const allQuestions = FAQ_CATEGORIES.flatMap((category) => category.questions);
 
   return (
     <section
@@ -52,91 +47,60 @@ export const FAQSection: React.FC = () => {
           </p>
         </div>
 
-        {/* Categories & Accordion List */}
-        <div className="space-y-10 sm:space-y-12">
-          {FAQ_CATEGORIES.map((category) => (
-            <div
-              key={category.id}
-              className="rounded-2xl bg-white border border-slate-200/90 p-6 sm:p-8 lg:p-10 shadow-xs transition-shadow hover:shadow-sm space-y-6"
-            >
-              {/* Category Header */}
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-slate-100">
-                <div className="flex items-center gap-3">
-                  <span className="w-8 h-8 rounded-lg bg-slate-100 border border-slate-200 flex items-center justify-center shrink-0">
-                    {CATEGORY_ICONS[category.id] || <HelpCircle className="w-4 h-4 text-[#00B3FF]" />}
+        {/* Direct Questions & Accordion List — Category labels and grouping removed */}
+        <div className="max-w-4xl space-y-3.5">
+          {allQuestions.map((item) => {
+            const isOpen = !!openItems[item.id];
+            const questionId = `faq-q-${item.id}`;
+            const answerId = `faq-a-${item.id}`;
+
+            return (
+              <div
+                key={item.id}
+                className={`rounded-2xl border transition-all duration-200 overflow-hidden ${
+                  isOpen
+                    ? "bg-white border-[#00B3FF]/40 shadow-xs ring-1 ring-[#00B3FF]/20"
+                    : "bg-white border-slate-200/90 hover:border-slate-300 shadow-2xs hover:shadow-xs"
+                }`}
+              >
+                <button
+                  type="button"
+                  id={questionId}
+                  aria-expanded={isOpen}
+                  aria-controls={answerId}
+                  onClick={() => toggleItem(item.id)}
+                  className="w-full text-left px-5 py-4 sm:px-6 sm:py-5 flex items-center justify-between gap-4 focus-visible:outline-2 focus-visible:outline-[#00B3FF] focus-visible:rounded-2xl transition-colors cursor-pointer group"
+                >
+                  <span className="text-base sm:text-lg font-bold text-[#01153B] font-sans pr-2 group-hover:text-[#00B3FF] transition-colors">
+                    {item.question}
                   </span>
-                  <div>
-                    <span className="text-[10px] font-mono font-bold text-[#00B3FF] uppercase tracking-wider block">
-                      CATEGORY {category.number}
-                    </span>
-                    <h3 className="text-lg sm:text-xl font-bold text-[#01153B] font-sans">
-                      {category.title}
-                    </h3>
-                  </div>
+
+                  <span
+                    className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 transition-transform duration-200 ${
+                      isOpen
+                        ? "bg-[#00B3FF]/15 text-[#00B3FF] rotate-180"
+                        : "bg-slate-100 text-slate-500 group-hover:bg-slate-200"
+                    }`}
+                    aria-hidden="true"
+                  >
+                    <ChevronDown className="w-4 h-4" />
+                  </span>
+                </button>
+
+                <div
+                  id={answerId}
+                  role="region"
+                  aria-labelledby={questionId}
+                  hidden={!isOpen}
+                  className={`px-5 pb-5 sm:px-6 sm:pb-6 pt-1 text-slate-600 text-sm sm:text-base font-normal leading-relaxed font-sans border-t border-slate-100 mt-1 ${
+                    !isOpen ? "hidden" : "block"
+                  }`}
+                >
+                  <p>{item.answer}</p>
                 </div>
-
-                <span className="inline-flex self-start sm:self-center items-center text-[11px] font-mono font-semibold text-slate-500 uppercase tracking-wider bg-slate-100 px-2.5 py-1 rounded border border-slate-200">
-                  {category.tag}
-                </span>
               </div>
-
-              {/* Questions in this Category */}
-              <div className="space-y-3.5">
-                {category.questions.map((item) => {
-                  const isOpen = !!openItems[item.id];
-                  const questionId = `faq-q-${item.id}`;
-                  const answerId = `faq-a-${item.id}`;
-
-                  return (
-                    <div
-                      key={item.id}
-                      className={`rounded-xl border transition-all duration-200 ${
-                        isOpen
-                          ? "bg-slate-50/50 border-[#00B3FF]/40 shadow-xs"
-                          : "bg-white border-slate-200 hover:border-slate-300"
-                      }`}
-                    >
-                      <button
-                        type="button"
-                        id={questionId}
-                        aria-expanded={isOpen}
-                        aria-controls={answerId}
-                        onClick={() => toggleItem(item.id)}
-                        className="w-full text-left px-5 py-4 sm:px-6 sm:py-5 flex items-center justify-between gap-4 focus-visible:outline-2 focus-visible:outline-[#00B3FF] focus-visible:rounded-xl transition-colors cursor-pointer"
-                      >
-                        <span className="text-base sm:text-lg font-bold text-[#01153B] font-sans pr-2">
-                          {item.question}
-                        </span>
-
-                        <span
-                          className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 transition-transform duration-200 ${
-                            isOpen
-                              ? "bg-[#00B3FF]/15 text-[#00B3FF] rotate-180"
-                              : "bg-slate-100 text-slate-500 hover:bg-slate-200"
-                          }`}
-                          aria-hidden="true"
-                        >
-                          <ChevronDown className="w-4 h-4" />
-                        </span>
-                      </button>
-
-                      <div
-                        id={answerId}
-                        role="region"
-                        aria-labelledby={questionId}
-                        hidden={!isOpen}
-                        className={`px-5 pb-5 sm:px-6 sm:pb-6 pt-1 text-slate-600 text-sm sm:text-base font-normal leading-relaxed font-sans border-t border-slate-100 mt-1 ${
-                          !isOpen ? "hidden" : "block"
-                        }`}
-                      >
-                        <p>{item.answer}</p>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </Container>
     </section>
