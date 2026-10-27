@@ -11,7 +11,6 @@ import {
   MessageSquare,
   Users,
   Lightbulb,
-  Palette,
   Briefcase,
 } from 'lucide-react';
 import {
@@ -19,9 +18,11 @@ import {
   CAREER_TECHNOLOGIES,
   CAREER_CONTRIBUTION_THEMES,
   CAREER_VALUES,
+  CAREER_BENEFITS,
   TECHNICAL_DEPTH_STACK,
   CAREER_OPENINGS_STATE,
 } from '@/data/career';
+import { CareerApplicationForm } from '@/components/forms/career-application-form';
 
 export default function CareerPage() {
   const [activeTechIndex, setActiveTechIndex] = useState(0);
@@ -368,17 +369,20 @@ export default function CareerPage() {
         </div>
       </section>
 
-      {/* 7. VALUES */}
+      {/* 7. CORE VALUES */}
       <section className="relative bg-white text-slate-900 py-20 md:py-28 border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-16">
             <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-bold tracking-wider uppercase bg-[#00B3FF]/10 text-[#01153B] border border-[#00B3FF]/20 mb-4">
               <Shield className="w-3.5 h-3.5 text-[#00B3FF]" />
-              COMPANY VALUES
+              CORE VALUES
             </span>
             <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 font-sans">
-              Built Around Values That Matter.
+              Core Values That Guide Our Engineering
             </h2>
+            <p className="text-base text-slate-600 font-sans mt-3">
+              Our engineering culture is guided by transparent, foundational principles that govern how we interact with technology, our clients, and each other.
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -388,6 +392,9 @@ export default function CareerPage() {
                 className="bg-slate-50 p-8 rounded-3xl border border-slate-200/90 shadow-sm space-y-4 flex flex-col justify-between hover:border-[#00B3FF]/30 transition-colors"
               >
                 <div className="space-y-3">
+                  <span className="text-xs font-mono font-bold text-[#00B3FF] uppercase tracking-wider block">
+                    FOUNDATIONAL PILLAR
+                  </span>
                   <h3 className="text-2xl font-extrabold text-slate-900 font-sans tracking-tight">
                     {val.name}
                   </h3>
@@ -396,7 +403,7 @@ export default function CareerPage() {
                   </p>
                 </div>
                 <div className="pt-4 border-t border-slate-200 text-[11px] font-mono text-slate-400">
-                  FOUNDATIONAL VALUE
+                  VERIFIED ZOFTCORP STANDARD
                 </div>
               </div>
             ))}
@@ -404,38 +411,46 @@ export default function CareerPage() {
         </div>
       </section>
 
-      {/* 8. ZOFTSTUDIO CONNECTION */}
+      {/* 8. EMPLOYEE BENEFITS & CULTURE */}
       <section className="relative bg-slate-50/70 text-slate-900 py-20 md:py-28 border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-3xl p-8 sm:p-14 border border-slate-200/90 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            <div className="lg:col-span-8 space-y-6">
-              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-bold tracking-wider uppercase bg-[#00B3FF]/10 text-[#01153B] border border-[#00B3FF]/20">
-                <Palette className="w-3.5 h-3.5 text-[#00B3FF]" />
-                DIGITAL EXPERIENCE DISCIPLINE
-              </span>
-              <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 font-sans">
-                Technology Meets Digital Experience.
-              </h2>
-              <p className="text-base text-slate-600 leading-relaxed font-sans">
-                Through ZoftStudio, we craft bold, consistent digital experiences that blend
-                creativity with enterprise-grade design discipline.
-              </p>
-            </div>
+          <div className="max-w-3xl mb-16">
+            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-bold tracking-wider uppercase bg-[#00B3FF]/10 text-[#01153B] border border-[#00B3FF]/20 mb-4">
+              <Sparkles className="w-3.5 h-3.5 text-[#00B3FF]" />
+              EMPLOYEE BENEFITS
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 font-sans">
+              Why Build Your Career at Zoftcorp
+            </h2>
+            <p className="text-base text-slate-600 font-sans mt-3">
+              We offer a professional environment built for practitioners who appreciate true systems depth, collaborative learning, and tangible engineering impact.
+            </p>
+          </div>
 
-            <div className="lg:col-span-4 text-left lg:text-right">
-              <Link
-                href="/zoftstudio"
-                className="inline-flex items-center gap-2 px-6 py-4 rounded-xl bg-[#01153B] hover:bg-[#031E4D] text-white font-semibold text-sm transition-all duration-200 shadow-md focus-visible:outline-2 focus-visible:outline-[#00B3FF]"
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {CAREER_BENEFITS.map((b) => (
+              <div
+                key={b.title}
+                className="bg-white p-7 rounded-2xl border border-slate-200/90 shadow-sm space-y-3 hover:border-[#00B3FF]/40 transition-colors flex flex-col justify-between"
               >
-                <span>Explore ZoftStudio</span>
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
+                <div className="space-y-2">
+                  <span className="font-mono text-[10px] font-bold text-[#00B3FF] uppercase tracking-wider block">
+                    {b.tagline}
+                  </span>
+                  <h3 className="text-lg font-bold text-slate-900 font-sans">
+                    {b.title}
+                  </h3>
+                  <p className="text-xs text-slate-600 leading-relaxed font-sans">
+                    {b.description}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* 9. CAREER OPPORTUNITIES — CONTENT-READY STATE */}
+      {/* 9. CAREER OPPORTUNITIES */}
       <section className="relative bg-white text-slate-900 py-20 md:py-28 border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-12">
@@ -458,43 +473,44 @@ export default function CareerPage() {
             </div>
 
             <h3 className="text-2xl font-bold text-slate-900 font-sans tracking-tight">
-              CURRENT OPENINGS
+              OPEN TECHNICAL APPLICATION
             </h3>
 
             <p className="text-base text-slate-600 font-sans leading-relaxed max-w-xl mx-auto">
-              {CAREER_OPENINGS_STATE.emptyNotice}
+              We review candidate applications continuously. If you specialize in database engineering, cloud architecture, or data platforms, submit your CV below.
             </p>
 
-            <div className="pt-4">
-              <Link
-                href="/contact"
+            <div className="pt-2">
+              <a
+                href="#candidate-application"
                 className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl bg-[#01153B] hover:bg-[#031E4D] text-white font-semibold text-sm transition-all duration-200 shadow-md focus-visible:outline-2 focus-visible:outline-[#00B3FF]"
               >
-                <span>Express Your Interest</span>
+                <span>Jump to Application Form</span>
                 <ArrowRight className="w-4 h-4" />
-              </Link>
+              </a>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 10. EXPRESSION OF INTEREST */}
-      <section className="relative bg-slate-50/70 text-slate-900 py-20 md:py-28 border-b border-slate-200/80">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 font-sans">
-            Think You Could Contribute?
-          </h2>
-          <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-sans max-w-2xl mx-auto">
-            If your experience aligns with the kind of technology work ZOFT does, start a
-            conversation with us.
-          </p>
-          <div className="pt-2">
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-[#FF6F00] hover:bg-[#e66400] text-white font-semibold text-base transition-all duration-200 shadow-md shadow-[#FF6F00]/25 focus-visible:outline-2 focus-visible:outline-[#FF6F00]"
-            >
-              Contact ZOFT
-            </Link>
+      {/* 10. CANDIDATE APPLICATION FORM */}
+      <section id="candidate-application" className="relative bg-slate-50/70 text-slate-900 py-20 md:py-28 border-b border-slate-200/80 scroll-mt-16">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-12 space-y-3">
+            <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-bold tracking-wider uppercase bg-[#00B3FF]/10 text-[#01153B] border border-[#00B3FF]/20">
+              <Briefcase className="w-3.5 h-3.5 text-[#00B3FF]" />
+              APPLY FOR A ROLE
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 font-sans">
+              Candidate Application Form
+            </h2>
+            <p className="text-sm sm:text-base text-slate-600 font-sans leading-relaxed">
+              Submit your contact details, desired engineering role, and upload your resume. All submissions are transmitted securely and stored in private corporate storage.
+            </p>
+          </div>
+
+          <div className="bg-white p-6 sm:p-10 rounded-2xl border border-slate-200/90 shadow-sm">
+            <CareerApplicationForm />
           </div>
         </div>
       </section>
@@ -504,23 +520,23 @@ export default function CareerPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             <Link
-              href="/about-us/company-story"
+              href="/about-us/leadership"
               className="bg-slate-50 p-6 rounded-2xl border border-slate-200/90 shadow-sm space-y-2 hover:border-[#00B3FF]/40 transition-colors group"
             >
               <h3 className="text-lg font-bold text-slate-900 font-sans group-hover:text-[#00B3FF] transition-colors">
-                Company Story
+                Leadership
               </h3>
-              <p className="text-xs text-slate-600">Understand where we come from.</p>
+              <p className="text-xs text-slate-600">Meet our technical leaders.</p>
             </Link>
 
             <Link
-              href="/about-us/why-zoftcorp"
+              href="/about-us/vision-mission"
               className="bg-slate-50 p-6 rounded-2xl border border-slate-200/90 shadow-sm space-y-2 hover:border-[#00B3FF]/40 transition-colors group"
             >
               <h3 className="text-lg font-bold text-slate-900 font-sans group-hover:text-[#00B3FF] transition-colors">
-                Why Zoftcorp?
+                Vision & Mission
               </h3>
-              <p className="text-xs text-slate-600">Understand what sets us apart.</p>
+              <p className="text-xs text-slate-600">Our engineering commitments.</p>
             </Link>
 
             <Link
@@ -588,6 +604,12 @@ export default function CareerPage() {
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-5 pt-4">
+            <a
+              href="#candidate-application"
+              className="inline-flex items-center justify-center px-8 py-4 rounded-lg bg-[#00B3FF] hover:bg-[#0099db] text-[#01153B] font-bold text-base transition-all duration-200 shadow-lg shadow-[#00B3FF]/25 focus-visible:outline-2 focus-visible:outline-[#00B3FF]"
+            >
+              Apply for a Role
+            </a>
             <Link
               href="/contact"
               className="inline-flex items-center justify-center px-8 py-4 rounded-lg bg-[#FF6F00] hover:bg-[#e66400] text-white font-semibold text-base transition-all duration-200 shadow-lg shadow-[#FF6F00]/25 focus-visible:outline-2 focus-visible:outline-[#FF6F00]"

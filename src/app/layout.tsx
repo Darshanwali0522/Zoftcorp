@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     "Cloud Advisory",
     "Database Tuning",
     "Enterprise Systems",
-    "ZoftStudio",
+    "Database Consulting",
   ],
   authors: [{ name: "ZOFT Corp" }],
   openGraph: {

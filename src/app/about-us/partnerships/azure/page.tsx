@@ -564,23 +564,23 @@ export default function AzurePartnershipPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             <Link
-              href="/about-us/company-story"
+              href="/about-us/leadership"
               className="bg-white p-6 rounded-2xl border border-slate-200/90 shadow-sm space-y-2 hover:border-[#00B3FF]/40 transition-colors group"
             >
               <h3 className="text-lg font-bold text-slate-900 font-sans group-hover:text-[#00B3FF] transition-colors">
-                Company Story
+                Leadership
               </h3>
-              <p className="text-xs text-slate-600">Our background and evolution.</p>
+              <p className="text-xs text-slate-600">Meet our technical leaders.</p>
             </Link>
 
             <Link
-              href="/about-us/why-zoftcorp"
+              href="/about-us/vision-mission"
               className="bg-white p-6 rounded-2xl border border-slate-200/90 shadow-sm space-y-2 hover:border-[#00B3FF]/40 transition-colors group"
             >
               <h3 className="text-lg font-bold text-slate-900 font-sans group-hover:text-[#00B3FF] transition-colors">
-                Why Zoftcorp?
+                Vision & Mission
               </h3>
-              <p className="text-xs text-slate-600">Our 7 core differentiators.</p>
+              <p className="text-xs text-slate-600">Our engineering commitments.</p>
             </Link>
 
             <Link

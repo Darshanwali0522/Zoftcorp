@@ -94,10 +94,10 @@ export default function VisionMissionPage() {
               Meet Company Leadership
             </Link>
             <Link
-              href="/about-us/company-story"
+              href="/about-us/partnerships"
               className="inline-flex items-center gap-2 px-6 py-3.5 rounded-lg text-sm font-semibold text-slate-700 hover:text-[#01153B] hover:bg-slate-100 transition-all duration-200 border border-slate-300 active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-[#00B3FF]"
             >
-              <span>Our Company Story</span>
+              <span>Our Partnerships</span>
               <ArrowRight className="w-4 h-4 text-[#00B3FF]" />
             </Link>
             <Link

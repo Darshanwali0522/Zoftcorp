@@ -1,6 +1,7 @@
 import React from "react";
 import { Container } from "@/components/ui/container";
 import { Layers, CheckCircle2, TrendingUp, Cpu } from "lucide-react";
+import { StandardDiagram } from "./standard-diagram";
 
 interface StandardPillar {
   number: string;
@@ -14,7 +15,7 @@ const STANDARD_PILLARS: StandardPillar[] = [
   {
     number: "01",
     tag: "FRAMEWORK",
-    title: "One Engineering Framework",
+    title: "Engineering Frame",
     content:
       "All Zoftcorp services operate under a disciplined, battle-tested framework, ensuring structural consistency, predictable telemetry, and absolute accountability across your data estate.",
     icon: Layers,
@@ -30,7 +31,7 @@ const STANDARD_PILLARS: StandardPillar[] = [
   {
     number: "03",
     tag: "OUTCOMES",
-    title: "Outcome-Based Business",
+    title: "Outcome",
     content:
       "We measure success by telemetry, not billable hours. Clients invest in measurable results: lower query latency, reduced cloud spend, and stronger compliance controls.",
     icon: TrendingUp,
@@ -66,32 +67,40 @@ export const ZoftcorpStandardSection: React.FC = () => {
       />
 
       <Container size="wide" className="relative z-10">
-        {/* Section Header */}
-        <div className="max-w-4xl mb-12 sm:mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2">
-            <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-bold tracking-wider uppercase bg-[#00B3FF]/10 text-[#01153B] border border-[#00B3FF]/30 shadow-2xs">
-              <span className="flex h-1.5 w-1.5 relative">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00B3FF] opacity-75" />
-                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#00B3FF]" />
+        {/* Top 2-Column Grid: Left Description & Right Architectural Diagram */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center mb-14 sm:mb-16">
+          {/* Left Column: Descriptive Context */}
+          <div className="lg:col-span-6 space-y-4 text-left">
+            <div className="inline-flex items-center gap-2">
+              <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-bold tracking-wider uppercase bg-[#00B3FF]/10 text-[#01153B] border border-[#00B3FF]/30 shadow-2xs">
+                <span className="flex h-1.5 w-1.5 relative">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00B3FF] opacity-75" />
+                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#00B3FF]" />
+                </span>
+                CORE PRINCIPLES
               </span>
-              CORE PRINCIPLES
-            </span>
+            </div>
+
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[#01153B] font-sans leading-[1.12]">
+              The Zoftcorp Standard
+            </h2>
+
+            <div className="space-y-3 pt-1 text-slate-600 font-sans">
+              <p className="text-lg sm:text-xl font-bold text-[#01153B] leading-snug">
+                Your business moves at the speed of its database.
+              </p>
+              <p className="text-base sm:text-lg leading-relaxed text-slate-600">
+                When execution paths degrade, queries spike, and technical debt compounds, the bottleneck isn’t merely lines of code. It bleeds directly into Total Cost of Ownership, degrades user experience, strains valuable engineering bandwidth — and exposes compliance risks that can’t be ignored.
+              </p>
+              <p className="text-base sm:text-lg leading-relaxed text-[#01153B] font-medium pt-0.5">
+                That’s where Zoftcorp comes in. Founded by veteran Enterprise Architects, we replace reactive firefighting with principle-led architectural precision.
+              </p>
+            </div>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[#01153B] font-sans leading-[1.12]">
-            The Zoftcorp Standard
-          </h2>
-
-          <div className="space-y-3 pt-1 text-slate-600 font-sans max-w-3xl">
-            <p className="text-lg sm:text-xl font-bold text-[#01153B] leading-snug">
-              Your business moves at the speed of its database.
-            </p>
-            <p className="text-base sm:text-lg leading-relaxed text-slate-600">
-              When execution paths degrade, queries spike, and technical debt compounds, the bottleneck isn’t merely lines of code. It bleeds directly into Total Cost of Ownership, degrades user experience, strains valuable engineering bandwidth — and exposes compliance risks that can’t be ignored.
-            </p>
-            <p className="text-base sm:text-lg leading-relaxed text-[#01153B] font-medium pt-0.5">
-              That’s where Zoftcorp comes in. Founded by veteran Enterprise Architects, we replace reactive firefighting with principle-led architectural precision.
-            </p>
+          {/* Right Column: Custom Four-Part Architectural Diagram */}
+          <div className="lg:col-span-6 w-full">
+            <StandardDiagram />
           </div>
         </div>
 

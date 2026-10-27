@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import {
   ChevronLeft,
   ChevronRight,
@@ -11,19 +12,63 @@ import {
   Layers,
   Sparkles,
   Server,
-  Cloud,
-  Zap,
+  BookOpen,
+  Calendar,
+  Clock,
 } from "lucide-react";
 import { Container } from "@/components/ui/container";
-import { CASE_STUDIES, CaseStudy } from "@/data/case-studies";
+import { UnifiedInsight } from "@/lib/insights-aggregator";
 
-const CASE_STUDY_ICONS: Record<string, React.ReactNode> = {
-  "database-architecture-modernization": <Server className="w-5 h-5" />,
-  "cloud-infrastructure-optimization": <Cloud className="w-5 h-5" />,
-  "performance-investigation-engineering": <Zap className="w-5 h-5" />,
-};
+const FALLBACK_INSIGHTS: UnifiedInsight[] = [
+  {
+    id: "case-study-database-architecture-modernization",
+    slug: "database-architecture-modernization",
+    type: "case-study",
+    typeLabel: "Case Study",
+    title: "Database Architecture & Modernization",
+    excerpt: "Database architecture, modernization, performance, and operational challenges across mission-critical systems.",
+    category: "Enterprise Databases",
+    publishedAt: "2026-10-10T12:00:00.000Z",
+    formattedDate: "October 10, 2026",
+    href: "/insights/case-studies",
+    technologies: ["SQL Server", "PostgreSQL", "MySQL"],
+    readingTime: "6 min read",
+  },
+  {
+    id: "blog-failover-cluster",
+    slug: "how-zoftcorp-ease-your-failover-cluster-installation-with-slipstream",
+    type: "blog",
+    typeLabel: "Blog Post",
+    title: "How ZoftCorp Ease Your Failover Cluster Installation with Slipstream",
+    excerpt: "Discover how Slipstream streamlines SQL Server failover clustering with integrated service packs.",
+    category: "Database Architecture",
+    publishedAt: "2026-09-30T17:09:21.000Z",
+    formattedDate: "September 30, 2026",
+    href: "/insights/blogs/how-zoftcorp-ease-your-failover-cluster-installation-with-slipstream",
+    readingTime: "5 min read",
+  },
+  {
+    id: "case-study-cloud-infrastructure-optimization",
+    slug: "cloud-infrastructure-optimization",
+    type: "case-study",
+    typeLabel: "Case Study",
+    title: "Cloud Infrastructure & Optimization",
+    excerpt: "Cloud architecture, infrastructure, modernization, and optimization for resilient enterprise workloads.",
+    category: "Cloud Platforms",
+    publishedAt: "2026-09-20T12:00:00.000Z",
+    formattedDate: "September 20, 2026",
+    href: "/insights/case-studies",
+    technologies: ["AWS", "Azure", "Google Cloud"],
+    readingTime: "5 min read",
+  },
+];
 
-export const CaseStudiesSection: React.FC = () => {
+interface CaseStudiesSectionProps {
+  items?: UnifiedInsight[];
+}
+
+export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({ items = FALLBACK_INSIGHTS }) => {
+  const displayItems = items.length > 0 ? items.slice(0, 3) : FALLBACK_INSIGHTS;
   const [activeIndex, setActiveIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
   const [isHovered, setIsHovered] = useState(false);
@@ -31,15 +76,15 @@ export const CaseStudiesSection: React.FC = () => {
   const touchStartX = useRef<number | null>(null);
   const touchEndX = useRef<number | null>(null);
 
-  const totalStudies = CASE_STUDIES.length;
+  const totalItems = displayItems.length;
 
   const nextSlide = useCallback(() => {
-    setActiveIndex((prev) => (prev + 1) % totalStudies);
-  }, [totalStudies]);
+    setActiveIndex((prev) => (prev + 1) % totalItems);
+  }, [totalItems]);
 
   const prevSlide = useCallback(() => {
-    setActiveIndex((prev) => (prev - 1 + totalStudies) % totalStudies);
-  }, [totalStudies]);
+    setActiveIndex((prev) => (prev - 1 + totalItems) % totalItems);
+  }, [totalItems]);
 
   const goToSlide = (idx: number) => {
     setActiveIndex(idx);
@@ -53,7 +98,6 @@ export const CaseStudiesSection: React.FC = () => {
   useEffect(() => {
     if (!isPlaying || isHovered || isFocused) return;
 
-    // Check for prefers-reduced-motion
     if (typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       return;
     }
@@ -104,7 +148,7 @@ export const CaseStudiesSection: React.FC = () => {
   return (
     <section
       id="case-studies"
-      aria-label="Case studies and whitepapers"
+      aria-label="Case Studies and Blogs"
       className="relative w-full bg-[#01153B] text-white py-16 sm:py-20 lg:py-28 overflow-hidden border-b border-slate-800"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -120,13 +164,14 @@ export const CaseStudiesSection: React.FC = () => {
         className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,#1e293b20_1px,transparent_1px),linear-gradient(to_bottom,#1e293b20_1px,transparent_1px)] bg-[size:4rem_4rem]"
         aria-hidden="true"
       />
-      {/* Subtle Cyan Glow */}
+
+      {/* Ambient Lighting Accents */}
       <div
-        className="pointer-events-none absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-[#00B3FF]/10 blur-[150px] rounded-full"
+        className="pointer-events-none absolute -top-40 right-10 w-[500px] h-[500px] bg-[#00B3FF]/10 blur-[130px] rounded-full"
         aria-hidden="true"
       />
       <div
-        className="pointer-events-none absolute bottom-10 left-10 w-[350px] h-[350px] bg-[#FF6F00]/5 blur-[130px] rounded-full"
+        className="pointer-events-none absolute -bottom-40 left-10 w-[450px] h-[450px] bg-[#FF6F00]/10 blur-[130px] rounded-full"
         aria-hidden="true"
       />
 
@@ -136,26 +181,26 @@ export const CaseStudiesSection: React.FC = () => {
           <div className="space-y-4 max-w-2xl text-left">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider text-[#00B3FF] bg-[#00B3FF]/10 border border-[#00B3FF]/20 shadow-xs">
               <Layers className="w-3.5 h-3.5" />
-              <span>CASE STUDIES &amp; WHITEPAPERS</span>
+              <span>INSIGHTS // CASE STUDIES &amp; BLOGS</span>
             </div>
 
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight font-sans">
-              CASE STUDIES &amp; Whitepapers
+              Case Studies &amp; Blogs
             </h2>
 
             <p className="text-slate-300 text-base sm:text-lg font-normal leading-relaxed font-sans">
-              Explore how we&apos;ve helped businesses improve performance, modernize infrastructure, reduce risk, and scale with confidence.
+              Explore our latest enterprise case studies, technical publications, and architectural investigations in production.
             </p>
           </div>
 
-          {/* Carousel Interactive Controls (Desktop & Mobile) */}
+          {/* Carousel Interactive Controls (Desktop & Mobile) + Prominent View All Link */}
           <div className="flex items-center gap-3 shrink-0">
             {/* Play/Pause Toggle */}
             <button
               type="button"
               onClick={togglePlay}
-              className="p-2.5 rounded-lg bg-[#031E4D] border border-slate-750 text-slate-300 hover:text-white hover:border-[#00B3FF] transition-colors focus-visible:outline-2 focus-visible:outline-[#00B3FF]"
-              aria-label={isPlaying ? "Pause automatic case study showcase" : "Play automatic case study showcase"}
+              className="p-2.5 rounded-lg bg-[#031E4D] border border-slate-700 text-slate-300 hover:text-white hover:border-[#00B3FF] transition-colors focus-visible:outline-2 focus-visible:outline-[#00B3FF]"
+              aria-label={isPlaying ? "Pause automatic showcase" : "Play automatic showcase"}
               title={isPlaying ? "Pause rotation" : "Play rotation"}
             >
               {isPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
@@ -163,21 +208,21 @@ export const CaseStudiesSection: React.FC = () => {
 
             {/* Slide Index Badge */}
             <div
-              className="px-3 py-1.5 rounded-lg bg-[#031E4D] border border-slate-750 font-mono text-xs font-semibold text-slate-300"
+              className="px-3 py-1.5 rounded-lg bg-[#031E4D] border border-slate-700 font-mono text-xs font-semibold text-slate-300"
               aria-live="polite"
               aria-atomic="true"
             >
               <span className="text-[#00B3FF]">{String(activeIndex + 1).padStart(2, "0")}</span>
               <span className="text-slate-500 mx-1">/</span>
-              <span>{String(totalStudies).padStart(2, "0")}</span>
+              <span>{String(totalItems).padStart(2, "0")}</span>
             </div>
 
             {/* Prev Button */}
             <button
               type="button"
               onClick={prevSlide}
-              className="p-2.5 rounded-lg bg-[#031E4D] border border-slate-750 text-slate-300 hover:text-white hover:border-[#00B3FF] hover:bg-[#031E4D]/80 transition-colors focus-visible:outline-2 focus-visible:outline-[#00B3FF]"
-              aria-label="Previous case study"
+              className="p-2.5 rounded-lg bg-[#031E4D] border border-slate-700 text-slate-300 hover:text-white hover:border-[#00B3FF] hover:bg-[#031E4D]/80 transition-colors focus-visible:outline-2 focus-visible:outline-[#00B3FF]"
+              aria-label="Previous item"
             >
               <ChevronLeft className="w-4 h-4" />
             </button>
@@ -186,16 +231,16 @@ export const CaseStudiesSection: React.FC = () => {
             <button
               type="button"
               onClick={nextSlide}
-              className="p-2.5 rounded-lg bg-[#031E4D] border border-slate-750 text-slate-300 hover:text-white hover:border-[#00B3FF] hover:bg-[#031E4D]/80 transition-colors focus-visible:outline-2 focus-visible:outline-[#00B3FF]"
-              aria-label="Next case study"
+              className="p-2.5 rounded-lg bg-[#031E4D] border border-slate-700 text-slate-300 hover:text-white hover:border-[#00B3FF] hover:bg-[#031E4D]/80 transition-colors focus-visible:outline-2 focus-visible:outline-[#00B3FF]"
+              aria-label="Next item"
             >
               <ChevronRight className="w-4 h-4" />
             </button>
 
-            {/* View All Insights Link */}
+            {/* Clear "View All" Link Leading to Combined Insights Page */}
             <Link
-              href="/insights/case-studies"
-              className="hidden sm:inline-flex items-center gap-1.5 ml-2 text-xs font-mono font-semibold uppercase tracking-wider text-[#00B3FF] hover:text-[#00B3FF]/80 transition-colors"
+              href="/insights"
+              className="inline-flex items-center gap-1.5 ml-2 px-3.5 py-2 rounded-lg bg-[#031E4D] hover:bg-[#00B3FF]/20 border border-slate-700 hover:border-[#00B3FF] text-xs font-mono font-bold uppercase tracking-wider text-[#00B3FF] transition-all"
             >
               <span>View All</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -205,89 +250,118 @@ export const CaseStudiesSection: React.FC = () => {
 
         {/* Desktop Showcase View: 3-Card Interactive Presentation */}
         <div className="hidden lg:grid lg:grid-cols-3 gap-6 items-stretch">
-          {CASE_STUDIES.map((study: CaseStudy, idx: number) => {
+          {displayItems.map((item: UnifiedInsight, idx: number) => {
             const isActive = activeIndex === idx;
+            const isCaseStudy = item.type === "case-study";
+
             return (
               <div
-                key={study.slug}
+                key={item.id}
                 onClick={() => goToSlide(idx)}
                 className={`group relative rounded-2xl p-7 transition-all duration-300 flex flex-col justify-between cursor-pointer border ${
                   isActive
-                    ? "bg-[#031E4D] border-[#00B3FF] shadow-2xl shadow-[#00B3FF]/10 scale-[1.02] z-20"
+                    ? "bg-[#031E4D] border-[#00B3FF] shadow-2xl shadow-[#00B3FF]/15 scale-[1.02] z-20"
                     : "bg-[#031E4D]/60 border-slate-800 hover:border-slate-700 hover:bg-[#031E4D]/80 scale-100 z-10"
                 }`}
                 role="group"
                 aria-roledescription="slide"
-                aria-label={`${idx + 1} of ${totalStudies}: ${study.title}`}
+                aria-label={`${idx + 1} of ${totalItems}: ${item.title}`}
               >
-                {/* Active Indicator Top Tag */}
-                <div className="flex items-center justify-between mb-5">
-                  <div className="flex items-center gap-2">
-                    <span className="w-8 h-8 rounded-lg bg-[#00B3FF]/10 text-[#00B3FF] border border-[#00B3FF]/20 flex items-center justify-center shrink-0">
-                      {CASE_STUDY_ICONS[study.slug] || <Layers className="w-4 h-4" />}
-                    </span>
-                    <span className="font-mono text-xs font-bold text-[#00B3FF] uppercase tracking-wider">
-                      {study.industry}
-                    </span>
-                  </div>
-
-                  {isActive ? (
-                    <span className="inline-flex items-center gap-1 text-[10px] font-mono font-bold uppercase tracking-widest text-[#FF6F00] bg-[#FF6F00]/10 px-2 py-0.5 rounded border border-[#FF6F00]/30">
-                      <Sparkles className="w-3 h-3" />
-                      FEATURED
-                    </span>
-                  ) : (
-                    <span className="text-[11px] font-mono text-slate-500">
-                      0{idx + 1}
-                    </span>
-                  )}
-                </div>
-
-                {/* Content Body */}
-                <div className="space-y-4 flex-1">
-                  <h3 className="text-xl font-bold text-white group-hover:text-[#00B3FF] transition-colors font-sans leading-snug">
-                    {study.title}
-                  </h3>
-
-                  <p className="text-sm text-slate-300 leading-relaxed font-sans font-normal">
-                    {study.excerpt}
-                  </p>
-
-                  {/* Outcome Highlight Box */}
-                  <div className="p-3.5 rounded-xl bg-[#01153B]/80 border border-slate-800/80 space-y-1.5">
-                    <div className="text-[10px] font-mono uppercase text-[#00B3FF] font-semibold tracking-wider">
-                      VALIDATED OUTCOME
-                    </div>
-                    <p className="text-xs text-slate-300 font-sans leading-relaxed">
-                      {study.outcome}
-                    </p>
-                  </div>
-
-                  {/* Technology Tags */}
-                  <div className="flex flex-wrap gap-1.5 pt-2">
-                    {study.technologies.map((tech) => (
+                {/* Active Indicator Top Tag & Type Badge */}
+                <div>
+                  <div className="flex items-center justify-between mb-5">
+                    <div className="flex items-center gap-2">
                       <span
-                        key={tech}
-                        className="text-[10px] font-mono font-medium text-slate-300 bg-[#01153B] px-2.5 py-1 rounded border border-slate-800"
+                        className={`inline-flex items-center gap-1 text-[11px] font-mono font-bold uppercase tracking-wider px-2.5 py-1 rounded-md border ${
+                          isCaseStudy
+                            ? "bg-[#00B3FF]/15 text-[#00B3FF] border-[#00B3FF]/30"
+                            : "bg-[#FF6F00]/15 text-[#FF6F00] border-[#FF6F00]/30"
+                        }`}
                       >
-                        {tech}
+                        {isCaseStudy ? <Server className="w-3 h-3" /> : <BookOpen className="w-3 h-3" />}
+                        {item.typeLabel}
                       </span>
-                    ))}
+                      <span className="font-mono text-xs text-slate-400">
+                        {item.category}
+                      </span>
+                    </div>
+
+                    {isActive ? (
+                      <span className="inline-flex items-center gap-1 text-[10px] font-mono font-bold uppercase tracking-widest text-[#00B3FF] bg-[#00B3FF]/10 px-2 py-0.5 rounded border border-[#00B3FF]/30">
+                        <Sparkles className="w-3 h-3" />
+                        LATEST
+                      </span>
+                    ) : (
+                      <span className="text-[11px] font-mono text-slate-500">
+                        0{idx + 1}
+                      </span>
+                    )}
+                  </div>
+
+                  {/* Optional Image with Fallback Branded Visual (no broken images) */}
+                  {item.image ? (
+                    <div className="relative w-full h-36 rounded-xl overflow-hidden mb-4 border border-slate-700/60">
+                      <Image
+                        src={item.image}
+                        alt={item.title}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                  ) : null}
+
+                  {/* Metadata Row: Date & Reading Time */}
+                  <div className="flex items-center gap-4 text-xs text-slate-400 font-mono mb-3">
+                    <span className="inline-flex items-center gap-1">
+                      <Calendar className="w-3.5 h-3.5 text-slate-500" />
+                      {item.formattedDate}
+                    </span>
+                    {item.readingTime && (
+                      <span className="inline-flex items-center gap-1">
+                        <Clock className="w-3.5 h-3.5 text-slate-500" />
+                        {item.readingTime}
+                      </span>
+                    )}
+                  </div>
+
+                  {/* Content Body */}
+                  <div className="space-y-3">
+                    <h3 className="text-xl font-bold text-white group-hover:text-[#00B3FF] transition-colors font-sans leading-snug line-clamp-2">
+                      {item.title}
+                    </h3>
+
+                    <p className="text-sm text-slate-300 leading-relaxed font-sans font-normal line-clamp-3">
+                      {item.excerpt}
+                    </p>
+
+                    {/* Technologies or Details (for case studies) */}
+                    {item.technologies && item.technologies.length > 0 && (
+                      <div className="flex flex-wrap gap-1.5 pt-2">
+                        {item.technologies.map((tech) => (
+                          <span
+                            key={tech}
+                            className="text-[10px] font-mono font-medium text-slate-300 bg-[#01153B] px-2.5 py-1 rounded border border-slate-800"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 </div>
 
                 {/* Card Footer Action */}
                 <div className="pt-6 mt-6 border-t border-slate-800 flex items-center justify-between">
                   <Link
-                    href="/insights/case-studies"
+                    href={item.href}
                     className="inline-flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-[#00B3FF] hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-[#00B3FF] rounded"
                   >
-                    <span>View Case Study</span>
+                    <span>{isCaseStudy ? "View Case Study" : "Read Article"}</span>
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                   </Link>
 
                   <span className="text-[11px] font-mono text-slate-500 uppercase">
-                    STAGE 04 // RESULTS
+                    {isCaseStudy ? "CASE STUDY" : "BLOG POST"}
                   </span>
                 </div>
               </div>
@@ -307,85 +381,105 @@ export const CaseStudiesSection: React.FC = () => {
               className="flex transition-transform duration-300 ease-out"
               style={{ transform: `translateX(-${activeIndex * 100}%)` }}
             >
-              {CASE_STUDIES.map((study: CaseStudy, idx: number) => (
-                <div
-                  key={study.slug}
-                  className="w-full shrink-0 px-1"
-                  role="group"
-                  aria-roledescription="slide"
-                  aria-label={`${idx + 1} of ${totalStudies}: ${study.title}`}
-                >
-                  <div className="rounded-2xl p-6 sm:p-8 bg-[#031E4D] border border-slate-800 shadow-xl flex flex-col justify-between space-y-6">
-                    {/* Header */}
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-2">
-                        <span className="w-8 h-8 rounded-lg bg-[#00B3FF]/10 text-[#00B3FF] border border-[#00B3FF]/20 flex items-center justify-center shrink-0">
-                          {CASE_STUDY_ICONS[study.slug] || <Layers className="w-4 h-4" />}
-                        </span>
-                        <span className="font-mono text-xs font-bold text-[#00B3FF] uppercase tracking-wider">
-                          {study.industry}
-                        </span>
-                      </div>
+              {displayItems.map((item: UnifiedInsight, idx: number) => {
+                const isCaseStudy = item.type === "case-study";
 
-                      <span className="inline-flex items-center gap-1 text-[10px] font-mono font-bold uppercase tracking-widest text-[#FF6F00] bg-[#FF6F00]/10 px-2 py-0.5 rounded border border-[#FF6F00]/30">
-                        CASE STUDY 0{idx + 1}
-                      </span>
-                    </div>
+                return (
+                  <div
+                    key={item.id}
+                    className="w-full shrink-0 px-1"
+                    role="group"
+                    aria-roledescription="slide"
+                    aria-label={`${idx + 1} of ${totalItems}: ${item.title}`}
+                  >
+                    <div className="rounded-2xl p-6 sm:p-8 bg-[#031E4D] border border-slate-800 shadow-xl flex flex-col justify-between space-y-6">
+                      {/* Header */}
+                      <div>
+                        <div className="flex items-center justify-between mb-4">
+                          <div className="flex items-center gap-2">
+                            <span
+                              className={`inline-flex items-center gap-1 text-[11px] font-mono font-bold uppercase tracking-wider px-2.5 py-1 rounded-md border ${
+                                isCaseStudy
+                                  ? "bg-[#00B3FF]/15 text-[#00B3FF] border-[#00B3FF]/30"
+                                  : "bg-[#FF6F00]/15 text-[#FF6F00] border-[#FF6F00]/30"
+                              }`}
+                            >
+                              {isCaseStudy ? <Server className="w-3 h-3" /> : <BookOpen className="w-3 h-3" />}
+                              {item.typeLabel}
+                            </span>
+                            <span className="font-mono text-xs text-slate-400">
+                              {item.category}
+                            </span>
+                          </div>
 
-                    {/* Content */}
-                    <div className="space-y-4">
-                      <h3 className="text-xl sm:text-2xl font-bold text-white font-sans leading-snug">
-                        {study.title}
-                      </h3>
-
-                      <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-sans">
-                        {study.excerpt}
-                      </p>
-
-                      <div className="p-4 rounded-xl bg-[#01153B] border border-slate-800 space-y-1.5">
-                        <div className="text-[10px] font-mono uppercase text-[#00B3FF] font-semibold tracking-wider">
-                          VALIDATED OUTCOME
-                        </div>
-                        <p className="text-xs sm:text-sm text-slate-300 font-sans leading-relaxed">
-                          {study.outcome}
-                        </p>
-                      </div>
-
-                      <div className="flex flex-wrap gap-1.5 pt-1">
-                        {study.technologies.map((tech) => (
-                          <span
-                            key={tech}
-                            className="text-[11px] font-mono font-medium text-slate-300 bg-[#01153B] px-2.5 py-1 rounded border border-slate-800"
-                          >
-                            {tech}
+                          <span className="text-[11px] font-mono text-slate-500">
+                            0{idx + 1}
                           </span>
-                        ))}
+                        </div>
+
+                        {/* Date & Reading Time */}
+                        <div className="flex items-center gap-3 text-xs text-slate-400 font-mono mb-3">
+                          <span className="inline-flex items-center gap-1">
+                            <Calendar className="w-3.5 h-3.5 text-slate-500" />
+                            {item.formattedDate}
+                          </span>
+                          {item.readingTime && (
+                            <span className="inline-flex items-center gap-1">
+                              <Clock className="w-3.5 h-3.5 text-slate-500" />
+                              {item.readingTime}
+                            </span>
+                          )}
+                        </div>
+
+                        {/* Content */}
+                        <div className="space-y-3">
+                          <h3 className="text-xl sm:text-2xl font-bold text-white font-sans leading-snug">
+                            {item.title}
+                          </h3>
+
+                          <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-sans">
+                            {item.excerpt}
+                          </p>
+
+                          {item.technologies && item.technologies.length > 0 && (
+                            <div className="flex flex-wrap gap-1.5 pt-1">
+                              {item.technologies.map((tech) => (
+                                <span
+                                  key={tech}
+                                  className="text-[11px] font-mono font-medium text-slate-300 bg-[#01153B] px-2.5 py-1 rounded border border-slate-800"
+                                >
+                                  {tech}
+                                </span>
+                              ))}
+                            </div>
+                          )}
+                        </div>
                       </div>
-                    </div>
 
-                    {/* Footer */}
-                    <div className="pt-4 border-t border-slate-800 flex items-center justify-between">
-                      <Link
-                        href="/insights/case-studies"
-                        className="inline-flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-[#00B3FF] hover:text-white transition-colors"
-                      >
-                        <span>View Case Study</span>
-                        <ArrowRight className="w-3.5 h-3.5" />
-                      </Link>
+                      {/* Footer */}
+                      <div className="pt-4 border-t border-slate-800 flex items-center justify-between">
+                        <Link
+                          href={item.href}
+                          className="inline-flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-[#00B3FF] hover:text-white transition-colors"
+                        >
+                          <span>{isCaseStudy ? "View Case Study" : "Read Article"}</span>
+                          <ArrowRight className="w-3.5 h-3.5" />
+                        </Link>
 
-                      <span className="text-[11px] font-mono text-slate-500 uppercase">
-                        STAGE 04 // RESULTS
-                      </span>
+                        <span className="text-[11px] font-mono text-slate-500 uppercase">
+                          {isCaseStudy ? "CASE STUDY" : "BLOG POST"}
+                        </span>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
 
           {/* Mobile Dot Navigation */}
           <div className="flex items-center justify-center gap-2 pt-6">
-            {CASE_STUDIES.map((_, idx) => (
+            {displayItems.map((_, idx) => (
               <button
                 key={idx}
                 type="button"

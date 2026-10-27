@@ -74,20 +74,9 @@ export const MAIN_NAVIGATION: NavItem[] = [
             description: 'Zero-downtime homogeneous and heterogeneous enterprise database migrations.',
           },
           {
-            title: 'Vector DB Integration',
-            href: '/offerings/vector-db-integration',
-            description: 'Semantic indexing and vector database integration for enterprise platforms.',
-          },
-          {
             title: 'Data Engineering and Analytics',
             href: '/offerings/data-engineering-and-analytics',
             description: 'Scalable data pipelines, analytical warehouses, and data lakehouse architecture.',
-            children: [
-              {
-                title: 'Industries',
-                href: '/offerings/data-engineering-and-analytics/industries',
-              },
-            ],
           },
         ],
       },
@@ -113,14 +102,9 @@ export const MAIN_NAVIGATION: NavItem[] = [
             description: 'Engineering deep dives into complex database and cloud engagements.',
           },
           {
-            title: 'Events',
+            title: 'Events & Meetups',
             href: '/insights/events',
-            description: 'Technical webinars, executive sessions, and architecture discussions.',
-          },
-          {
-            title: 'Meet ups',
-            href: '/insights/meet-ups',
-            description: 'Community engineering events and technical meetups.',
+            description: 'Technical webinars, architecture sessions, and community meetups.',
           },
         ],
       },
@@ -152,47 +136,13 @@ export const MAIN_NAVIGATION: NavItem[] = [
             description: 'Our foundational commitment and architectural vision.',
           },
           {
-            title: 'Company Story',
-            href: '/about-us/company-story',
-            description: 'Our background in enterprise cloud and database advisory.',
-          },
-          {
-            title: 'Why Zoftcorp?',
-            href: '/about-us/why-zoftcorp',
-            description: 'Boutique agility backed by deep engineering depth.',
-          },
-          {
             title: 'Partnerships',
             href: '/about-us/partnerships',
             description: 'Enterprise cloud ecosystems across AWS, Azure, GCP, and Oracle.',
-            children: [
-              {
-                title: 'AWS',
-                href: '/about-us/partnerships/aws',
-              },
-              {
-                title: 'Azure',
-                href: '/about-us/partnerships/azure',
-              },
-              {
-                title: 'GCP',
-                href: '/about-us/partnerships/gcp',
-              },
-              {
-                title: 'Oracle',
-                href: '/about-us/partnerships/oracle',
-              },
-            ],
           },
         ],
       },
     ],
-  },
-  {
-    id: 'zoftstudio',
-    label: 'ZoftStudio',
-    href: '/zoftstudio',
-    type: 'link',
   },
   {
     id: 'contact',

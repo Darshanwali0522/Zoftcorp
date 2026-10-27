@@ -116,11 +116,6 @@ export const GCP_RELATED_OFFERINGS: RelatedLinkItem[] = [
     href: '/offerings/data-engineering-and-analytics',
   },
   {
-    title: 'Vector DB Integration',
-    description: 'Semantic indexing and vector database integration for enterprise platforms.',
-    href: '/offerings/vector-db-integration',
-  },
-  {
     title: 'Database Migrations and Transformations',
     description: 'Modernize and refactor database environments with structured cutover protocols.',
     href: '/offerings/database-migrations-and-transformations',

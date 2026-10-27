@@ -130,17 +130,6 @@ export const ABOUT_DESTINATIONS: AboutDestination[] = [
     href: '/about-us/vision-mission',
   },
   {
-    title: 'COMPANY STORY',
-    description: 'Understand the story and evolution behind ZOFT.',
-    href: '/about-us/company-story',
-  },
-  {
-    title: 'WHY ZOFTCORP?',
-    description:
-      'Understand the thinking, approach, and reasons organizations may choose to work with ZOFT.',
-    href: '/about-us/why-zoftcorp',
-  },
-  {
     title: 'PARTNERSHIPS',
     description: "Explore ZOFT's technology ecosystem and partner relationships.",
     href: '/about-us/partnerships',

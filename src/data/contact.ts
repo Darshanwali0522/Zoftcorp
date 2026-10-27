@@ -41,6 +41,7 @@ export const CONTACT_TOPICS: ContactTopic[] = [
   { id: 'data-engineering', label: 'Data Engineering and Analytics' },
   { id: 'vector-db', label: 'Vector DB Integration' },
   { id: 'general-enquiry', label: 'General Technology Enquiry' },
+  { id: 'other', label: 'Other' },
 ];
 
 export const CONTACT_DISCOVERY_OPTIONS: ContactDiscoveryOption[] = [
@@ -124,7 +125,6 @@ export const EXPECTATION_STEPS = [
 export const CONTACT_NAVIGATION = [
   { label: 'Consulting', href: '/consulting', desc: 'Strategic technical advisory & audits' },
   { label: 'Our Offerings', href: '/offerings', desc: 'Specialized delivery & DBA services' },
-  { label: 'ZoftStudio', href: '/zoftstudio', desc: 'Digital experience & enterprise design' },
   { label: 'Insights', href: '/insights', desc: 'Technical articles, case studies & meetups' },
   { label: 'About Us', href: '/about-us', desc: 'Our background, values & story' },
 ];

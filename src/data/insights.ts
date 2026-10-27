@@ -28,20 +28,11 @@ export const INSIGHT_CATEGORIES: InsightCategory[] = [
   },
   {
     number: '03',
-    id: 'webinar',
-    title: 'WEBINAR',
-    href: '/insights/webinar',
-    shortLabel: 'Webinar',
+    id: 'events',
+    title: 'EVENTS & MEETUPS',
+    href: '/insights/events',
+    shortLabel: 'Events & Meetups',
     description:
-      'Explore technical conversations, discussions, and sessions around relevant technology topics.',
-  },
-  {
-    number: '04',
-    id: 'meet-ups',
-    title: 'MEET UPS',
-    href: '/insights/meet-ups',
-    shortLabel: 'Meet ups',
-    description:
-      'Discover opportunities for technology conversations, community interaction, and knowledge sharing.',
+      'Explore technical webinars, architectural roundtables, community meetups, and engineering sessions.',
   },
 ];

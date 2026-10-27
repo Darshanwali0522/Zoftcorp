@@ -12,8 +12,43 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
-        source: '/insights/events',
-        destination: '/insights/webinar',
+        source: '/insights/webinar',
+        destination: '/insights/events',
+        permanent: true,
+      },
+      {
+        source: '/insights/meet-ups',
+        destination: '/insights/events',
+        permanent: true,
+      },
+      {
+        source: '/insights/events-and-meetups',
+        destination: '/insights/events',
+        permanent: true,
+      },
+      {
+        source: '/zoftstudio',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/about-us/company-story',
+        destination: '/about-us',
+        permanent: true,
+      },
+      {
+        source: '/about-us/why-zoftcorp',
+        destination: '/about-us',
+        permanent: true,
+      },
+      {
+        source: '/offerings/vector-db-integration',
+        destination: '/offerings',
+        permanent: true,
+      },
+      {
+        source: '/offerings/data-engineering-and-analytics/industries',
+        destination: '/offerings/data-engineering-and-analytics',
         permanent: true,
       },
     ];

@@ -18,8 +18,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     // 2. About Us
     { path: '/about-us', priority: 0.8, changeFrequency: 'monthly' },
-    { path: '/about-us/company-story', priority: 0.7, changeFrequency: 'monthly' },
-    { path: '/about-us/why-zoftcorp', priority: 0.7, changeFrequency: 'monthly' },
     { path: '/about-us/career', priority: 0.7, changeFrequency: 'monthly' },
     { path: '/about-us/partnerships', priority: 0.8, changeFrequency: 'monthly' },
     { path: '/about-us/partnerships/aws', priority: 0.7, changeFrequency: 'monthly' },
@@ -40,23 +38,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // 4. Offerings & Solutions
     { path: '/offerings', priority: 0.9, changeFrequency: 'weekly' },
     { path: '/offerings/data-engineering-and-analytics', priority: 0.8, changeFrequency: 'monthly' },
-    { path: '/offerings/data-engineering-and-analytics/industries', priority: 0.7, changeFrequency: 'monthly' },
     { path: '/offerings/database-migrations-and-transformations', priority: 0.8, changeFrequency: 'monthly' },
     { path: '/offerings/managed-dba-services', priority: 0.8, changeFrequency: 'monthly' },
     { path: '/offerings/performance-tuning-delivery', priority: 0.8, changeFrequency: 'monthly' },
-    { path: '/offerings/vector-db-integration', priority: 0.8, changeFrequency: 'monthly' },
     { path: '/data-engineering', priority: 0.8, changeFrequency: 'monthly' },
     { path: '/database-support-services', priority: 0.8, changeFrequency: 'monthly' },
     { path: '/performance-tuning-services', priority: 0.8, changeFrequency: 'monthly' },
     { path: '/optimizing-cloud-expenses', priority: 0.8, changeFrequency: 'monthly' },
-    { path: '/zoftstudio', priority: 0.8, changeFrequency: 'monthly' },
 
     // 5. Insights
     { path: '/insights', priority: 0.8, changeFrequency: 'weekly' },
     { path: '/insights/blogs', priority: 0.9, changeFrequency: 'daily' },
     { path: '/insights/case-studies', priority: 0.8, changeFrequency: 'monthly' },
-    { path: '/insights/webinar', priority: 0.7, changeFrequency: 'weekly' },
-    { path: '/insights/meet-ups', priority: 0.7, changeFrequency: 'weekly' },
+    { path: '/insights/events', priority: 0.8, changeFrequency: 'weekly' },
   ];
 
   const staticEntries: MetadataRoute.Sitemap = staticRoutes.map((route) => ({

@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { ArrowRight, BookOpen, MessageSquare, Sparkles, FileText, Video, Users } from 'lucide-react';
+import { ArrowRight, BookOpen, MessageSquare, Sparkles, FileText, Calendar } from 'lucide-react';
 import { INSIGHT_CATEGORIES } from '@/data/insights';
 
 export const metadata: Metadata = {
@@ -251,56 +251,37 @@ export default function InsightsOverviewPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-stretch">
-            {/* WEBINAR (Larger Visual Weight) */}
-            <div className="md:col-span-7 bg-white p-8 sm:p-10 rounded-3xl border border-slate-200 shadow-sm flex flex-col justify-between space-y-6">
-              <div className="space-y-4">
-                <div className="w-10 h-10 rounded-xl bg-[#00B3FF]/10 text-[#00B3FF] flex items-center justify-center border border-[#00B3FF]/20">
-                  <Video className="w-5 h-5" />
+          <div className="bg-[#01153B] text-white p-8 sm:p-12 rounded-3xl border border-slate-800 shadow-xl relative overflow-hidden">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              <div className="lg:col-span-8 space-y-4">
+                <div className="inline-flex items-center gap-2 text-xs font-mono text-[#00B3FF] uppercase tracking-wider">
+                  <Calendar className="w-4 h-4" />
+                  <span>UNIFIED SESSIONS DESTINATION</span>
                 </div>
-                <span className="font-mono text-xs font-bold text-[#01153B] uppercase tracking-widest block">
-                  TECHNICAL SESSIONS
-                </span>
-                <h3 className="text-2xl sm:text-3xl font-bold text-[#01153B] font-sans">WEBINAR</h3>
-                <p className="text-base text-slate-600 leading-relaxed font-sans">
-                  Technical conversations, discussions, and sessions around relevant technology
-                  topics.
+                <h3 className="text-2xl sm:text-3xl font-extrabold text-white font-sans">
+                  Events &amp; Meetups
+                </h3>
+                <p className="text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl font-sans">
+                  Explore upcoming and recorded webinars, peer roundtables, and technical community sessions across cloud architecture, database performance, FinOps, and data engineering.
                 </p>
-              </div>
-
-              <div className="pt-6 border-t border-slate-100">
-                <Link
-                  href="/insights/webinar"
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-[#01153B] hover:text-[#00B3FF] transition-colors"
-                >
-                  <span>Explore Webinars</span>
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
-            </div>
-
-            {/* MEET UPS (Compact Visual Weight) */}
-            <div className="md:col-span-5 bg-[#01153B] text-white p-8 sm:p-10 rounded-3xl border border-slate-800 shadow-xl flex flex-col justify-between space-y-6">
-              <div className="space-y-4">
-                <div className="w-10 h-10 rounded-xl bg-[#00B3FF]/10 text-[#00B3FF] flex items-center justify-center border border-[#00B3FF]/20">
-                  <Users className="w-5 h-5" />
+                <div className="flex flex-wrap gap-2 pt-2">
+                  {['Webinars', 'Architecture Roundtables', 'Community Meetups', 'Live Q&A'].map((pill) => (
+                    <span
+                      key={pill}
+                      className="text-xs font-mono px-3 py-1 rounded bg-[#031E4D] border border-slate-750 text-slate-300"
+                    >
+                      {pill}
+                    </span>
+                  ))}
                 </div>
-                <span className="font-mono text-xs font-bold text-[#00B3FF] uppercase tracking-widest block">
-                  COMMUNITY EVENTS
-                </span>
-                <h3 className="text-2xl sm:text-3xl font-bold text-white font-sans">MEET UPS</h3>
-                <p className="text-sm text-slate-300 leading-relaxed font-sans">
-                  Discover opportunities for technology conversations, community interaction, and
-                  knowledge sharing.
-                </p>
               </div>
 
-              <div className="pt-6 border-t border-slate-800">
+              <div className="lg:col-span-4 flex lg:justify-end">
                 <Link
-                  href="/insights/meet-ups"
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-[#00B3FF] hover:text-[#00B3FF]/80 transition-colors"
+                  href="/insights/events"
+                  className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-[#00B3FF] hover:bg-[#0099db] text-[#01153B] font-bold text-sm transition-all duration-200 shadow-md shadow-[#00B3FF]/20 focus-visible:outline-2 focus-visible:outline-[#00B3FF]"
                 >
-                  <span>Explore Meet ups</span>
+                  <span>Explore Events &amp; Meetups</span>
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>

@@ -298,7 +298,7 @@ export function BlogListing({
                         {/* Title */}
                         <h2
                           id="featured-post-title"
-                          className="text-2xl sm:text-3xl font-extrabold text-[#01153B] leading-snug group-hover:text-[#00B3FF] transition-colors uppercase"
+                          className="text-2xl sm:text-3xl font-extrabold text-[#01153B] leading-snug group-hover:text-[#00B3FF] transition-colors"
                         >
                           <Link href={`${baseRoute}/${featuredPost.slug}`}>
                             {featuredPost.title}

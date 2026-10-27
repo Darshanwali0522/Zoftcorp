@@ -350,7 +350,7 @@ export function CloudDatabaseFinOpsView() {
           ========================================================================= */}
       <section
         id="why-finops-matters"
-        aria-label="Why Cloud and Database FinOps Matters"
+        aria-label="Why Cloud and Data Matters?"
         className="relative bg-white text-[#01153B] py-16 sm:py-20 lg:py-24 border-b border-slate-200/90"
       >
         <Container size="wide" className="relative z-10">
@@ -360,7 +360,7 @@ export function CloudDatabaseFinOpsView() {
               BUSINESS REALITIES
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[#01153B] font-sans leading-[1.12]">
-              Why Cloud &amp; Database FinOps Matters
+              Why Cloud and Data Matters?
             </h2>
             <p className="text-slate-600 text-base sm:text-lg leading-relaxed mt-4 font-sans max-w-2xl">
               Cloud scalability without architectural discipline exposes organizations to compounding cost inflation, operational drag, and compliance exposure.
@@ -490,7 +490,7 @@ export function CloudDatabaseFinOpsView() {
                   Discuss Your Workload
                 </Link>
                 <Link
-                  href="/about-us/why-zoftcorp"
+                  href="/about-us"
                   className="inline-flex items-center gap-2 px-5 py-3 rounded-lg text-sm font-semibold text-white hover:bg-white/10 transition-all duration-200 border border-white/20"
                 >
                   <span>About Our Engineering Practice</span>

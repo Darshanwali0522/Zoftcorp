@@ -5,8 +5,6 @@ import { Container } from "@/components/ui/container";
 import { Divider } from "@/components/ui/divider";
 
 export const Footer: React.FC = () => {
-  const CURRENT_YEAR = 2026;
-
   const footerSections = [
     {
       title: "Our Offerings",
@@ -17,7 +15,6 @@ export const Footer: React.FC = () => {
         { label: "DPDP Assessment", href: "/consulting/compliance-governance" },
         { label: "Specialized Managed Services", href: "/offerings/managed-dba-services" },
         { label: "Database Migrations and Transformations", href: "/offerings/database-migrations-and-transformations" },
-        { label: "Vector DB Integration", href: "/offerings/vector-db-integration" },
         { label: "Data Engineering and Analytics", href: "/offerings/data-engineering-and-analytics" },
       ],
     },
@@ -26,8 +23,7 @@ export const Footer: React.FC = () => {
       links: [
         { label: "Blogs", href: "/insights/blogs" },
         { label: "Case Studies", href: "/insights/case-studies" },
-        { label: "Events", href: "/insights/events" },
-        { label: "Meet ups", href: "/insights/meet-ups" },
+        { label: "Events & Meetups", href: "/insights/events" },
       ],
     },
     {
@@ -35,8 +31,6 @@ export const Footer: React.FC = () => {
       links: [
         { label: "Leadership", href: "/about-us/leadership" },
         { label: "Vision & Mission", href: "/about-us/vision-mission" },
-        { label: "Company Story", href: "/about-us/company-story" },
-        { label: "Why Zoftcorp?", href: "/about-us/why-zoftcorp" },
         { label: "Partnerships", href: "/about-us/partnerships" },
         { label: "Careers", href: "/careers" },
       ],
@@ -54,8 +48,8 @@ export const Footer: React.FC = () => {
               Cloud and Database Experts. Delivering enterprise-grade reliability with boutique consulting agility.
             </p>
             <div className="flex flex-wrap items-center gap-4 text-xs font-semibold text-[#00B3FF] pt-2">
-              <Link href="/zoftstudio" className="hover:text-white transition-colors">
-                ZoftStudio
+              <Link href="/about-us" className="hover:text-white transition-colors">
+                Zoft Corp
               </Link>
               <span className="w-1 h-1 rounded-full bg-slate-600" />
               <Link href="/contact" className="hover:text-white transition-colors">
@@ -143,7 +137,7 @@ export const Footer: React.FC = () => {
 
         {/* Bottom Copyright & Legal Notice */}
         <div className="flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-4 pt-6">
-          <p>© {CURRENT_YEAR} ZOFT Corp. All rights reserved.</p>
+          <p>© 2026 Zoftcorp. All rights reserved.</p>
           <div className="flex flex-wrap items-center gap-4">
             <Link
               href="/about-us/partnerships/aws"

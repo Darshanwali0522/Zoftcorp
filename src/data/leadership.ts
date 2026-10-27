@@ -2,6 +2,7 @@ export interface LeaderProfile {
   name: string;
   role: string;
   initials: string;
+  linkedinUrl?: string;
 }
 
 /**

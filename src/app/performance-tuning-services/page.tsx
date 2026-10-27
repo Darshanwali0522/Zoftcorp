@@ -354,7 +354,7 @@ export default function PerformanceTuningServicesPage() {
           ========================================================================= */}
       <section
         id="why-performance-tuning-matters"
-        aria-label="Why Performance Tuning Matters"
+        aria-label="Why Performance Tuning Matters?"
         className="py-16 sm:py-20 lg:py-24 bg-white border-b border-slate-200/90"
       >
         <Container size="wide">
@@ -364,7 +364,7 @@ export default function PerformanceTuningServicesPage() {
               BUSINESS IMPACT
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#01153B] tracking-tight font-sans leading-[1.12]">
-              Why Performance Tuning Matters
+              Why Performance Tuning Matters?
             </h2>
             <p className="text-slate-600 text-base sm:text-lg leading-relaxed mt-4 font-sans max-w-2xl">
               Database bottlenecks ripple through the entire enterprise, transforming unoptimized query patterns into compounding operational drag, excessive cloud spend, and user dissatisfaction.

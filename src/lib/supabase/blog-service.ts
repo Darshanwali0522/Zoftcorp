@@ -169,7 +169,7 @@ export async function getPublishedPosts(): Promise<DynamicBlogPost[]> {
 
       if (res.ok) {
         const data = await res.json();
-        if (Array.isArray(data)) {
+        if (Array.isArray(data) && data.length > 0) {
           return data.map(mapRecordToPost);
         }
       } else {

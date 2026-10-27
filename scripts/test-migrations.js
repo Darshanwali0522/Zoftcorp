@@ -37,7 +37,7 @@ async function runTests() {
   assert(home.body.includes('The Zoftcorp Standard'), 'Homepage Step 3 Standard present');
   assert(home.body.includes('Planning a Database Migration or Transformation?'), 'Homepage Step 4 Problem-to-Decision Migration card present');
   assert(home.body.includes('ENGINEERED FOR YOUR STACK'), 'Homepage Step 5 DB Tech present');
-  assert(home.body.includes('CASE STUDIES &amp; Whitepapers') || home.body.includes('CASE STUDIES & Whitepapers'), 'Homepage Step 6 Case Studies present');
+  assert(home.body.includes('CASE STUDIES &amp; Whitepapers') || home.body.includes('CASE STUDIES & Whitepapers') || home.body.includes('CASE STUDIES &amp; BLOGS') || home.body.includes('CASE STUDIES & BLOGS'), 'Homepage Step 6 Case Studies present');
   assert(home.body.includes('FREQUENTLY ASKED QUESTIONS'), 'Homepage Step 7 FAQ present');
 
   // 2. Cloud & Database FinOps

@@ -144,3 +144,47 @@ export const CAREER_OPENINGS_STATE = {
   emptyNotice: 'Career opportunities will appear here when available.',
   jobs: [] as JobOpening[], // Structured empty array to ensure 0 fabricated job vacancies
 };
+
+export interface CareerBenefit {
+  title: string;
+  tagline: string;
+  description: string;
+}
+
+export const CAREER_BENEFITS: CareerBenefit[] = [
+  {
+    title: 'High-Impact Enterprise Systems',
+    tagline: 'REAL-WORLD WORKLOADS',
+    description:
+      'Work directly on mission-critical databases, cloud infrastructure, and large-scale analytical pipelines that power real enterprises.',
+  },
+  {
+    title: 'Multi-Platform Engineering Breadth',
+    tagline: 'CROSS-ECOSYSTEM EXPOSURE',
+    description:
+      'Gain deep, practical expertise across AWS, Azure, Google Cloud, Oracle, PostgreSQL, and modern distributed data platforms.',
+  },
+  {
+    title: 'Engineering Depth Over Hype',
+    tagline: 'EVIDENCE-BASED PRACTICE',
+    description:
+      'Collaborate in an environment that values rigorous problem investigation, query internals, and verifiable system outcomes.',
+  },
+  {
+    title: 'Collaborative Technologist Culture',
+    tagline: 'DIRECT MENTORSHIP',
+    description:
+      'Engage directly with experienced architects and practice leaders committed to honest technical exchange and continuous technical growth.',
+  },
+];
+
+export const CAREER_ROLES_OPTIONS = [
+  'Senior Database Administrator (SQL Server / PostgreSQL / MySQL)',
+  'Cloud Data Architect (AWS / Azure / GCP)',
+  'Performance Tuning & Database Optimization Engineer',
+  'Cloud & FinOps Infrastructure Specialist',
+  'Data Engineering & Platform Specialist',
+  'Resilience, Disaster Recovery & High-Availability Engineer',
+  'Other / Open Technical Role',
+] as const;
+

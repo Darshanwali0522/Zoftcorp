@@ -233,10 +233,26 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               />
             </div>
 
+            {/* Excerpt Lead Summary */}
+            {post.excerpt && (
+              <div className="p-6 sm:p-7 rounded-2xl bg-slate-50/90 border-l-4 border-[#00B3FF] border-slate-200/90 shadow-2xs">
+                <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#00B3FF] block mb-2">
+                  ARTICLE SUMMARY
+                </span>
+                <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal">
+                  {post.excerpt}
+                </p>
+              </div>
+            )}
+
             {post.content ? (
               <div
-                className="prose prose-slate max-w-none text-slate-700 leading-relaxed font-sans text-base sm:text-lg"
-                dangerouslySetInnerHTML={{ __html: post.content }}
+                className="prose prose-slate max-w-none text-slate-700 leading-relaxed font-sans text-base sm:text-lg min-h-[140px]"
+                dangerouslySetInnerHTML={{
+                  __html: post.content.includes('<')
+                    ? post.content
+                    : `<p class="leading-relaxed text-slate-700 font-sans">${post.content}</p>`,
+                }}
               />
             ) : (
               <>

@@ -1,5 +1,6 @@
 async function test() {
-  const res = await fetch('http://localhost:3002/');
+  const port = process.env.PORT || 3000;
+  const res = await fetch(`http://localhost:${port}/`);
   console.log('Home status:', res.status);
   const html = await res.text();
 

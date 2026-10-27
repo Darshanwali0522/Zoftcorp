@@ -60,7 +60,7 @@ export const ContactForm: React.FC = () => {
               { label: "Cloud Migration & Architecture", value: "cloud" },
               { label: "Database Performance & Tuning", value: "database" },
               { label: "Cost Optimization Advisory", value: "cost" },
-              { label: "ZoftStudio Custom Systems", value: "studio" },
+              { label: "Enterprise Technology Architecture", value: "architecture" },
             ]}
           />
         </div>

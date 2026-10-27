@@ -8,6 +8,7 @@ import { DatabaseTechnologySection } from "@/components/sections/database-techno
 import { CaseStudiesSection } from "@/components/sections/case-studies/case-studies-section";
 import { FAQSection } from "@/components/sections/faq/faq-section";
 import { ContactSection } from "@/components/sections/contact/contact-section";
+import { getLatestInsights } from "@/lib/insights-aggregator";
 
 export const metadata: Metadata = {
   title: "ZOFT Corp | Enterprise Technology & Database Advisory",
@@ -32,7 +33,9 @@ export const metadata: Metadata = {
   },
 };
 
-export default function HomePage() {
+export default async function HomePage() {
+  const latestInsights = await getLatestInsights(3);
+
   return (
     <div className="w-full">
       <HomeHero />
@@ -40,7 +43,7 @@ export default function HomePage() {
       <ZoftcorpStandardSection />
       <ProblemToDecisionSection />
       <DatabaseTechnologySection />
-      <CaseStudiesSection />
+      <CaseStudiesSection items={latestInsights} />
       <FAQSection />
       <ContactSection />
     </div>

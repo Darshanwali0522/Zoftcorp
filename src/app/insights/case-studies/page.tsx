@@ -6,8 +6,7 @@ import {
   FileText,
   MessageSquare,
   BookOpen,
-  Video,
-  Users,
+  Calendar,
   Terminal,
   Compass,
 } from 'lucide-react';
@@ -15,6 +14,7 @@ import {
   CASE_STUDY_FRAMEWORK,
   CASE_STUDY_THEMES,
   BEYOND_TECH_PRINCIPLES,
+  CASE_STUDIES,
 } from '@/data/case-studies';
 
 export const metadata: Metadata = {
@@ -162,7 +162,7 @@ export default function CaseStudiesPage() {
         </div>
       </section>
 
-      {/* 3. CASE STUDY CONTENT AREA (SELECTED WORK - CONTENT READY) */}
+      {/* 3. CASE STUDY CONTENT AREA (SELECTED WORK) */}
       <section className="relative bg-white text-[#01153B] py-20 md:py-28 border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-12">
@@ -173,31 +173,87 @@ export default function CaseStudiesPage() {
             <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#01153B] font-sans">
               Selected Work
             </h2>
+            <p className="text-base text-slate-600 mt-2 font-sans leading-relaxed">
+              Verified ZOFT technical engagements covering architecture, database modernization, cloud optimization, and query performance.
+            </p>
           </div>
 
-          <div className="bg-slate-50/60 rounded-3xl p-8 sm:p-14 border border-slate-200/90 text-center max-w-3xl mx-auto space-y-6">
-            <div className="w-12 h-12 rounded-2xl bg-[#00B3FF]/10 text-[#00B3FF] flex items-center justify-center mx-auto border border-[#00B3FF]/20">
-              <FileText className="w-6 h-6" />
-            </div>
-
-            <h3 className="text-2xl sm:text-3xl font-bold text-[#01153B] font-sans tracking-tight">
-              Real Work. Real Context. Real Engineering.
-            </h3>
-
-            <p className="text-base text-slate-600 font-sans leading-relaxed max-w-xl mx-auto">
-              This space will showcase verified ZOFT case studies covering technology challenges,
-              technical approaches, and the engineering decisions behind them.
-            </p>
-
-            <div className="pt-4">
-              <Link
-                href="/insights"
-                className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl bg-[#01153B] hover:bg-[#031E4D] text-white font-semibold text-sm transition-all duration-200 shadow-md focus-visible:outline-2 focus-visible:outline-[#00B3FF]"
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {CASE_STUDIES.map((study) => (
+              <div
+                key={study.slug}
+                className="bg-slate-50/70 border border-slate-200/90 rounded-3xl p-7 sm:p-8 flex flex-col justify-between shadow-2xs hover:shadow-lg hover:border-[#00B3FF]/50 transition-all duration-300 group"
               >
-                <span>Explore Other Insights</span>
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
+                <div className="space-y-6">
+                  {/* Category & Badge */}
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#00B3FF] bg-[#00B3FF]/10 px-3 py-1 rounded-full border border-[#00B3FF]/20">
+                      {study.industry}
+                    </span>
+                    <span className="text-xs font-mono text-slate-400">ENGINEERING CASE</span>
+                  </div>
+
+                  {/* Title & Excerpt */}
+                  <div className="space-y-2">
+                    <h3 className="text-xl sm:text-2xl font-bold text-[#01153B] group-hover:text-[#00B3FF] transition-colors leading-snug">
+                      {study.title}
+                    </h3>
+                    <p className="text-sm text-slate-600 leading-relaxed font-sans">
+                      {study.excerpt}
+                    </p>
+                  </div>
+
+                  {/* Structured Details */}
+                  <div className="space-y-3 pt-4 border-t border-slate-200 text-xs font-sans">
+                    <div className="bg-white p-3.5 rounded-xl border border-slate-200/80 space-y-1">
+                      <span className="font-mono font-bold text-slate-500 uppercase tracking-wider block text-[10px]">
+                        The Challenge
+                      </span>
+                      <p className="text-slate-700 leading-relaxed">{study.challenge}</p>
+                    </div>
+
+                    <div className="bg-white p-3.5 rounded-xl border border-slate-200/80 space-y-1">
+                      <span className="font-mono font-bold text-[#00B3FF] uppercase tracking-wider block text-[10px]">
+                        Engineering Solution
+                      </span>
+                      <p className="text-slate-700 leading-relaxed">{study.solution}</p>
+                    </div>
+
+                    <div className="bg-emerald-50/60 p-3.5 rounded-xl border border-emerald-200/60 space-y-1">
+                      <span className="font-mono font-bold text-emerald-700 uppercase tracking-wider block text-[10px]">
+                        Validated Outcome
+                      </span>
+                      <p className="text-emerald-950 font-medium leading-relaxed">{study.outcome}</p>
+                    </div>
+                  </div>
+
+                  {/* Technologies */}
+                  {study.technologies && study.technologies.length > 0 && (
+                    <div className="flex flex-wrap gap-1.5 pt-2">
+                      {study.technologies.map((tech) => (
+                        <span
+                          key={tech}
+                          className="text-[11px] font-mono bg-white px-2.5 py-1 rounded-md border border-slate-200 text-slate-600"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                </div>
+
+                {/* Footer CTA */}
+                <div className="pt-6 mt-6 border-t border-slate-200 flex items-center justify-between">
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-[#01153B] hover:text-[#00B3FF] transition-colors"
+                  >
+                    <span>Discuss Similar Architecture</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -357,7 +413,7 @@ export default function CaseStudiesPage() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
             {/* BLOGS */}
             <div className="bg-white p-8 rounded-3xl border border-slate-200/90 shadow-sm flex flex-col justify-between space-y-6">
               <div className="space-y-4">
@@ -366,7 +422,7 @@ export default function CaseStudiesPage() {
                 </div>
                 <h3 className="text-2xl font-bold text-[#01153B] font-sans">BLOGS</h3>
                 <p className="text-sm text-slate-600 leading-relaxed font-sans">
-                  Technical perspectives and practical ideas.
+                  Technical perspectives and practical engineering thinking across databases and cloud systems.
                 </p>
               </div>
               <div className="pt-4 border-t border-slate-200">
@@ -380,45 +436,23 @@ export default function CaseStudiesPage() {
               </div>
             </div>
 
-            {/* WEBINAR */}
+            {/* EVENTS & MEETUPS */}
             <div className="bg-[#01153B] text-white p-8 rounded-3xl border border-slate-800 shadow-xl flex flex-col justify-between space-y-6">
               <div className="space-y-4">
                 <div className="w-10 h-10 rounded-xl bg-[#00B3FF]/10 text-[#00B3FF] flex items-center justify-center border border-[#00B3FF]/20">
-                  <Video className="w-5 h-5" />
+                  <Calendar className="w-5 h-5" />
                 </div>
-                <h3 className="text-2xl font-bold text-white font-sans">WEBINAR</h3>
+                <h3 className="text-2xl font-bold text-white font-sans">EVENTS &amp; MEETUPS</h3>
                 <p className="text-sm text-slate-300 leading-relaxed font-sans">
-                  Explore technical conversations and sessions.
+                  Technical webinars, architectural roundtables, and community engineering discussions.
                 </p>
               </div>
               <div className="pt-4 border-t border-slate-800">
                 <Link
-                  href="/insights/webinar"
+                  href="/insights/events"
                   className="inline-flex items-center gap-2 text-sm font-semibold text-[#00B3FF] hover:text-[#00B3FF]/80 transition-colors"
                 >
-                  <span>Explore Webinars</span>
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
-            </div>
-
-            {/* MEET UPS */}
-            <div className="bg-white p-8 rounded-3xl border border-slate-200/90 shadow-sm flex flex-col justify-between space-y-6">
-              <div className="space-y-4">
-                <div className="w-10 h-10 rounded-xl bg-[#FF6F00]/10 text-[#FF6F00] flex items-center justify-center border border-[#FF6F00]/20">
-                  <Users className="w-5 h-5" />
-                </div>
-                <h3 className="text-2xl font-bold text-[#01153B] font-sans">MEET UPS</h3>
-                <p className="text-sm text-slate-600 leading-relaxed font-sans">
-                  Discover technology conversations and community opportunities.
-                </p>
-              </div>
-              <div className="pt-4 border-t border-slate-200">
-                <Link
-                  href="/insights/meet-ups"
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-[#01153B] hover:text-[#00B3FF] transition-colors"
-                >
-                  <span>Explore Meet ups</span>
+                  <span>Explore Events &amp; Meetups</span>
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>

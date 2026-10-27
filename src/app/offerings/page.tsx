@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { ArrowRight, Layers, Cpu, Database, Zap, LineChart, Globe, CheckCircle2, ShieldCheck } from 'lucide-react';
+import { ArrowRight, Layers, Database, Zap, LineChart, Globe, CheckCircle2, ShieldCheck } from 'lucide-react';
 import {
   OFFERINGS_DATA,
   HOW_WE_DELIVER_STAGES,
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Our Offerings | ZOFT Corp',
     description:
-      "Explore ZOFT's technology offerings across vector databases, database migrations, performance tuning, managed DBA services, and data engineering.",
+      "Explore ZOFT's technology offerings across database migrations, performance tuning, managed DBA services, and data engineering.",
     url: 'https://zoftcorp.com/offerings',
     siteName: 'ZOFT Corp',
     type: 'website',
@@ -26,12 +26,11 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Our Offerings | ZOFT Corp',
     description:
-      "Explore ZOFT's technology offerings across vector databases, database migrations, performance tuning, managed DBA services, and data engineering.",
+      "Explore ZOFT's technology offerings across database migrations, performance tuning, managed DBA services, and data engineering.",
   },
 };
 
 const OFFERING_ICONS: Record<string, React.ReactNode> = {
-  'vector-db-integration': <Cpu className="w-5 h-5 text-[#00B3FF]" />,
   'database-migrations-and-transformations': <Layers className="w-5 h-5 text-[#00B3FF]" />,
   'performance-tuning-delivery': <Zap className="w-5 h-5 text-[#00B3FF]" />,
   'managed-dba-services': <Database className="w-5 h-5 text-[#00B3FF]" />,
