@@ -13,6 +13,8 @@ interface FormState {
   firstName: string;
   lastName: string;
   workEmail: string;
+  phone: string;
+  companyName: string;
   topic: string;
   message: string;
   referralSource: string;
@@ -30,6 +32,8 @@ export const ContactForm: React.FC<ContactFormProps> = ({ selectedTopic, onTopic
     firstName: '',
     lastName: '',
     workEmail: '',
+    phone: '',
+    companyName: '',
     topic: selectedTopic || '',
     message: '',
     referralSource: '',
@@ -94,6 +98,8 @@ export const ContactForm: React.FC<ContactFormProps> = ({ selectedTopic, onTopic
           firstName: formData.firstName.trim(),
           lastName: formData.lastName.trim(),
           workEmail: formData.workEmail.trim(),
+          phone: formData.phone.trim() || undefined,
+          companyName: formData.companyName.trim() || undefined,
           topic: formData.topic.trim(),
           message: formData.message.trim() || undefined,
           referralSource: formData.referralSource.trim() || undefined,
@@ -125,6 +131,8 @@ export const ContactForm: React.FC<ContactFormProps> = ({ selectedTopic, onTopic
       firstName: '',
       lastName: '',
       workEmail: '',
+      phone: '',
+      companyName: '',
       topic: '',
       message: '',
       referralSource: '',
@@ -158,7 +166,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ selectedTopic, onTopic
           <p className="text-slate-300 text-sm max-w-md mx-auto leading-relaxed">
             Your request details regarding{' '}
             <span className="text-[#00B3FF] font-semibold">{formData.topic}</span> have been received. Our advisory engineering team will review your context and respond to{' '}
-            <span className="text-white font-medium">{formData.workEmail}</span>.
+            <span className="text-white font-medium">{formData.workEmail}</span>. A confirmation email has also been dispatched to your inbox.
           </p>
 
           <div className="pt-4">
@@ -221,7 +229,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ selectedTopic, onTopic
                 }}
                 aria-invalid={!!errors.firstName}
                 aria-describedby={errors.firstName ? 'firstName-error' : undefined}
-                className={`w-full bg-[#031E4D] border rounded-lg px-4 py-3 text-sm text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#00B3FF] focus:border-transparent transition-all ${
+                className={`w-full bg-[#031E4D] border rounded-lg px-4 py-3 text-base sm:text-sm text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#00B3FF] focus:border-transparent transition-all ${
                   errors.firstName ? 'border-red-500/80 bg-red-950/10' : 'border-white/15'
                 }`}
               />
@@ -250,7 +258,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ selectedTopic, onTopic
                 }}
                 aria-invalid={!!errors.lastName}
                 aria-describedby={errors.lastName ? 'lastName-error' : undefined}
-                className={`w-full bg-[#031E4D] border rounded-lg px-4 py-3 text-sm text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#00B3FF] focus:border-transparent transition-all ${
+                className={`w-full bg-[#031E4D] border rounded-lg px-4 py-3 text-base sm:text-sm text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#00B3FF] focus:border-transparent transition-all ${
                   errors.lastName ? 'border-red-500/80 bg-red-950/10' : 'border-white/15'
                 }`}
               />
@@ -262,7 +270,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ selectedTopic, onTopic
             </div>
           </div>
 
-          {/* Row 2: Work Email & Topic Selection */}
+          {/* Row 2: Work Email & Phone Number */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div className="space-y-2">
               <label htmlFor="workEmail" className="block text-xs font-mono font-semibold uppercase tracking-wider text-slate-300">
@@ -282,7 +290,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ selectedTopic, onTopic
                 }}
                 aria-invalid={!!errors.workEmail}
                 aria-describedby={errors.workEmail ? 'workEmail-error' : undefined}
-                className={`w-full bg-[#031E4D] border rounded-lg px-4 py-3 text-sm text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#00B3FF] focus:border-transparent transition-all ${
+                className={`w-full bg-[#031E4D] border rounded-lg px-4 py-3 text-base sm:text-sm text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#00B3FF] focus:border-transparent transition-all ${
                   errors.workEmail ? 'border-red-500/80 bg-red-950/10' : 'border-white/15'
                 }`}
               />
@@ -291,6 +299,41 @@ export const ContactForm: React.FC<ContactFormProps> = ({ selectedTopic, onTopic
                   {errors.workEmail}
                 </p>
               )}
+            </div>
+
+            <div className="space-y-2">
+              <label htmlFor="phone" className="block text-xs font-mono font-semibold uppercase tracking-wider text-slate-300">
+                Phone Number <span className="text-slate-400 font-normal lowercase">(optional)</span>
+              </label>
+              <input
+                id="phone"
+                name="phone"
+                type="tel"
+                autoComplete="tel"
+                placeholder="+91 98765 43210"
+                value={formData.phone}
+                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                className="w-full bg-[#031E4D] border border-white/15 rounded-lg px-4 py-3 text-base sm:text-sm text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#00B3FF] focus:border-transparent transition-all"
+              />
+            </div>
+          </div>
+
+          {/* Row 3: Company Name & Topic Selection */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div className="space-y-2">
+              <label htmlFor="companyName" className="block text-xs font-mono font-semibold uppercase tracking-wider text-slate-300">
+                Company Name <span className="text-slate-400 font-normal lowercase">(optional)</span>
+              </label>
+              <input
+                id="companyName"
+                name="companyName"
+                type="text"
+                autoComplete="organization"
+                placeholder="Enterprise Corp"
+                value={formData.companyName}
+                onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
+                className="w-full bg-[#031E4D] border border-white/15 rounded-lg px-4 py-3 text-base sm:text-sm text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#00B3FF] focus:border-transparent transition-all"
+              />
             </div>
 
             <div className="space-y-2">
@@ -308,7 +351,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ selectedTopic, onTopic
                 }}
                 aria-invalid={!!errors.topic}
                 aria-describedby={errors.topic ? 'topic-error' : undefined}
-                className={`w-full bg-[#031E4D] border rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:ring-2 focus:ring-[#00B3FF] focus:border-transparent transition-all ${
+                className={`w-full bg-[#031E4D] border rounded-lg px-4 py-3 text-base sm:text-sm text-white focus:outline-none focus:ring-2 focus:ring-[#00B3FF] focus:border-transparent transition-all ${
                   errors.topic ? 'border-red-500/80 bg-red-950/10' : 'border-white/15'
                 }`}
               >
@@ -326,7 +369,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ selectedTopic, onTopic
             </div>
           </div>
 
-          {/* Row 3: Message Textarea */}
+          {/* Row 4: Message Textarea */}
           <div className="space-y-2">
             <label htmlFor="message" className="block text-xs font-mono font-semibold uppercase tracking-wider text-slate-300">
               What can we help you with?
@@ -338,11 +381,11 @@ export const ContactForm: React.FC<ContactFormProps> = ({ selectedTopic, onTopic
               placeholder="Tell us about your infrastructure goals, database engines, cloud challenges, or timeline..."
               value={formData.message}
               onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-              className="w-full bg-[#031E4D] border border-white/15 rounded-lg px-4 py-3 text-sm text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#00B3FF] focus:border-transparent transition-all resize-y"
+              className="w-full bg-[#031E4D] border border-white/15 rounded-lg px-4 py-3 text-base sm:text-sm text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#00B3FF] focus:border-transparent transition-all resize-y"
             />
           </div>
 
-          {/* Row 4: Referral Source */}
+          {/* Row 5: Referral Source */}
           <div className="space-y-2">
             <label htmlFor="referralSource" className="block text-xs font-mono font-semibold uppercase tracking-wider text-slate-300">
               How did you hear about us?
@@ -352,7 +395,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ selectedTopic, onTopic
               name="referralSource"
               value={formData.referralSource}
               onChange={(e) => setFormData({ ...formData, referralSource: e.target.value })}
-              className="w-full bg-[#031E4D] border border-white/15 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:ring-2 focus:ring-[#00B3FF] focus:border-transparent transition-all"
+              className="w-full bg-[#031E4D] border border-white/15 rounded-lg px-4 py-3 text-base sm:text-sm text-white focus:outline-none focus:ring-2 focus:ring-[#00B3FF] focus:border-transparent transition-all"
             >
               {CONTACT_DISCOVERY_OPTIONS.map((opt) => (
                 <option key={opt.id} value={opt.label} className="bg-[#01153B] text-white">

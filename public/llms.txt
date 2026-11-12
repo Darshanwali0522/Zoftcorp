@@ -1,0 +1,32 @@
+# Zoftcorp
+
+> Enterprise Technology & Database Advisory
+
+Zoftcorp delivers enterprise-grade cloud architecture, high-availability database performance tuning, statutory compliance (DPDP, SOC2), and specialized database management advisory with boutique agility.
+
+## Core Capabilities & Services
+
+- [Cloud & Data FinOps](https://zoftcorp.com/consulting/cloud-finops): Deliver 20–30% measurable reduction in cloud compute, storage, and database licensing spend.
+- [Performance Tuning Delivery](https://zoftcorp.com/offerings/performance-tuning-delivery): High-concurrency database engine optimization, query execution plan tuning, index matrix design, and latency minimization.
+- [Managed DBA Services](https://zoftcorp.com/offerings/managed-dba-services): Proactive 24/7 database operations, telemetry, SLA-backed maintenance, and disaster recovery.
+- [Database Migrations & Transformations](https://zoftcorp.com/offerings/database-migrations-and-transformations): Zero-downtime cross-platform migrations across AWS, Azure, Google Cloud, and Oracle.
+- [Data Engineering & Analytics](https://zoftcorp.com/offerings/data-engineering-and-analytics): Scalable ETL/ELT pipelines, real-time analytics, and data lakehouse architecture.
+- [Resilience and Continuity](https://zoftcorp.com/consulting/resilience-compliance): High-availability architectures, zero-data-loss failover protocols, and disaster recovery validation.
+- [DPDP Compliance & Governance](https://zoftcorp.com/consulting/compliance-governance): Statutory DPDP Act compliance assessment, data flow governance, and readiness roadmap.
+
+## Technology Ecosystems
+
+- [Partnerships Overview](https://zoftcorp.com/about-us/partnerships): Enterprise cloud and database alliance portfolio.
+- [AWS Technology Ecosystem](https://zoftcorp.com/about-us/partnerships/aws): Amazon Aurora, RDS (PostgreSQL, MySQL, SQL Server), DynamoDB, Redshift.
+- [Microsoft Azure Ecosystem](https://zoftcorp.com/about-us/partnerships/azure): Azure SQL Database, Managed Instances, Cosmos DB, Synapse Analytics.
+- [Google Cloud Ecosystem](https://zoftcorp.com/about-us/partnerships/gcp): Cloud SQL, AlloyDB, Spanner, BigQuery.
+- [Oracle Technology Ecosystem](https://zoftcorp.com/about-us/partnerships/oracle): Oracle Database EE/SE, Exadata Cloud Service, Autonomous Database, RAC.
+
+## Insights & Company
+
+- [Case Studies, White Papers & Technical Blogs](https://zoftcorp.com/insights/blogs): Verified engineering case studies, white papers, real-world outcomes, T-SQL optimization, cluster failover setups, and performance diagnostics.
+- [Events & Meetups](https://zoftcorp.com/insights/events): Technical webinars, architecture roundtables, and engineering gatherings.
+- [Careers at Zoftcorp](https://zoftcorp.com/about-us/career): Engineering career opportunities, Core Values, Perks and Benefits, and open candidate application form.
+- [Leadership](https://zoftcorp.com/about-us/leadership): Practice leaders and technical advisors.
+- [Vision & Mission](https://zoftcorp.com/about-us/vision-mission): The engineering ethos of Zoftcorp.
+- [Contact & Expert Consultation](https://zoftcorp.com/contact): Direct advisory engagement and inquiries.

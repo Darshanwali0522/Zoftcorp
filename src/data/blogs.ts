@@ -31,21 +31,21 @@ export const BLOG_CATEGORIES = [
 export const BLOG_POSTS: BlogPost[] = [
   {
     slug: 'how-zoftcorp-ease-your-failover-cluster-installation-with-slipstream',
-    title: 'How ZoftCorp Ease Your Failover Cluster Installation with Slipstream',
+    title: 'How Zoftcorp Ease Your Failover Cluster Installation with Slipstream',
     excerpt:
       'Home What is Slipstream? Slipstream means embedded installation of SQL server with the available service packs, cumulative updates or Hotfixes. This technology is introduced in SQL Server 2008 and it saves the time of DBA...',
     category: 'Database Administration',
     categorySlug: 'database-administration',
     author: {
       name: 'admin',
-      role: 'ZoftCorp Engineering Team',
+      role: 'Zoftcorp Engineering Team',
     },
     publishedAt: '2024-02-12',
     formattedDate: 'Feb 12, 2024',
     readingTime: '3 min read',
     image: '/images/blogs/failover-cluster-slipstream.jpg',
     featured: true,
-    metaDescription: 'What is Slipstream? Learn how ZoftCorp eases Failover Cluster Slipstream Installation with step-by-step commands and procedures.',
+    metaDescription: 'What is Slipstream? Learn how Zoftcorp eases Failover Cluster Slipstream Installation with step-by-step commands and procedures.',
     originalUrl: 'https://zoftcorp.com/2024/02/12/how-zoftcorp-ease-your-failover-cluster-installation-with-slipstream/',
     tags: ['Failover Cluster', 'Slipstream', 'SQL Server 2016', 'DBA', 'High Availability'],
   },
@@ -58,7 +58,7 @@ export const BLOG_POSTS: BlogPost[] = [
     categorySlug: 'sql-server',
     author: {
       name: 'admin',
-      role: 'ZoftCorp Engineering Team',
+      role: 'Zoftcorp Engineering Team',
     },
     publishedAt: '2024-02-12',
     formattedDate: 'Feb 12, 2024',
@@ -78,7 +78,7 @@ export const BLOG_POSTS: BlogPost[] = [
     categorySlug: 'cloud-migrations',
     author: {
       name: 'admin',
-      role: 'ZoftCorp Engineering Team',
+      role: 'Zoftcorp Engineering Team',
     },
     publishedAt: '2024-02-12',
     formattedDate: 'Feb 12, 2024',

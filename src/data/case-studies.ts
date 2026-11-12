@@ -113,6 +113,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     solution: 'Understand how the solution was implemented or improved with high availability clustering and zero-downtime evolution.',
     outcome: 'Structural operational consistency, predictable query telemetry, and reduced downtime risk.',
     technologies: ['SQL Server', 'PostgreSQL', 'MySQL'],
+    image: '/images/consulting/cloud-database-strategy.jpg',
     featured: true,
   },
   {
@@ -125,6 +126,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     solution: 'Rigorous FinOps telemetry analysis, instance right-sizing, and automated cloud governance policies.',
     outcome: 'Controlled infrastructure spend with enhanced multi-cloud resilience and predictable cloud operations.',
     technologies: ['AWS', 'Azure', 'Google Cloud'],
+    image: '/images/consulting/cloud-finops.jpg',
     featured: true,
   },
   {
@@ -137,6 +139,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     solution: 'Query execution plan analysis, buffer pool parameter optimization, and lock contention elimination.',
     outcome: 'Eliminated query bottlenecks, reduced latency spikes, and validated production baselines.',
     technologies: ['SQL Tuning', 'Buffer Pool', 'Telemetry Baselines'],
+    image: '/images/consulting/performance-audits.jpg',
     featured: true,
   },
 ];

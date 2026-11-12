@@ -22,25 +22,25 @@ import { getPublishedEvents } from '@/lib/supabase/events-service';
 export const instant = false;
 
 export const metadata: Metadata = {
-  title: 'Events & Meetups | Insights | ZOFT Corp',
+  title: 'Events & Meetups | Insights | Zoftcorp',
   description:
-    'Explore ZOFT technical webinars, architecture roundtables, community meetups, and engineering discussions.',
+    'Explore Zoftcorp technical webinars, architecture roundtables, community meetups, and engineering discussions.',
   alternates: {
     canonical: 'https://zoftcorp.com/insights/events',
   },
   openGraph: {
-    title: 'Events & Meetups | Insights | ZOFT Corp',
+    title: 'Events & Meetups | Insights | Zoftcorp',
     description:
-      'Explore ZOFT technical webinars, architecture roundtables, community meetups, and engineering discussions.',
+      'Explore Zoftcorp technical webinars, architecture roundtables, community meetups, and engineering discussions.',
     url: 'https://zoftcorp.com/insights/events',
-    siteName: 'ZOFT Corp',
+    siteName: 'Zoftcorp',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Events & Meetups | Insights | ZOFT Corp',
+    title: 'Events & Meetups | Insights | Zoftcorp',
     description:
-      'Explore ZOFT technical webinars, architecture roundtables, community meetups, and engineering discussions.',
+      'Explore Zoftcorp technical webinars, architecture roundtables, community meetups, and engineering discussions.',
   },
 };
 
@@ -261,7 +261,7 @@ export default async function EventsAndMeetupsPage() {
             </div>
           ) : (
             /* Clean, dignified, intentional empty state ready for future publishing */
-            <div className="bg-white rounded-3xl p-8 sm:p-14 border border-slate-200/90 text-center max-w-3xl mx-auto space-y-6 shadow-sm">
+            <div className="bg-white rounded-3xl p-6 sm:p-14 border border-slate-200/90 text-center max-w-3xl mx-auto space-y-6 shadow-sm">
               <div className="w-14 h-14 rounded-2xl bg-[#00B3FF]/10 text-[#0066CC] flex items-center justify-center mx-auto border border-[#00B3FF]/20">
                 <Calendar className="w-7 h-7" />
               </div>
@@ -328,7 +328,7 @@ export default async function EventsAndMeetupsPage() {
             {EVENT_FORMATS.map((format) => (
               <div
                 key={format.id}
-                className="bg-slate-50/80 rounded-2xl border border-slate-200/90 p-8 space-y-5 hover:border-[#00B3FF]/40 transition-colors flex flex-col justify-between"
+                className="bg-slate-50/80 rounded-2xl border border-slate-200/90 p-6 sm:p-8 space-y-5 hover:border-[#00B3FF]/40 transition-colors flex flex-col justify-between"
               >
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
@@ -350,7 +350,7 @@ export default async function EventsAndMeetupsPage() {
                 </div>
 
                 <div className="pt-4 border-t border-slate-200/70 text-xs font-mono text-slate-500">
-                  PRACTICAL PERSPECTIVES // ZOFT CORP
+                  PRACTICAL PERSPECTIVES // ZOFTCORP
                 </div>
               </div>
             ))}
@@ -399,7 +399,7 @@ export default async function EventsAndMeetupsPage() {
               Companion Insights &amp; Real-World Engagements
             </h2>
             <p className="text-sm text-slate-600 mt-1 font-sans">
-              Deepen your understanding with our written engineering perspectives and production case studies.
+              Deepen your understanding with our written engineering perspectives, white papers, and production case studies.
             </p>
           </div>
 
@@ -428,16 +428,16 @@ export default async function EventsAndMeetupsPage() {
                 <div className="w-10 h-10 rounded-xl bg-[#00B3FF]/10 text-[#00B3FF] flex items-center justify-center border border-[#00B3FF]/20">
                   <FileText className="w-5 h-5" />
                 </div>
-                <h3 className="text-xl font-bold text-white font-sans">Case Studies</h3>
+                <h3 className="text-xl font-bold text-white font-sans">Case Studies and White Papers</h3>
                 <p className="text-xs text-slate-300 font-sans leading-relaxed">
-                  Real-world architecture challenges, measurable outcomes, and verified engineering transformations.
+                  Real-world architecture challenges, measurable outcomes, white papers, and verified engineering transformations.
                 </p>
               </div>
               <Link
-                href="/insights/case-studies"
+                href="/insights/blogs#case-studies"
                 className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#00B3FF] hover:text-[#33C2FF]"
               >
-                <span>Explore Case Studies</span>
+                <span>Explore Case Studies and White Papers</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>
@@ -474,7 +474,7 @@ export default async function EventsAndMeetupsPage() {
               href="/contact"
               className="inline-flex items-center justify-center px-7 py-3.5 rounded-lg bg-[#FF6F00] hover:bg-[#e66400] text-white font-semibold text-sm transition-all duration-200 shadow-md shadow-[#FF6F00]/25 focus-visible:outline-2 focus-visible:outline-[#FF6F00]"
             >
-              Talk to ZOFT
+              Talk to Zoftcorp
             </Link>
             <Link
               href="/offerings"

@@ -4,23 +4,23 @@ import { getPublishedPosts, getBlogCategories } from '@/lib/supabase/blog-servic
 export const instant = false;
 
 export const metadata: Metadata = {
-  title: 'Expert Knowledge. Real-World Solutions. | Blogs | ZOFT Corp',
+  title: 'Expert Knowledge. Real-World Solutions. | Blogs | Zoftcorp',
   description:
     'Explore our latest blogs, technical guides, and expert insights on databases, cloud, performance tuning, and modern data platforms.',
   alternates: {
     canonical: 'https://zoftcorp.com/blog-2/',
   },
   openGraph: {
-    title: 'Expert Knowledge. Real-World Solutions. | Blogs | ZOFT Corp',
+    title: 'Expert Knowledge. Real-World Solutions. | Blogs | Zoftcorp',
     description:
       'Explore our latest blogs, technical guides, and expert insights on databases, cloud, performance tuning, and modern data platforms.',
     url: 'https://zoftcorp.com/blog-2/',
-    siteName: 'ZOFT Corp',
+    siteName: 'Zoftcorp',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Expert Knowledge. Real-World Solutions. | Blogs | ZOFT Corp',
+    title: 'Expert Knowledge. Real-World Solutions. | Blogs | Zoftcorp',
     description:
       'Explore our latest blogs, technical guides, and expert insights on databases, cloud, performance tuning, and modern data platforms.',
   },

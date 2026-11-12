@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-require-imports */
 const http = require('http');
 
-const PORT = 3002;
+const PORT = process.env.PORT || 3000;
 const BASE_URL = `http://localhost:${PORT}`;
 
 function requestApi(path, method, body, headers = {}) {

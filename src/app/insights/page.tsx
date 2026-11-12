@@ -4,25 +4,25 @@ import { ArrowRight, BookOpen, MessageSquare, Sparkles, FileText, Calendar } fro
 import { INSIGHT_CATEGORIES } from '@/data/insights';
 
 export const metadata: Metadata = {
-  title: 'Insights | ZOFT Corp',
+  title: 'Insights | Zoftcorp',
   description:
-    'Explore ZOFT perspectives on cloud, databases, data, performance, architecture, and modern technology.',
+    'Explore Zoftcorp perspectives on cloud, databases, data, performance, architecture, and modern technology.',
   alternates: {
     canonical: 'https://zoftcorp.com/insights',
   },
   openGraph: {
-    title: 'Insights | ZOFT Corp',
+    title: 'Insights | Zoftcorp',
     description:
-      'Explore ZOFT perspectives on cloud, databases, data, performance, architecture, and modern technology.',
+      'Explore Zoftcorp perspectives on cloud, databases, data, performance, architecture, and modern technology.',
     url: 'https://zoftcorp.com/insights',
-    siteName: 'ZOFT Corp',
+    siteName: 'Zoftcorp',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Insights | ZOFT Corp',
+    title: 'Insights | Zoftcorp',
     description:
-      'Explore ZOFT perspectives on cloud, databases, data, performance, architecture, and modern technology.',
+      'Explore Zoftcorp perspectives on cloud, databases, data, performance, architecture, and modern technology.',
   },
 };
 
@@ -69,7 +69,7 @@ export default function InsightsOverviewPage() {
                   <span className="font-mono text-xs font-bold text-[#00B3FF] uppercase tracking-widest">
                     EXPLORE SECTIONS
                   </span>
-                  <span className="text-[10px] font-mono text-slate-400">4 CATEGORIES</span>
+                  <span className="text-[10px] font-mono text-slate-400">2 CATEGORIES</span>
                 </div>
 
                 <div className="divide-y divide-slate-800/80">
@@ -120,7 +120,7 @@ export default function InsightsOverviewPage() {
                 together in the real world.
               </p>
               <p className="text-sm text-slate-500 font-mono">
-                ENGINEERING PERSPECTIVES // ZOFT CORP
+                ENGINEERING PERSPECTIVES // ZOFTCORP
               </p>
             </div>
           </div>
@@ -188,7 +188,7 @@ export default function InsightsOverviewPage() {
                 Featured Perspectives
               </h2>
               <p className="text-base text-slate-600 font-sans leading-relaxed">
-                Explore the latest perspectives from ZOFT across technology, architecture, data, and
+                Explore the latest perspectives from Zoftcorp across technology, architecture, data, and
                 engineering.
               </p>
             </div>
@@ -218,16 +218,16 @@ export default function InsightsOverviewPage() {
                 Technology Is Best Understood Through Real Problems.
               </h2>
               <p className="text-base sm:text-lg text-slate-300 font-sans leading-relaxed max-w-2xl">
-                Case studies provide context around the challenges, technical considerations, and
+                Case studies and white papers provide context around the challenges, technical considerations, and
                 approaches involved in real-world technology work.
               </p>
             </div>
             <div className="lg:col-span-4 flex lg:justify-end">
               <Link
-                href="/insights/case-studies"
+                href="/insights/blogs#case-studies"
                 className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl bg-[#FF6F00] hover:bg-[#e66400] text-white font-semibold text-sm transition-all duration-200 shadow-lg shadow-[#FF6F00]/20 focus-visible:outline-2 focus-visible:outline-[#00B3FF]"
               >
-                <span>Explore Case Studies</span>
+                <span>Explore Case Studies and White Papers</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
@@ -336,7 +336,7 @@ export default function InsightsOverviewPage() {
           </h2>
 
           <p className="text-base sm:text-lg text-slate-300 leading-relaxed font-sans max-w-2xl mx-auto">
-            Explore ZOFT&apos;s perspectives across technology, architecture, data, and engineering.
+            Explore Zoftcorp&apos;s perspectives across technology, architecture, data, and engineering.
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-5 pt-4">
@@ -350,7 +350,7 @@ export default function InsightsOverviewPage() {
               href="/contact"
               className="inline-flex items-center gap-2 px-6 py-4 rounded-lg text-base font-semibold text-slate-300 hover:text-white hover:bg-white/5 transition-all duration-200 border border-slate-800 focus-visible:outline-2 focus-visible:outline-[#00B3FF]"
             >
-              <span>Talk to ZOFT</span>
+              <span>Talk to Zoftcorp</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>

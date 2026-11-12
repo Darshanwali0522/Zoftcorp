@@ -19,7 +19,7 @@ export interface VerifiedTechEngine {
 export const PARTNERSHIPS_HERO = {
   eyebrow: 'PARTNERSHIPS',
   h1: 'Technology Ecosystems. Connected by Expertise.',
-  copy: 'ZOFT works across leading cloud and technology ecosystems, helping organizations navigate architecture, data, databases, engineering, and cloud environments with practical technical expertise.',
+  copy: 'Zoftcorp works across leading cloud and technology ecosystems, helping organizations navigate architecture, data, databases, engineering, and cloud environments with practical technical expertise.',
 };
 
 export const PARTNERS: PartnerEcosystem[] = [
@@ -28,7 +28,7 @@ export const PARTNERS: PartnerEcosystem[] = [
     number: '01',
     name: 'AWS',
     shortName: 'AWS',
-    description: "ZOFT's work across AWS environments.",
+    description: "Zoftcorp's work across AWS environments.",
     details:
       'Designing, modernizing, and optimizing AWS cloud architecture, database workloads, data engineering pipelines, and operational resilience.',
     logoPath: '/platforms/aws.svg',
@@ -40,7 +40,7 @@ export const PARTNERS: PartnerEcosystem[] = [
     number: '02',
     name: 'Microsoft Azure',
     shortName: 'Azure',
-    description: "ZOFT's work across Microsoft Azure environments.",
+    description: "Zoftcorp's work across Microsoft Azure environments.",
     details:
       'Architecting and managing enterprise Microsoft Azure environments, SQL Server workloads, data platforms, and cloud infrastructure optimization.',
     logoPath: '/platforms/azure.svg',
@@ -52,7 +52,7 @@ export const PARTNERS: PartnerEcosystem[] = [
     number: '03',
     name: 'Google Cloud',
     shortName: 'Google Cloud',
-    description: "ZOFT's work across Google Cloud environments.",
+    description: "Zoftcorp's work across Google Cloud environments.",
     details:
       'Leveraging Google Cloud infrastructure for analytical workloads, vector database integration, modern data pipelines, and scalable cloud services.',
     logoPath: '/platforms/gcp.svg',
@@ -64,7 +64,7 @@ export const PARTNERS: PartnerEcosystem[] = [
     number: '04',
     name: 'Oracle',
     shortName: 'Oracle',
-    description: "ZOFT's work across Oracle environments.",
+    description: "Zoftcorp's work across Oracle environments.",
     details:
       'Deep technical advisory, database administration, high-availability architecture, and performance tuning across enterprise Oracle environments.',
     logoPath: '/platforms/oracle.svg',
@@ -90,3 +90,12 @@ export const PARTNERSHIP_ECOSYSTEM_AREAS = [
   'ARCHITECTURE',
   'ENGINEERING',
 ];
+
+export const PARTNERSHIP_TYPES = [
+  'Cloud Reseller & Co-Sell',
+  'System Integrator / Solution Provider',
+  'Technology OEM / ISV Ecosystem',
+  'Consulting & Advisory Network',
+  'Database Technology Partner',
+  'Other',
+] as const;

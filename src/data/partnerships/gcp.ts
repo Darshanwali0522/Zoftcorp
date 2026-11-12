@@ -16,7 +16,7 @@ export interface RelatedLinkItem {
 export const GCP_PARTNERSHIP_HERO = {
   eyebrow: 'GOOGLE CLOUD',
   h1: 'Cloud and Data Architecture With Google Cloud.',
-  copy: 'ZOFT\'s work across Google Cloud environments brings together cloud architecture, databases, data, performance, and engineering considerations to help organizations make practical technology decisions.',
+  copy: 'Zoftcorp\'s work across Google Cloud environments brings together cloud architecture, databases, data, performance, and engineering considerations to help organizations make practical technology decisions.',
   logoPath: '/platforms/gcp.svg',
 };
 

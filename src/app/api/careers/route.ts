@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import crypto from 'crypto';
 import { getSupabaseServerClient } from '@/lib/supabase/server';
+import { sendCareerApplicationEmails } from '@/lib/email/mailer';
 
 const EMAIL_REGEX = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
 const MAX_FILE_SIZE_BYTES = 5 * 1024 * 1024; // 5 MB
@@ -258,7 +259,32 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  // 11. Generic success confirmation
+  // 11. Trigger automated dual email notifications (Admin alert + Candidate acknowledgement)
+  // Per requirements:
+  // - Triggered only after successful database insertion
+  // - Email delivery failure must not undo a successfully saved submission
+  // - Do not attach uploaded resumes; include relevant application information instead
+  try {
+    const emailResult = await sendCareerApplicationEmails({
+      fullName,
+      email,
+      phone: phone || null,
+      role,
+      resumeStoragePath: storedResumePath,
+      originalFilename: file.name,
+      fileSizeBytes: file.size,
+      notes: notes || null,
+      submittedAt: new Date(),
+    });
+
+    if (!emailResult.success && !emailResult.skipped) {
+      console.warn('[API /api/careers] Automated email delivery had warnings:', emailResult.error);
+    }
+  } catch (emailErr) {
+    console.error('[API /api/careers] Unexpected error while dispatching career application emails:', emailErr);
+  }
+
+  // 12. Generic success confirmation
   return NextResponse.json(
     {
       success: true,

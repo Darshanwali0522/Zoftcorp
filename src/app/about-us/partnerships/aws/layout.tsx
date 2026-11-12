@@ -2,23 +2,23 @@ import { Metadata } from 'next';
 import { BreadcrumbJsonLd, ServiceJsonLd } from '@/components/seo/json-ld';
 
 export const metadata: Metadata = {
-  title: 'AWS Cloud Consulting Services | ZOFT Corp',
+  title: 'AWS Cloud Consulting Services | Zoftcorp',
   description:
     'Accelerate your business with secure, scalable, and cost-efficient cloud solutions on AWS. From strategy to deployment and optimization, we help you unlock the full potential of the AWS cloud.',
   alternates: {
     canonical: 'https://zoftcorp.com/about-us/partnerships/aws',
   },
   openGraph: {
-    title: 'AWS Cloud Consulting Services | ZOFT Corp',
+    title: 'AWS Cloud Consulting Services | Zoftcorp',
     description:
       'Accelerate your business with secure, scalable, and cost-efficient cloud solutions on AWS. From strategy to deployment and optimization, we help you unlock the full potential of the AWS cloud.',
     url: 'https://zoftcorp.com/about-us/partnerships/aws',
-    siteName: 'ZOFT Corp',
+    siteName: 'Zoftcorp',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'AWS Cloud Consulting Services | ZOFT Corp',
+    title: 'AWS Cloud Consulting Services | Zoftcorp',
     description:
       'Accelerate your business with secure, scalable, and cost-efficient cloud solutions on AWS. From strategy to deployment and optimization, we help you unlock the full potential of the AWS cloud.',
   },

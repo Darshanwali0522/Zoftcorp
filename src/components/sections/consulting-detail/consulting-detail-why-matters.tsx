@@ -10,7 +10,7 @@ export function ConsultingDetailWhyMatters({ capability }: Props) {
   const calloutTitle = capability.whyMatters.calloutTitle || 'Pragmatic Engineering Over Hype';
   const calloutCopy =
     capability.whyMatters.calloutCopy ||
-    `ZOFT approaches ${capability.name.toLowerCase()} by grounding technology decisions in operational realities rather than architectural speculation. Technical guidance is driven by:`;
+    `Zoftcorp approaches ${capability.name.toLowerCase()} by grounding technology decisions in operational realities rather than architectural speculation. Technical guidance is driven by:`;
 
   return (
     <section className="relative bg-white text-[#01153B] py-20 md:py-28 border-b border-slate-200/90 overflow-hidden">
@@ -59,7 +59,7 @@ export function ConsultingDetailWhyMatters({ capability }: Props) {
                   ADVISORY PRINCIPLE
                 </span>
                 <span className="text-[10px] font-mono text-slate-400 bg-white/5 px-2 py-0.5 rounded">
-                  ZOFT METHOD
+                  ZOFTCORP METHOD
                 </span>
               </div>
 

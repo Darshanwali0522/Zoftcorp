@@ -88,9 +88,9 @@ export const StandardDiagram: React.FC = () => {
           <div className="w-10 h-10 rounded-xl bg-[#0066CC]/20 text-[#00B3FF] flex items-center justify-center shrink-0 border border-[#00B3FF]/30 group-hover:scale-105 transition-transform">
             <Layers className="w-5 h-5" />
           </div>
-          <h4 className="text-base sm:text-lg font-bold text-white tracking-tight font-sans leading-snug">
+          <h3 className="text-base sm:text-lg font-bold text-white tracking-tight font-sans leading-snug">
             Engineering Frame
-          </h4>
+          </h3>
         </div>
 
         {/* Node 2: Evidence Before Intervention */}
@@ -98,9 +98,9 @@ export const StandardDiagram: React.FC = () => {
           <div className="w-10 h-10 rounded-xl bg-[#0066CC]/20 text-[#00B3FF] flex items-center justify-center shrink-0 border border-[#00B3FF]/30 group-hover:scale-105 transition-transform">
             <CheckCircle2 className="w-5 h-5" />
           </div>
-          <h4 className="text-base sm:text-lg font-bold text-white tracking-tight font-sans leading-snug">
+          <h3 className="text-base sm:text-lg font-bold text-white tracking-tight font-sans leading-snug">
             Evidence Before Intervention
-          </h4>
+          </h3>
         </div>
 
         {/* Node 4: Engineering Over Hype (Placed on left in 2-column layout to complete clockwise cycle) */}
@@ -108,9 +108,9 @@ export const StandardDiagram: React.FC = () => {
           <div className="w-10 h-10 rounded-xl bg-[#0066CC]/20 text-[#00B3FF] flex items-center justify-center shrink-0 border border-[#00B3FF]/30 group-hover:scale-105 transition-transform">
             <Cpu className="w-5 h-5" />
           </div>
-          <h4 className="text-base sm:text-lg font-bold text-white tracking-tight font-sans leading-snug">
+          <h3 className="text-base sm:text-lg font-bold text-white tracking-tight font-sans leading-snug">
             Engineering Over Hype
-          </h4>
+          </h3>
         </div>
 
         {/* Node 3: Outcome (Placed on right in 2-column layout) */}
@@ -118,9 +118,9 @@ export const StandardDiagram: React.FC = () => {
           <div className="w-10 h-10 rounded-xl bg-[#0066CC]/20 text-[#00B3FF] flex items-center justify-center shrink-0 border border-[#00B3FF]/30 group-hover:scale-105 transition-transform">
             <TrendingUp className="w-5 h-5" />
           </div>
-          <h4 className="text-base sm:text-lg font-bold text-white tracking-tight font-sans leading-snug">
+          <h3 className="text-base sm:text-lg font-bold text-white tracking-tight font-sans leading-snug">
             Outcome
-          </h4>
+          </h3>
         </div>
       </div>
     </div>

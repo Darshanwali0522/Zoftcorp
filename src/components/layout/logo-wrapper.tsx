@@ -16,15 +16,15 @@ export const LogoWrapper: React.FC<LogoWrapperProps> = ({
   href = "/",
   variant = "header",
 }) => {
-  // Aspect ratio calibrated to official Zoftcorp horizontal lockup (~4.68:1 ratio)
+  // Aspect ratio calibrated to official Zoftcorp horizontal lockup (~4.468:1 ratio)
   const dimensions = {
-    sm: { height: 28, width: 131 },
-    md: { height: 36, width: 168 },
-    lg: { height: 44, width: 206 },
+    sm: { height: 28, width: 125 },
+    md: { height: 36, width: 161 },
+    lg: { height: 44, width: 197 },
   };
 
   const isFooter = variant === "footer";
-  const logoSrc = isFooter ? "/brand/zoft-logo-footer.png" : "/brand/zoftcorp-logo-blue.png";
+  const logoSrc = isFooter ? "/brand/zoft-logo-footer.png" : "/brand/zoftcorp-logo.png";
 
   const logoContent = (
     <div
@@ -32,11 +32,11 @@ export const LogoWrapper: React.FC<LogoWrapperProps> = ({
         "inline-flex items-center shrink-0 transition-opacity duration-200 hover:opacity-90 py-1 px-1 focus-visible:outline-2 focus-visible:outline-sky-400 focus-visible:outline-offset-4 rounded",
         className
       )}
-      aria-label="ZOFT Corp Home Page"
+      aria-label="Zoftcorp Home Page"
     >
       <Image
         src={logoSrc}
-        alt="ZOFT Corp Logo"
+        alt="Zoftcorp Logo"
         width={dimensions[size].width}
         height={dimensions[size].height}
         className={cn(
@@ -50,7 +50,11 @@ export const LogoWrapper: React.FC<LogoWrapperProps> = ({
   );
 
   if (href) {
-    return <Link href={href}>{logoContent}</Link>;
+    return (
+      <Link href={href} aria-label="Zoftcorp Home Page">
+        {logoContent}
+      </Link>
+    );
   }
 
   return logoContent;

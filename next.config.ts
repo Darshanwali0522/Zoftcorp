@@ -1,15 +1,25 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  output: 'standalone',
   cacheComponents: true,
   partialPrefetching: true,
   async redirects() {
     return [
       {
+        source: '/insights/case-studies',
+        destination: '/insights/blogs#case-studies',
+        permanent: false,
+      },
+      {
         source: '/careers',
         destination: '/about-us/career',
         permanent: true,
+      },
+      {
+        source: '/about-us/career/:slug',
+        destination: '/careers/:slug',
+        permanent: false,
       },
       {
         source: '/insights/webinar',

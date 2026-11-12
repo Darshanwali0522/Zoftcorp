@@ -114,7 +114,6 @@ export const ProblemToDecisionSection: React.FC = () => {
                 key={pathway.id}
                 href={pathway.href}
                 className="group relative flex flex-col justify-between bg-[#031E4D]/80 border border-slate-700/80 hover:border-[#00B3FF]/60 hover:bg-[#031E4D] rounded-2xl p-6 sm:p-7 shadow-xl hover:shadow-2xl transition-all duration-200 ease-out hover:-translate-y-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00B3FF] focus-visible:ring-offset-2 focus-visible:ring-offset-[#01153B]"
-                aria-label={`${pathway.problem} - ${pathway.action}`}
               >
                 {/* Top Subtle Blue Glow Line on Hover */}
                 <span

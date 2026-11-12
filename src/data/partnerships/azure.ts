@@ -16,7 +16,7 @@ export interface RelatedLinkItem {
 export const AZURE_PARTNERSHIP_HERO = {
   eyebrow: 'MICROSOFT AZURE',
   h1: 'Cloud Architecture With Azure. Guided by Technical Expertise.',
-  copy: 'ZOFT\'s work across Microsoft Azure environments brings together cloud architecture, databases, data, performance, and engineering considerations to help organizations make practical technology decisions.',
+  copy: 'Zoftcorp\'s work across Microsoft Azure environments brings together cloud architecture, databases, data, performance, and engineering considerations to help organizations make practical technology decisions.',
   logoPath: '/platforms/azure.svg',
 };
 

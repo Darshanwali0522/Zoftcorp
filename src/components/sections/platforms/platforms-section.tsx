@@ -75,7 +75,7 @@ export const PlatformsSection: React.FC = () => {
               </h2>
 
               <p className="text-slate-600 text-base sm:text-lg font-normal leading-relaxed max-w-xl font-sans">
-                From cloud infrastructure to database environments, ZOFT works across the platforms enterprises rely on to build, modernize, and operate critical systems.
+                From cloud infrastructure to database environments, Zoftcorp works across the platforms enterprises rely on to build, modernize, and operate critical systems.
               </p>
             </div>
 

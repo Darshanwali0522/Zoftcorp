@@ -28,7 +28,7 @@ export function DPDPComplianceView() {
   return (
     <div className="w-full bg-white text-[#01153B] selection:bg-[#00B3FF]/20 selection:text-[#01153B]">
       <ServiceJsonLd
-        name="DPDP Compliance | ZOFT Corp"
+        name="DPDP Compliance | Zoftcorp"
         description="We help enterprises align with India’s Digital Personal Data Protection Act (DPDP) — embedding compliance into databases, cloud platforms, and business processes so you stay secure, resilient, and penalty-proof."
         url={pageUrl}
       />

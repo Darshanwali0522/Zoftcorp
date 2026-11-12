@@ -49,7 +49,7 @@ export function ExpertiseSection() {
                 Engineering for High-Consequence Systems
               </p>
               <p className="text-xs text-slate-400 leading-normal font-sans">
-                ZOFT brings battle-tested engineering methodologies to ensure high throughput, transactional integrity, and zero unexpected downtime.
+                Zoftcorp brings battle-tested engineering methodologies to ensure high throughput, transactional integrity, and zero unexpected downtime.
               </p>
             </div>
           </div>

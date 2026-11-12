@@ -7,7 +7,7 @@ interface DiagramProps {
 
 /**
  * Purpose-built enterprise SVG/CSS technical architecture visuals
- * for each of the six ZOFT Corp consulting domains.
+ * for each of the six Zoftcorp consulting domains.
  * Uses official brand colors: Primary Navy (#01153B), Secondary Navy (#031E4D),
  * Brand Blue (#00B3FF), Brand Orange (#FF6F00), and White (#FFFFFF).
  */
@@ -25,6 +25,8 @@ export function ConsultingServiceDiagram({ slug, className = '' }: DiagramProps)
       return <PerformanceAuditsDiagram className={className} />;
     case 'fractional-architect':
       return <FractionalArchitectDiagram className={className} />;
+    case 'resilience-compliance':
+      return <ResilienceComplianceDiagram className={className} />;
     default:
       return null;
   }
@@ -438,6 +440,68 @@ function FractionalArchitectDiagram({ className }: { className?: string }) {
       <div className="bg-[#01153B] rounded-xl p-3 border border-white/10 flex items-center justify-between text-xs">
         <span className="font-semibold text-white">Engagement Flexibility</span>
         <span className="font-mono text-[11px] text-[#00B3FF]">5–20 hrs/week · Executive &amp; Team Level</span>
+      </div>
+    </div>
+  );
+}
+
+// 07. Resilience & Compliance: High-Availability Clustering & Disaster Recovery Topology
+function ResilienceComplianceDiagram({ className }: { className?: string }) {
+  return (
+    <div className={`w-full bg-[#031E4D] rounded-2xl p-6 border border-white/10 shadow-2xl ${className}`}>
+      <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-5">
+        <div className="flex items-center gap-2">
+          <span className="w-2.5 h-2.5 rounded-full bg-[#00B3FF] animate-pulse" />
+          <span className="text-xs font-mono font-bold text-white uppercase tracking-wider">
+            HIGH AVAILABILITY &amp; DISASTER RECOVERY // RESILIENCE
+          </span>
+        </div>
+        <span className="text-[10px] font-mono text-[#00B3FF] bg-[#00B3FF]/10 px-2 py-0.5 rounded border border-[#00B3FF]/30">
+          FAILOVER TOPOLOGY
+        </span>
+      </div>
+
+      <div className="space-y-2.5">
+        {/* Tier 1 */}
+        <div className="bg-[#01153B] rounded-xl p-3 border border-emerald-500/30 flex items-center justify-between">
+          <div className="flex items-center gap-2.5">
+            <span className="w-2 h-2 rounded-full bg-emerald-400" />
+            <span className="text-xs font-bold text-white">01. Multi-AZ Active-Active Clustering</span>
+          </div>
+          <span className="text-[10px] font-mono text-slate-300">Synchronous Replication / Zero Data Loss</span>
+        </div>
+
+        {/* Tier 2 */}
+        <div className="bg-[#01153B] rounded-xl p-3 border border-[#00B3FF]/40 flex items-center justify-between">
+          <div className="flex items-center gap-2.5">
+            <span className="w-2 h-2 rounded-full bg-[#00B3FF]" />
+            <span className="text-xs font-bold text-white">02. Automated Health Telemetry &amp; Quorum</span>
+          </div>
+          <span className="text-[10px] font-mono text-slate-300">Sub-Second Heartbeats / Deterministic Failover</span>
+        </div>
+
+        {/* Tier 3 */}
+        <div className="bg-[#01153B] rounded-xl p-3 border border-[#FF6F00]/40 flex items-center justify-between">
+          <div className="flex items-center gap-2.5">
+            <span className="w-2 h-2 rounded-full bg-[#FF6F00]" />
+            <span className="text-xs font-bold text-white">03. Cross-Region Disaster Recovery &amp; Backups</span>
+          </div>
+          <span className="text-[10px] font-mono text-slate-300">Continuous Async Replica / Immutable Snapshots</span>
+        </div>
+
+        {/* Tier 4 */}
+        <div className="bg-[#01153B] rounded-xl p-3 border border-white/20 flex items-center justify-between">
+          <div className="flex items-center gap-2.5">
+            <span className="w-2 h-2 rounded-full bg-slate-300" />
+            <span className="text-xs font-bold text-white">04. Operational Hardening &amp; Compliance Boundary</span>
+          </div>
+          <span className="text-[10px] font-mono text-slate-300">Encrypted In-Transit &amp; At-Rest / Audited Runbooks</span>
+        </div>
+      </div>
+
+      <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-[11px] font-mono text-slate-300">
+        <span>Target: RPO = 0 / Sub-Second Failover Verification</span>
+        <span className="text-emerald-400 font-semibold">Continuous Resilience</span>
       </div>
     </div>
   );

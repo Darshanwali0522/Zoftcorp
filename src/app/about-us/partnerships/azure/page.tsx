@@ -25,8 +25,6 @@ import {
 export default function AzurePartnershipPage() {
   const [activeAreaIndex, setActiveAreaIndex] = useState(0);
 
-  const activeArea = AZURE_ARCHITECTURE_AREAS[activeAreaIndex];
-
   return (
     <div className="w-full bg-white text-slate-900 selection:bg-[#00B3FF]/20 selection:text-[#01153B]">
       {/* 1. HERO */}
@@ -122,7 +120,7 @@ export default function AzurePartnershipPage() {
 
                 <div className="pt-2 border-t border-slate-800 flex items-center justify-between text-[11px] font-mono text-slate-400">
                   <span>ENVIRONMENT: AZURE</span>
-                  <span className="text-[#00B3FF]">ZOFT PERSPECTIVE</span>
+                  <span className="text-[#00B3FF]">ZOFTCORP PERSPECTIVE</span>
                 </div>
               </div>
             </div>
@@ -169,7 +167,7 @@ export default function AzurePartnershipPage() {
               CONCEPTUAL RELATIONSHIP
             </span>
             <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 font-sans">
-              Where Azure Meets the ZOFT Perspective
+              Where Azure Meets the Zoftcorp Perspective
             </h2>
           </div>
 
@@ -275,39 +273,48 @@ export default function AzurePartnershipPage() {
 
             {/* Right Display Panel */}
             <div className="lg:col-span-7">
-              <div
-                id={`area-panel-${activeAreaIndex}`}
-                role="tabpanel"
-                aria-labelledby={`area-tab-${activeAreaIndex}`}
-                className="bg-white border border-slate-200 rounded-3xl p-8 sm:p-12 space-y-6 shadow-sm min-h-[380px] flex flex-col justify-between"
-              >
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between border-b border-slate-200 pb-4">
-                    <span className="font-mono text-xs font-bold text-[#01153B] bg-[#00B3FF]/10 px-3 py-1 rounded border border-[#00B3FF]/20 uppercase tracking-wider">
-                      AREA {activeArea.number}
-                    </span>
-                    <span className="font-mono text-xs text-slate-500 font-semibold uppercase tracking-wider">
-                      {activeArea.tagline}
-                    </span>
+              {AZURE_ARCHITECTURE_AREAS.map((area, index) => {
+                const isActive = activeAreaIndex === index;
+                return (
+                  <div
+                    key={area.id}
+                    id={`area-panel-${index}`}
+                    role="tabpanel"
+                    aria-labelledby={`area-tab-${index}`}
+                    hidden={!isActive}
+                    className={`bg-white border border-slate-200 rounded-3xl p-8 sm:p-12 space-y-6 shadow-sm min-h-[380px] flex flex-col justify-between ${
+                      !isActive ? 'hidden' : ''
+                    }`}
+                  >
+                    <div className="space-y-4">
+                      <div className="flex items-center justify-between border-b border-slate-200 pb-4">
+                        <span className="font-mono text-xs font-bold text-[#01153B] bg-[#00B3FF]/10 px-3 py-1 rounded border border-[#00B3FF]/20 uppercase tracking-wider">
+                          AREA {area.number}
+                        </span>
+                        <span className="font-mono text-xs text-slate-500 font-semibold uppercase tracking-wider">
+                          {area.tagline}
+                        </span>
+                      </div>
+
+                      <h3 className="text-3xl font-extrabold text-slate-900 font-sans tracking-tight">
+                        {area.title}
+                      </h3>
+
+                      <p className="text-lg text-slate-800 font-semibold font-sans leading-relaxed">
+                        {area.description}
+                      </p>
+
+                      <p className="text-base text-slate-600 font-sans leading-relaxed pt-2">
+                        {area.details}
+                      </p>
+                    </div>
+
+                    <div className="pt-6 border-t border-slate-100 text-xs font-mono text-slate-500">
+                      EDITORIAL ARCHITECTURE PERSPECTIVE // AZURE
+                    </div>
                   </div>
-
-                  <h3 className="text-3xl font-extrabold text-slate-900 font-sans tracking-tight">
-                    {activeArea.title}
-                  </h3>
-
-                  <p className="text-lg text-slate-800 font-semibold font-sans leading-relaxed">
-                    {activeArea.description}
-                  </p>
-
-                  <p className="text-base text-slate-600 font-sans leading-relaxed pt-2">
-                    {activeArea.details}
-                  </p>
-                </div>
-
-                <div className="pt-6 border-t border-slate-100 text-xs font-mono text-slate-500">
-                  EDITORIAL ARCHITECTURE PERSPECTIVE // AZURE
-                </div>
-              </div>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -326,7 +333,7 @@ export default function AzurePartnershipPage() {
             </h2>
             <p className="text-base text-slate-600 leading-relaxed font-sans mt-4">
               Regardless of cloud platform, database engines remain core to organizational workloads.
-              ZOFT connects Azure cloud strategy directly with verified database engine capabilities
+              Zoftcorp connects Azure cloud strategy directly with verified database engine capabilities
               across SQL Server, PostgreSQL, and MySQL.
             </p>
           </div>
@@ -412,7 +419,7 @@ export default function AzurePartnershipPage() {
               Architecture Before Infrastructure.
             </h2>
             <p className="text-base text-slate-600 leading-relaxed font-sans mt-4">
-              ZOFT&apos;s Consulting capabilities support broader technology decision-making around
+              Zoftcorp&apos;s Consulting capabilities support broader technology decision-making around
               cloud and database environments.
             </p>
           </div>
@@ -452,7 +459,7 @@ export default function AzurePartnershipPage() {
               From Architecture to Delivery.
             </h2>
             <p className="text-base text-slate-600 leading-relaxed font-sans mt-4">
-              See how Azure environments sit within ZOFT&apos;s broader structured delivery
+              See how Azure environments sit within Zoftcorp&apos;s broader structured delivery
               capabilities.
             </p>
           </div>
@@ -601,7 +608,7 @@ export default function AzurePartnershipPage() {
               <h3 className="text-lg font-bold text-slate-900 font-sans group-hover:text-[#00B3FF] transition-colors">
                 Career
               </h3>
-              <p className="text-xs text-slate-600">Opportunities to join ZOFT.</p>
+              <p className="text-xs text-slate-600">Opportunities to join Zoftcorp.</p>
             </Link>
           </div>
         </div>
@@ -637,7 +644,7 @@ export default function AzurePartnershipPage() {
               href="/contact"
               className="inline-flex items-center justify-center px-8 py-4 rounded-lg bg-[#FF6F00] hover:bg-[#e66400] text-white font-semibold text-base transition-all duration-200 shadow-lg shadow-[#FF6F00]/25 focus-visible:outline-2 focus-visible:outline-[#FF6F00]"
             >
-              Talk to ZOFT
+              Talk to Zoftcorp
             </Link>
             <Link
               href="/consulting/cloud-database-strategy"

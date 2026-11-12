@@ -2,25 +2,25 @@ import { Metadata } from 'next';
 import { BreadcrumbJsonLd } from '@/components/seo/json-ld';
 
 export const metadata: Metadata = {
-  title: 'Oracle | Partnerships | About Us | ZOFT Corp',
+  title: 'Oracle | Partnerships | About Us | Zoftcorp',
   description:
-    'Explore how ZOFT approaches database, cloud, data, performance, and architecture considerations across Oracle environments.',
+    'Explore how Zoftcorp approaches database, cloud, data, performance, and architecture considerations across Oracle environments.',
   alternates: {
     canonical: 'https://zoftcorp.com/about-us/partnerships/oracle',
   },
   openGraph: {
-    title: 'Oracle | Partnerships | About Us | ZOFT Corp',
+    title: 'Oracle | Partnerships | About Us | Zoftcorp',
     description:
-      'Explore how ZOFT approaches database, cloud, data, performance, and architecture considerations across Oracle environments.',
+      'Explore how Zoftcorp approaches database, cloud, data, performance, and architecture considerations across Oracle environments.',
     url: 'https://zoftcorp.com/about-us/partnerships/oracle',
-    siteName: 'ZOFT Corp',
+    siteName: 'Zoftcorp',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Oracle | Partnerships | About Us | ZOFT Corp',
+    title: 'Oracle | Partnerships | About Us | Zoftcorp',
     description:
-      'Explore how ZOFT approaches database, cloud, data, performance, and architecture considerations across Oracle environments.',
+      'Explore how Zoftcorp approaches database, cloud, data, performance, and architecture considerations across Oracle environments.',
   },
 };
 

@@ -97,7 +97,7 @@ export function GrowBusinessSection() {
               {/* Bottom Overlay Label */}
               <div className="absolute bottom-5 left-5 right-5 bg-[#031E4D]/90 backdrop-blur-md p-4 rounded-xl border border-slate-700 shadow-lg">
                 <span className="text-xs font-mono font-bold text-[#00B3FF] block uppercase tracking-wider mb-1">
-                  ZOFT CORP COMMITMENT
+                  ZOFTCORP COMMITMENT
                 </span>
                 <p className="text-xs text-slate-300 font-sans leading-relaxed">
                   Enterprise-grade database performance tuning, cloud cost optimization, and proactive DBA reliability.

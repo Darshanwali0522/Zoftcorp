@@ -5,31 +5,35 @@ import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { Container } from '@/components/ui/container';
 import { BreadcrumbJsonLd } from '@/components/seo/json-ld';
 import { LeadershipSection } from '@/components/sections/about/leadership-section';
+import { getPublishedLeadershipProfiles } from '@/lib/supabase/leadership-service';
+
+export const instant = false;
 
 export const metadata: Metadata = {
-  title: 'Company Leadership | About Us | ZOFT Corp',
+  title: 'Company Leadership | About Us | Zoftcorp',
   description:
     'Meet the executive leadership and practice leaders driving Zoftcorp’s enterprise database engineering, cloud FinOps, commercial partnerships, and regulatory governance.',
   alternates: {
     canonical: 'https://zoftcorp.com/about-us/leadership',
   },
   openGraph: {
-    title: 'Company Leadership | About Us | ZOFT Corp',
+    title: 'Company Leadership | About Us | Zoftcorp',
     description:
       'Meet the executive leadership and practice leaders driving Zoftcorp’s enterprise database engineering, cloud FinOps, commercial partnerships, and regulatory governance.',
     url: 'https://zoftcorp.com/about-us/leadership',
-    siteName: 'ZOFT Corp',
+    siteName: 'Zoftcorp',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Company Leadership | About Us | ZOFT Corp',
+    title: 'Company Leadership | About Us | Zoftcorp',
     description:
       'Meet the executive leadership and practice leaders driving Zoftcorp’s enterprise database engineering, cloud FinOps, commercial partnerships, and regulatory governance.',
   },
 };
 
-export default function LeadershipPage() {
+export default async function LeadershipPage() {
+  const profiles = await getPublishedLeadershipProfiles();
   const pageUrl = 'https://zoftcorp.com/about-us/leadership';
   const breadcrumbItems = [
     { name: 'Home', url: 'https://zoftcorp.com' },
@@ -72,7 +76,7 @@ export default function LeadershipPage() {
       </section>
 
       {/* Full Leadership Section */}
-      <LeadershipSection id="company-leadership" />
+      <LeadershipSection id="company-leadership" profiles={profiles} />
 
       {/* Action CTA */}
       <section

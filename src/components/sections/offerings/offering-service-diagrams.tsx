@@ -9,7 +9,7 @@ interface DiagramProps {
 
 /**
  * Purpose-built enterprise SVG/CSS technical architecture visuals
- * for each of the five ZOFT Corp delivery offerings.
+ * for each of the five Zoftcorp delivery offerings.
  * Uses official brand colors: Primary Navy (#01153B), Secondary Navy (#031E4D),
  * Brand Blue (#00B3FF), Brand Orange (#FF6F00), and White (#FFFFFF).
  */

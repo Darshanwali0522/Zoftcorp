@@ -8,25 +8,25 @@ import {
 } from '@/data/offerings';
 
 export const metadata: Metadata = {
-  title: 'Our Offerings | ZOFT Corp',
+  title: 'Our Offerings | Zoftcorp',
   description:
-    "Explore ZOFT's technology offerings across vector databases, database migrations, performance tuning, managed DBA services, and data engineering.",
+    "Explore Zoftcorp's technology offerings across vector databases, database migrations, performance tuning, managed DBA services, and data engineering.",
   alternates: {
     canonical: 'https://zoftcorp.com/offerings',
   },
   openGraph: {
-    title: 'Our Offerings | ZOFT Corp',
+    title: 'Our Offerings | Zoftcorp',
     description:
-      "Explore ZOFT's technology offerings across database migrations, performance tuning, managed DBA services, and data engineering.",
+      "Explore Zoftcorp's technology offerings across database migrations, performance tuning, managed DBA services, and data engineering.",
     url: 'https://zoftcorp.com/offerings',
-    siteName: 'ZOFT Corp',
+    siteName: 'Zoftcorp',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Our Offerings | ZOFT Corp',
+    title: 'Our Offerings | Zoftcorp',
     description:
-      "Explore ZOFT's technology offerings across database migrations, performance tuning, managed DBA services, and data engineering.",
+      "Explore Zoftcorp's technology offerings across database migrations, performance tuning, managed DBA services, and data engineering.",
   },
 };
 
@@ -69,7 +69,7 @@ export default function OfferingsOverviewPage() {
               </h1>
 
               <p className="text-slate-300 text-lg sm:text-xl leading-relaxed font-sans max-w-2xl font-normal">
-                ZOFT combines deep database expertise, cloud engineering, performance optimization,
+                Zoftcorp combines deep database expertise, cloud engineering, performance optimization,
                 managed services, and modern data capabilities to help organizations build and
                 operate reliable technology environments.
               </p>

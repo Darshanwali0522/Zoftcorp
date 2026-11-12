@@ -10,7 +10,7 @@ const SERVICE_HREFS: Record<string, string> = {
   'cloud-data-finops': '/consulting/cloud-finops',
   'db-finops': '/consulting/cloud-finops',
   'dpdp-compliance': '/consulting/compliance-governance',
-  'resilience-compliance': '/consulting/compliance-governance',
+  'resilience-compliance': '/consulting/resilience-compliance',
   'performance-tuning': '/offerings/performance-tuning-delivery',
   'migration-transformations': '/offerings/database-migrations-and-transformations',
   'migration-transformation': '/offerings/database-migrations-and-transformations',
@@ -82,7 +82,7 @@ export function ServicesSection() {
           {/* Left Column: Vertical Service Navigation */}
           <div
             role="tablist"
-            aria-label="ZOFT Core Services"
+            aria-label="Zoftcorp Core Services"
             aria-orientation="vertical"
             className="lg:col-span-4 xl:col-span-4 flex flex-col divide-y divide-slate-800/80 border-y border-slate-800/80"
           >
@@ -146,8 +146,6 @@ export function ServicesSection() {
           <div className="lg:col-span-8 xl:col-span-8 sticky top-24">
             {VERIFIED_SERVICES.map((service) => {
               const isActive = service.id === activeId;
-              if (!isActive) return null;
-
               const href = SERVICE_HREFS[service.id] || '/offerings';
 
               return (
@@ -157,7 +155,10 @@ export function ServicesSection() {
                   role="tabpanel"
                   aria-labelledby={`tab-${service.id}`}
                   tabIndex={0}
-                  className="grid grid-cols-1 md:grid-cols-12 gap-5 xl:gap-6 items-stretch transition-opacity duration-200 ease-out animate-fadeIn focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00B3FF] rounded-2xl"
+                  hidden={!isActive}
+                  className={`grid grid-cols-1 md:grid-cols-12 gap-5 xl:gap-6 items-stretch transition-opacity duration-200 ease-out animate-fadeIn focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00B3FF] rounded-2xl ${
+                    !isActive ? 'hidden' : ''
+                  }`}
                 >
                   {/* Detail Card (BESIDE the image) */}
                   <div className="md:col-span-6 lg:col-span-7 flex flex-col justify-between bg-[#031E4D]/90 border border-slate-700/80 rounded-2xl p-5 sm:p-6 backdrop-blur-sm shadow-xl space-y-4">

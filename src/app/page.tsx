@@ -11,25 +11,25 @@ import { ContactSection } from "@/components/sections/contact/contact-section";
 import { getLatestInsights } from "@/lib/insights-aggregator";
 
 export const metadata: Metadata = {
-  title: "ZOFT Corp | Enterprise Technology & Database Advisory",
+  title: "Zoftcorp | Enterprise Technology & Database Advisory",
   description:
-    "ZOFT Corp delivers enterprise-grade cloud architecture, high-availability database performance tuning, and technical advisory.",
+    "Zoftcorp delivers enterprise-grade cloud architecture, high-availability database performance tuning, and technical advisory.",
   alternates: {
     canonical: "https://zoftcorp.com/",
   },
   openGraph: {
-    title: "ZOFT Corp | Enterprise Technology & Database Advisory",
+    title: "Zoftcorp | Enterprise Technology & Database Advisory",
     description:
-      "ZOFT Corp delivers enterprise-grade cloud architecture, high-availability database performance tuning, and technical advisory.",
+      "Zoftcorp delivers enterprise-grade cloud architecture, high-availability database performance tuning, and technical advisory.",
     url: "https://zoftcorp.com/",
-    siteName: "ZOFT Corp",
+    siteName: "Zoftcorp",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "ZOFT Corp | Enterprise Technology & Database Advisory",
+    title: "Zoftcorp | Enterprise Technology & Database Advisory",
     description:
-      "ZOFT Corp delivers enterprise-grade cloud architecture, high-availability database performance tuning, and technical advisory.",
+      "Zoftcorp delivers enterprise-grade cloud architecture, high-availability database performance tuning, and technical advisory.",
   },
 };
 

@@ -28,7 +28,7 @@ export const ContactForm: React.FC = () => {
         </div>
         <h3 className="text-xl font-bold text-white">Inquiry Received</h3>
         <p className="text-sm text-slate-300 max-w-md mx-auto">
-          Thank you for reaching out to ZOFT Corp. Our advisory engineering team will review your project requirements.
+          Thank you for reaching out to Zoftcorp. Our advisory engineering team will review your project requirements.
         </p>
         <Button variant="secondary" size="sm" onClick={() => setSubmitted(false)}>
           Submit another inquiry
@@ -42,7 +42,7 @@ export const ContactForm: React.FC = () => {
       <div className="space-y-1">
         <h3 className="text-xl font-bold text-white">Schedule Advisory Session</h3>
         <p className="text-xs text-slate-300">
-          Connect directly with ZOFT Corp cloud and database architects.
+          Connect directly with Zoftcorp cloud and database architects.
         </p>
       </div>
 

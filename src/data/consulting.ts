@@ -223,7 +223,7 @@ export const CONSULTING_CAPABILITIES_DATA: ConsultingCapabilityDetail[] = [
     alt: 'Enterprise cloud infrastructure photography demonstrating visibility, scale, efficiency, and infrastructure control',
     overviewHeadline: 'Overview & Deliverables',
     overviewCopy:
-      'ZOFT helps organizations understand and optimize cloud and database costs by connecting infrastructure usage, workload requirements, database environments, and operational decisions.',
+      'Zoftcorp helps organizations understand and optimize cloud and database costs by connecting infrastructure usage, workload requirements, database environments, and operational decisions.',
     whyMatters: {
       eyebrow: 'WHY CLOUD FINOPs',
       headline: 'Make Cloud Spending More Visible, Predictable, and Actionable.',
@@ -320,7 +320,7 @@ export const CONSULTING_CAPABILITIES_DATA: ConsultingCapabilityDetail[] = [
     alt: 'Enterprise security, compliance governance, controlled infrastructure environment, and technical operations',
     overviewHeadline: 'Overview & Deliverables',
     overviewCopy:
-      'ZOFT helps organizations bring greater structure to technology governance by aligning security, data, infrastructure, operational controls, and organizational requirements.',
+      'Zoftcorp helps organizations bring greater structure to technology governance by aligning security, data, infrastructure, operational controls, and organizational requirements.',
     whyMatters: {
       eyebrow: 'WHY COMPLIANCE & GOVERNANCE',
       headline: 'Turn Technology Controls Into Practical Governance.',
@@ -417,7 +417,7 @@ export const CONSULTING_CAPABILITIES_DATA: ConsultingCapabilityDetail[] = [
     alt: 'High-density server infrastructure and database performance diagnostic environment',
     overviewHeadline: 'Overview & Deliverables',
     overviewCopy:
-      'ZOFT evaluates database, infrastructure, and workload behavior to identify performance constraints and provide practical recommendations for improving the technology environment.',
+      'Zoftcorp evaluates database, infrastructure, and workload behavior to identify performance constraints and provide practical recommendations for improving the technology environment.',
     whyMatters: {
       eyebrow: 'WHY PERFORMANCE AUDITS',
       headline: 'Find the Bottlenecks Behind the Symptoms.',
@@ -453,7 +453,7 @@ export const CONSULTING_CAPABILITIES_DATA: ConsultingCapabilityDetail[] = [
           'Correlate technical signals to identify likely performance constraints and prioritize areas for investigation.',
       },
     ],
-    visualBreak: 'Performance Is a System Property.',
+    visualBreak: 'Performance is a System Property.',
     visualBreakCopy:
       'Database performance rarely exists in isolation. Queries, data models, infrastructure resources, application behavior, and workload patterns can all influence how a system performs under real conditions.',
     approach: {
@@ -514,11 +514,11 @@ export const CONSULTING_CAPABILITIES_DATA: ConsultingCapabilityDetail[] = [
     alt: 'Experienced enterprise technical leadership and system architecture guidance',
     overviewHeadline: 'Overview & Deliverables',
     overviewCopy:
-      'ZOFT provides experienced architectural guidance to help teams evaluate options, resolve complex technical questions, and establish practical direction as technology environments evolve.',
+      'Zoftcorp provides experienced architectural guidance to help teams evaluate options, resolve complex technical questions, and establish practical direction as technology environments evolve.',
     whyMatters: {
       eyebrow: 'WHY FRACTIONAL ARCHITECT',
       headline: 'Bring Senior Architecture Thinking to the Decisions That Matter.',
-      copy: 'Organizations do not always need a full-time architecture function to make high-impact technology decisions. ZOFT provides experienced architectural guidance to help teams evaluate options, resolve complex technical questions, and establish practical direction as technology environments evolve.',
+      copy: 'Organizations do not always need a full-time architecture function to make high-impact technology decisions. Zoftcorp provides experienced architectural guidance to help teams evaluate options, resolve complex technical questions, and establish practical direction as technology environments evolve.',
       calloutTitle: 'Architecture Leadership Without Unnecessary Complexity',
       calloutCopy:
         'Effective architecture leadership is about creating clarity around difficult technical decisions. The goal is not to add layers of process, but to help teams make informed choices that fit their workloads, constraints, and long-term direction.',
@@ -599,10 +599,109 @@ export const CONSULTING_CAPABILITIES_DATA: ConsultingCapabilityDetail[] = [
       copy: 'Bring us your architecture questions, technology decisions, modernization challenges, or evolving technical requirements. We can help provide the senior perspective needed to move forward with clarity.',
     },
   },
+  {
+    id: 'resilience-compliance',
+    number: '07',
+    name: 'Resilience & Compliance',
+    description:
+      'High-availability database architecture, disaster recovery automation, and operational security controls to ensure mission-critical resilience and business continuity.',
+    ctaText: 'Explore Resilience & Compliance →',
+    href: '/consulting/resilience-compliance',
+    image: '/images/consulting/compliance-governance.jpg',
+    alt: 'Enterprise high availability, disaster recovery, controlled infrastructure environment, and technical operations',
+    overviewHeadline: 'Overview & Technical Scope',
+    overviewCopy:
+      'Zoftcorp helps organizations engineer mission-critical resilience and operational compliance across enterprise database and cloud environments. We design high-availability clusters, validate automated disaster recovery, and implement rigorous security controls to maintain operational continuity under peak load and unexpected infrastructure failures.',
+    whyMatters: {
+      eyebrow: 'WHY RESILIENCE & COMPLIANCE',
+      headline: 'Architect for Continuity Before Outages Strike.',
+      copy: 'Modern enterprises cannot afford unplanned database downtime or compromised data integrity. Operational resilience requires aligning high-availability clustering, automated failover verification, backup validation, and infrastructure security controls so systems recover predictably without data loss.',
+      calloutTitle: 'Resilience Is an Architectural Property',
+      calloutCopy:
+        'True resilience is engineered into the system architecture—spanning synchronous replication, cross-region disaster recovery, automated health detection, and least-privilege security controls.',
+    },
+    whatWeAddressHeadline: 'Engineering Resilience Across the Entire Stack.',
+    whatWeAddress: [
+      {
+        number: '01',
+        title: 'High Availability & Failover',
+        description:
+          'Architect multi-AZ and cross-region database clusters with automated quorum detection, zero-data-loss replication, and deterministic failover.',
+      },
+      {
+        number: '02',
+        title: 'Disaster Recovery & Business Continuity',
+        description:
+          'Validate recovery point (RPO) and recovery time objectives (RTO) through simulated recovery drills, backup integrity verification, and air-gapped snapshots.',
+      },
+      {
+        number: '03',
+        title: 'Infrastructure Security & Access Controls',
+        description:
+          'Harden cloud and database environments with least-privilege access, encryption at rest and in transit, and immutable audit telemetry.',
+      },
+      {
+        number: '04',
+        title: 'Operational Compliance & Benchmarking',
+        description:
+          'Align infrastructure operations, patch management, and change controls with enterprise compliance standards and operational benchmarks.',
+      },
+    ],
+    visualBreak: 'Continuity Through Architectural Discipline.',
+    visualBreakCopy:
+      'High availability and disaster recovery must be validated through active verification—not assumed. Structured replication, automated testing, and hardened security create verifiable operational confidence.',
+    approach: {
+      eyebrow: 'OUR APPROACH',
+      headline: 'From Risk Assessment to Proven Operational Continuity.',
+      stages: [
+        {
+          number: '01',
+          title: 'Assess',
+          description:
+            'Review current database topology, replication lag, backup schedules, recovery objectives, and single points of failure.',
+        },
+        {
+          number: '02',
+          title: 'Architect',
+          description:
+            'Design zero-data-loss failover architectures, multi-region replication topologies, and hardened security controls.',
+        },
+        {
+          number: '03',
+          title: 'Validate',
+          description:
+            'Conduct automated failover simulations, backup restoration verification, and RPO/RTO benchmark testing.',
+        },
+        {
+          number: '04',
+          title: 'Harden',
+          description:
+            'Establish operational runbooks, continuous monitoring, and automated alerting for resilience and compliance.',
+        },
+      ],
+    },
+    deliverablesHeadline: 'Resilience & Compliance Deliverables',
+    deliverablesIntro:
+      'Tailored technical deliverables designed to reinforce high availability, operational continuity, and security compliance across enterprise environments:',
+    deliverables: [
+      'High-availability database clustering and zero-data-loss failover architecture',
+      'Disaster recovery plan validation, backup integrity auditing, and RPO/RTO optimization',
+      'Infrastructure security hardening, access controls, and compliance benchmarking',
+      'Automated failover verification and disaster recovery drill execution',
+      'Operational continuity runbooks and resilience monitoring recommendations',
+    ],
+    cta: {
+      eyebrow: 'TALK TO AN ARCHITECT',
+      headline: 'Ready to Strengthen Your Resilience & Continuity?',
+      copy: 'Bring us your database availability challenges, disaster recovery requirements, or compliance objectives. Our senior architects will help evaluate your environment and design a resilient architecture.',
+    },
+  },
 ];
 
-// Backwards compatibility alias for overview list
-export const CONSULTING_CAPABILITIES = CONSULTING_CAPABILITIES_DATA.map((c) => ({
+// Backwards compatibility alias for overview list (preserves the 6 core consulting overview domains)
+export const CONSULTING_CAPABILITIES = CONSULTING_CAPABILITIES_DATA.filter(
+  (c) => c.id !== 'resilience-compliance'
+).map((c) => ({
   id: c.id,
   number: c.number,
   name: c.name,

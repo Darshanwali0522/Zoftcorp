@@ -28,7 +28,7 @@ export function CloudDatabaseFinOpsView() {
   return (
     <div className="w-full bg-white text-[#01153B] selection:bg-[#00B3FF]/20 selection:text-[#01153B]">
       <ServiceJsonLd
-        name="Cloud & Database FinOps | ZOFT Corp"
+        name="Cloud & Database FinOps | Zoftcorp"
         description="FinOps goes beyond savings. It's the discipline of turning technology spend into measurable business value. We don't just optimize or manage costs — we embed FinOps culture."
         url={pageUrl}
       />

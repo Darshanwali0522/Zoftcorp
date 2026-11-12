@@ -51,7 +51,7 @@ export function ConsultingCapabilities() {
             <span className="text-slate-600 font-normal">Complex Technology Decisions.</span>
           </h2>
           <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl font-sans">
-            From modern cloud architecture to database performance and governance, ZOFT brings practical technical expertise to the decisions that shape critical technology environments.
+            From modern cloud architecture to database performance and governance, Zoftcorp brings practical technical expertise to the decisions that shape critical technology environments.
           </p>
         </div>
 
@@ -113,7 +113,6 @@ export function ConsultingCapabilities() {
           <div className="lg:col-span-7 sticky top-28">
             {CONSULTING_CAPABILITIES.map((cap) => {
               const isActive = cap.id === activeId;
-              if (!isActive) return null;
 
               return (
                 <div
@@ -121,7 +120,10 @@ export function ConsultingCapabilities() {
                   id={`cap-panel-${cap.id}`}
                   role="tabpanel"
                   aria-labelledby={`cap-tab-${cap.id}`}
-                  className="space-y-6 transition-all duration-300 animate-fadeIn"
+                  hidden={!isActive}
+                  className={`space-y-6 transition-all duration-300 animate-fadeIn ${
+                    !isActive ? 'hidden' : ''
+                  }`}
                 >
                   {/* High Quality Hero Photography */}
                   <div className="relative aspect-[16/10] w-full rounded-2xl overflow-hidden border border-slate-200 bg-slate-900 shadow-xl group">

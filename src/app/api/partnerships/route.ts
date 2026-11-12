@@ -1,16 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getSupabaseServerClient } from '@/lib/supabase/server';
+import { sendPartnershipEmails } from '@/lib/email/mailer';
 
 const EMAIL_REGEX = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
 
-export const PARTNERSHIP_TYPES = [
-  'Cloud Reseller & Co-Sell',
-  'System Integrator / Solution Provider',
-  'Technology OEM / ISV Ecosystem',
-  'Consulting & Advisory Network',
-  'Database Technology Partner',
-  'Other',
-] as const;
+import { PARTNERSHIP_TYPES } from '@/data/partnerships';
+export { PARTNERSHIP_TYPES };
 
 interface ValidatedPartnershipPayload {
   companyName: string;
@@ -125,43 +120,63 @@ export async function POST(request: NextRequest) {
       status: 'new',
     });
 
+    let insertSuccess = false;
+
     if (!primaryInsert.error) {
-      return NextResponse.json(
-        {
-          success: true,
-          message: 'Thank you for your partnership inquiry. Our strategic alliances team will be in touch.',
-        },
-        { status: 200 }
+      insertSuccess = true;
+    } else {
+      // If dedicated table is not yet created in Supabase (e.g. 404 / 42P01), fallback safely to contact_submissions
+      console.warn(
+        '[API /api/partnerships] partnership_inquiries table not available. Falling back to contact_submissions:',
+        primaryInsert.error.message
       );
+
+      const fallbackInsert = await supabase.from('contact_submissions').insert({
+        first_name: data.contactName,
+        last_name: '(Partnership)',
+        work_email: data.businessEmail,
+        company_name: data.companyName,
+        topic: `Partnership: ${data.partnershipType}`.slice(0, 150),
+        message: data.message,
+        form_source: 'contact_page',
+        status: 'new',
+        metadata: {
+          inquiry_type: 'partnership_inquiry',
+          partnership_type: data.partnershipType,
+        },
+      });
+
+      if (!fallbackInsert.error) {
+        insertSuccess = true;
+      } else {
+        console.error('[API /api/partnerships] Both storage attempts failed:', fallbackInsert.error.message);
+      }
     }
 
-    // If dedicated table is not yet created in Supabase (e.g. 404 / 42P01), fallback safely to contact_submissions
-    console.warn(
-      '[API /api/partnerships] partnership_inquiries table not available. Falling back to contact_submissions:',
-      primaryInsert.error.message
-    );
-
-    const fallbackInsert = await supabase.from('contact_submissions').insert({
-      first_name: data.contactName,
-      last_name: '(Partnership)',
-      work_email: data.businessEmail,
-      company_name: data.companyName,
-      topic: `Partnership: ${data.partnershipType}`.slice(0, 150),
-      message: data.message,
-      form_source: 'contact_page',
-      status: 'new',
-      metadata: {
-        inquiry_type: 'partnership_inquiry',
-        partnership_type: data.partnershipType,
-      },
-    });
-
-    if (fallbackInsert.error) {
-      console.error('[API /api/partnerships] Both storage attempts failed:', fallbackInsert.error.message);
+    if (!insertSuccess) {
       return NextResponse.json(
         { error: 'Unable to record your partnership inquiry. Please try again later.' },
         { status: 500 }
       );
+    }
+
+    // Trigger automated dual email notifications (Admin alert to info@zoftcorp.com + Partner acknowledgement)
+    // Email delivery errors are safely caught and logged without failing the recorded submission
+    try {
+      const emailResult = await sendPartnershipEmails({
+        companyName: data.companyName,
+        contactName: data.contactName,
+        businessEmail: data.businessEmail,
+        partnershipType: data.partnershipType,
+        message: data.message,
+        submittedAt: new Date(),
+      });
+
+      if (!emailResult.success && !emailResult.skipped) {
+        console.warn('[API /api/partnerships] Automated email delivery had warnings:', emailResult.error);
+      }
+    } catch (emailErr) {
+      console.error('[API /api/partnerships] Unexpected error while dispatching partnership emails:', emailErr);
     }
 
     return NextResponse.json(

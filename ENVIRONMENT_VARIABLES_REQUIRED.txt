@@ -1,0 +1,108 @@
+================================================================================
+ZOFTCORP WEBSITE - REQUIRED ENVIRONMENT VARIABLES (HOSTINGER DEPLOYMENT)
+================================================================================
+
+This document lists all environment variables required by the ZOFTCORP Next.js
+website in production on Hostinger.
+
+DO NOT hardcode secret credentials in source code. Configure these in your
+Hostinger hPanel (under Node.js Application -> Environment Variables) or create
+a secure .env.production file on your Hostinger server.
+
+--------------------------------------------------------------------------------
+1. SUPABASE DATABASE & CMS INTEGRATION
+--------------------------------------------------------------------------------
+
+NEXT_PUBLIC_SUPABASE_URL
+  Description: The public HTTPS URL of your Supabase project.
+  Scope: Client & Server (Public)
+  Example format: https://[your-project-ref].supabase.co
+  Required: Yes
+
+NEXT_PUBLIC_SUPABASE_ANON_KEY
+  Description: The public anonymous API key for Supabase client-side queries.
+  Scope: Client & Server (Public)
+  Example format: eyJhbGciOi...
+  Required: Yes
+
+SUPABASE_SERVICE_ROLE_KEY
+  Description: The privileged service role key used strictly on the server
+               to insert submissions, career applications, and partnership inquiries.
+  Scope: Server-only (Secret - never expose to browser)
+  Example format: eyJhbGciOi...
+  Required: Yes
+
+--------------------------------------------------------------------------------
+2. PRODUCTION SITE URL & CANONICAL METADATA
+--------------------------------------------------------------------------------
+
+NEXT_PUBLIC_SITE_URL
+  Description: The canonical public URL of the deployed website. Used by the
+               dynamic sitemap generator, robots.txt, OpenGraph, and canonical tags.
+  Scope: Client & Server (Public)
+  Example format: https://zoftcorp.com
+  Required: Yes (Defaults to https://zoftcorp.com if omitted)
+
+--------------------------------------------------------------------------------
+3. AUTOMATED EMAIL NOTIFICATIONS (GMAIL / GOOGLE WORKSPACE SMTP VIA NODEMAILER)
+--------------------------------------------------------------------------------
+
+ADMIN_NOTIFICATION_EMAIL
+  Description: Official admin notification recipient for ALL website submissions
+               (Contact inquiries, Career applications, Partnership requests).
+  Scope: Server-only
+  Value: info@zoftcorp.com
+  Required: Yes
+
+EMAIL_FROM
+  Description: Verified sender address appearing in user confirmation emails.
+  Scope: Server-only
+  Example format: Zoftcorp <info@zoftcorp.com>
+  Required: Yes
+
+GMAIL_USER
+  Description: The Google Workspace / Gmail account username used for SMTP
+               authentication.
+  Scope: Server-only (Secret)
+  Value: info@zoftcorp.com
+  Required: Yes (when automated emails are enabled)
+
+GMAIL_APP_PASSWORD
+  Description: 16-character Google App Password generated specifically for
+               Nodemailer SMTP authentication under your Google Account
+               (Security -> 2-Step Verification -> App Passwords).
+  Scope: Server-only (Secret - never share publicly)
+  Example format: abcd efgh ijkl mnop
+  Required: Yes (when automated emails are enabled)
+
+--------------------------------------------------------------------------------
+4. LEGACY ALIASES (SUPPORTED AUTOMATICALLY AS FALLBACKS)
+--------------------------------------------------------------------------------
+
+SMTP_USER
+  Description: Fallback alias for GMAIL_USER.
+  Required: No (GMAIL_USER is prioritized)
+
+SMTP_PASSWORD
+  Description: Fallback alias for GMAIL_APP_PASSWORD.
+  Required: No (GMAIL_APP_PASSWORD is prioritized)
+
+ADMIN_EMAIL
+  Description: Fallback alias for ADMIN_NOTIFICATION_EMAIL.
+  Required: No (ADMIN_NOTIFICATION_EMAIL is prioritized)
+
+--------------------------------------------------------------------------------
+5. HOSTINGER NODE.JS RUNTIME CONFIGURATION
+--------------------------------------------------------------------------------
+
+NODE_ENV
+  Description: Node.js runtime environment.
+  Value: production
+  Required: Yes
+
+PORT
+  Description: Port on which the Next.js server listens. Automatically set by
+               Hostinger or reverse proxy (typically 3000 or assigned by host).
+  Default: 3000
+  Required: Optional (Hostinger sets this automatically)
+================================================================================

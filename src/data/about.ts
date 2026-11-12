@@ -131,12 +131,12 @@ export const ABOUT_DESTINATIONS: AboutDestination[] = [
   },
   {
     title: 'PARTNERSHIPS',
-    description: "Explore ZOFT's technology ecosystem and partner relationships.",
+    description: "Explore Zoftcorp's technology ecosystem and partner relationships.",
     href: '/about-us/partnerships',
   },
   {
     title: 'CAREER',
-    description: 'Explore opportunities to build and grow with ZOFT.',
+    description: 'Explore opportunities to build and grow with Zoftcorp.',
     href: '/about-us/career',
   },
 ];

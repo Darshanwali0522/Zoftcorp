@@ -30,7 +30,8 @@ const FALLBACK_INSIGHTS: UnifiedInsight[] = [
     category: "Enterprise Databases",
     publishedAt: "2026-10-10T12:00:00.000Z",
     formattedDate: "October 10, 2026",
-    href: "/insights/case-studies",
+    href: "/insights/case-studies/database-architecture-modernization",
+    image: "/images/consulting/cloud-database-strategy.jpg",
     technologies: ["SQL Server", "PostgreSQL", "MySQL"],
     readingTime: "6 min read",
   },
@@ -39,12 +40,13 @@ const FALLBACK_INSIGHTS: UnifiedInsight[] = [
     slug: "how-zoftcorp-ease-your-failover-cluster-installation-with-slipstream",
     type: "blog",
     typeLabel: "Blog Post",
-    title: "How ZoftCorp Ease Your Failover Cluster Installation with Slipstream",
+    title: "How Zoftcorp Ease Your Failover Cluster Installation with Slipstream",
     excerpt: "Discover how Slipstream streamlines SQL Server failover clustering with integrated service packs.",
     category: "Database Architecture",
     publishedAt: "2026-09-30T17:09:21.000Z",
     formattedDate: "September 30, 2026",
     href: "/insights/blogs/how-zoftcorp-ease-your-failover-cluster-installation-with-slipstream",
+    image: "/images/blogs/failover-cluster-slipstream.jpg",
     readingTime: "5 min read",
   },
   {
@@ -57,7 +59,8 @@ const FALLBACK_INSIGHTS: UnifiedInsight[] = [
     category: "Cloud Platforms",
     publishedAt: "2026-09-20T12:00:00.000Z",
     formattedDate: "September 20, 2026",
-    href: "/insights/case-studies",
+    href: "/insights/case-studies/cloud-infrastructure-optimization",
+    image: "/images/consulting/cloud-finops.jpg",
     technologies: ["AWS", "Azure", "Google Cloud"],
     readingTime: "5 min read",
   },
@@ -148,14 +151,13 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({ items = 
   return (
     <section
       id="case-studies"
-      aria-label="Case Studies and Blogs"
+      aria-label="Case Studies, White Papers & Blogs"
       className="relative w-full bg-[#01153B] text-white py-16 sm:py-20 lg:py-28 overflow-hidden border-b border-slate-800"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onFocus={() => setIsFocused(true)}
       onBlur={() => setIsFocused(false)}
       onKeyDown={handleKeyDown}
-      tabIndex={0}
       role="region"
       aria-roledescription="carousel"
     >
@@ -181,15 +183,15 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({ items = 
           <div className="space-y-4 max-w-2xl text-left">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider text-[#00B3FF] bg-[#00B3FF]/10 border border-[#00B3FF]/20 shadow-xs">
               <Layers className="w-3.5 h-3.5" />
-              <span>INSIGHTS // CASE STUDIES &amp; BLOGS</span>
+              <span>INSIGHTS // CASE STUDIES, WHITE PAPERS &amp; BLOGS</span>
             </div>
 
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight font-sans">
-              Case Studies &amp; Blogs
+              Case Studies, White Papers &amp; Blogs
             </h2>
 
             <p className="text-slate-300 text-base sm:text-lg font-normal leading-relaxed font-sans">
-              Explore our latest enterprise case studies, technical publications, and architectural investigations in production.
+              Explore our latest enterprise case studies, white papers, technical publications, and architectural investigations in production.
             </p>
           </div>
 
@@ -239,7 +241,7 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({ items = 
 
             {/* Clear "View All" Link Leading to Combined Insights Page */}
             <Link
-              href="/insights"
+              href="/insights/blogs"
               className="inline-flex items-center gap-1.5 ml-2 px-3.5 py-2 rounded-lg bg-[#031E4D] hover:bg-[#00B3FF]/20 border border-slate-700 hover:border-[#00B3FF] text-xs font-mono font-bold uppercase tracking-wider text-[#00B3FF] transition-all"
             >
               <span>View All</span>
@@ -257,17 +259,16 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({ items = 
             return (
               <div
                 key={item.id}
-                onClick={() => goToSlide(idx)}
-                className={`group relative rounded-2xl p-7 transition-all duration-300 flex flex-col justify-between cursor-pointer border ${
+                className={`group relative rounded-2xl p-7 transition-all duration-300 flex flex-col justify-between border ${
                   isActive
                     ? "bg-[#031E4D] border-[#00B3FF] shadow-2xl shadow-[#00B3FF]/15 scale-[1.02] z-20"
-                    : "bg-[#031E4D]/60 border-slate-800 hover:border-slate-700 hover:bg-[#031E4D]/80 scale-100 z-10"
-                }`}
+                    : "bg-[#031E4D]/70 border-slate-800 hover:border-slate-700 hover:bg-[#031E4D]/90 scale-100 z-10"
+                } hover:-translate-y-1 hover:border-[#00B3FF]/60 hover:shadow-xl`}
                 role="group"
                 aria-roledescription="slide"
                 aria-label={`${idx + 1} of ${totalItems}: ${item.title}`}
               >
-                {/* Active Indicator Top Tag & Type Badge */}
+                {/* Top Tag & Type Badge */}
                 <div>
                   <div className="flex items-center justify-between mb-5">
                     <div className="flex items-center gap-2">
@@ -300,14 +301,19 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({ items = 
 
                   {/* Optional Image with Fallback Branded Visual (no broken images) */}
                   {item.image ? (
-                    <div className="relative w-full h-36 rounded-xl overflow-hidden mb-4 border border-slate-700/60">
+                    <Link
+                      href={item.href}
+                      tabIndex={-1}
+                      aria-hidden="true"
+                      className="block relative w-full h-36 rounded-xl overflow-hidden mb-4 border border-slate-700/60 focus:outline-none"
+                    >
                       <Image
                         src={item.image}
                         alt={item.title}
                         fill
                         className="object-cover group-hover:scale-105 transition-transform duration-300"
                       />
-                    </div>
+                    </Link>
                   ) : null}
 
                   {/* Metadata Row: Date & Reading Time */}
@@ -327,7 +333,12 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({ items = 
                   {/* Content Body */}
                   <div className="space-y-3">
                     <h3 className="text-xl font-bold text-white group-hover:text-[#00B3FF] transition-colors font-sans leading-snug line-clamp-2">
-                      {item.title}
+                      <Link
+                        href={item.href}
+                        className="hover:underline focus-visible:outline-2 focus-visible:outline-[#00B3FF] rounded"
+                      >
+                        {item.title}
+                      </Link>
                     </h3>
 
                     <p className="text-sm text-slate-300 leading-relaxed font-sans font-normal line-clamp-3">
@@ -354,7 +365,7 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({ items = 
                 <div className="pt-6 mt-6 border-t border-slate-800 flex items-center justify-between">
                   <Link
                     href={item.href}
-                    className="inline-flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-[#00B3FF] hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-[#00B3FF] rounded"
+                    className="inline-flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-[#00B3FF] hover:text-white transition-colors focus-visible:outline-2 focus-visible:outline-[#00B3FF] rounded py-1 px-0.5"
                   >
                     <span>{isCaseStudy ? "View Case Study" : "Read Article"}</span>
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
@@ -417,6 +428,23 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({ items = 
                           </span>
                         </div>
 
+                        {/* Mobile Image */}
+                        {item.image ? (
+                          <Link
+                            href={item.href}
+                            tabIndex={-1}
+                            aria-hidden="true"
+                            className="block relative w-full h-40 rounded-xl overflow-hidden mb-4 border border-slate-700/60 focus:outline-none"
+                          >
+                            <Image
+                              src={item.image}
+                              alt={item.title}
+                              fill
+                              className="object-cover"
+                            />
+                          </Link>
+                        ) : null}
+
                         {/* Date & Reading Time */}
                         <div className="flex items-center gap-3 text-xs text-slate-400 font-mono mb-3">
                           <span className="inline-flex items-center gap-1">
@@ -434,7 +462,12 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({ items = 
                         {/* Content */}
                         <div className="space-y-3">
                           <h3 className="text-xl sm:text-2xl font-bold text-white font-sans leading-snug">
-                            {item.title}
+                            <Link
+                              href={item.href}
+                              className="hover:text-[#00B3FF] transition-colors focus-visible:outline-2 focus-visible:outline-[#00B3FF] rounded"
+                            >
+                              {item.title}
+                            </Link>
                           </h3>
 
                           <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-sans">
@@ -460,7 +493,7 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({ items = 
                       <div className="pt-4 border-t border-slate-800 flex items-center justify-between">
                         <Link
                           href={item.href}
-                          className="inline-flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-[#00B3FF] hover:text-white transition-colors"
+                          className="inline-flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-[#00B3FF] hover:text-white transition-colors py-1 focus-visible:outline-2 focus-visible:outline-[#00B3FF] rounded"
                         >
                           <span>{isCaseStudy ? "View Case Study" : "Read Article"}</span>
                           <ArrowRight className="w-3.5 h-3.5" />
@@ -478,20 +511,25 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({ items = 
           </div>
 
           {/* Mobile Dot Navigation */}
-          <div className="flex items-center justify-center gap-2 pt-6">
+          <div className="flex items-center justify-center gap-1 pt-6">
             {displayItems.map((_, idx) => (
               <button
                 key={idx}
                 type="button"
                 onClick={() => goToSlide(idx)}
-                className={`h-2 rounded-full transition-all duration-200 focus-visible:outline-2 focus-visible:outline-[#00B3FF] ${
-                  activeIndex === idx
-                    ? "w-8 bg-[#00B3FF]"
-                    : "w-2 bg-slate-700 hover:bg-slate-600"
-                }`}
+                className="min-w-[28px] min-h-[28px] p-2 flex items-center justify-center rounded-full focus-visible:outline-2 focus-visible:outline-[#00B3FF] cursor-pointer"
                 aria-label={`Go to slide ${idx + 1}`}
                 aria-current={activeIndex === idx ? "true" : undefined}
-              />
+              >
+                <span
+                  className={`h-2 rounded-full transition-all duration-200 ${
+                    activeIndex === idx
+                      ? "w-8 bg-[#00B3FF]"
+                      : "w-2 bg-slate-700 hover:bg-slate-600"
+                  }`}
+                  aria-hidden="true"
+                />
+              </button>
             ))}
           </div>
         </div>

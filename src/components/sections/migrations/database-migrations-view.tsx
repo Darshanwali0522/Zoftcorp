@@ -32,7 +32,7 @@ export function DatabaseMigrationsView({
   return (
     <div className="w-full bg-white text-[#01153B] selection:bg-[#00B3FF]/20 selection:text-[#01153B]">
       <ServiceJsonLd
-        name="Migration & Transformations | ZOFT Corp"
+        name="Migration & Transformations | Zoftcorp"
         description="At Zoftcorp, we simplify the complexity of database migrations — whether you’re modernizing within the same ecosystem or transforming across platforms. Our proven methodology ensures minimal downtime, cost-aware execution, and compliance-ready transitions."
         url={pageUrl}
       />

@@ -50,7 +50,7 @@ export const MAIN_NAVIGATION: NavItem[] = [
           },
           {
             title: 'Resilience and Compliance',
-            href: '/consulting/compliance-governance',
+            href: '/consulting/resilience-compliance',
             description: 'High availability architecture, zero-data-loss failover protocols, and operational resilience.',
           },
           {
@@ -92,14 +92,9 @@ export const MAIN_NAVIGATION: NavItem[] = [
         categoryTitle: 'Insights & Resources',
         items: [
           {
-            title: 'Blogs',
+            title: 'Case Studies, White Papers & Blogs',
             href: '/insights/blogs',
-            description: 'Technical insights on database performance, cloud architecture, and operations.',
-          },
-          {
-            title: 'Case Studies',
-            href: '/insights/case-studies',
-            description: 'Engineering deep dives into complex database and cloud engagements.',
+            description: 'Engineering case studies, white papers, and technical articles on database performance and cloud systems.',
           },
           {
             title: 'Events & Meetups',
@@ -113,7 +108,7 @@ export const MAIN_NAVIGATION: NavItem[] = [
   {
     id: 'careers',
     label: 'Careers',
-    href: '/careers',
+    href: '/about-us/career',
     type: 'link',
   },
   {

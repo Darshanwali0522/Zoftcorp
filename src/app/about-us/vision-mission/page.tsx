@@ -7,25 +7,25 @@ import { BreadcrumbJsonLd } from '@/components/seo/json-ld';
 import { VisionMissionSection } from '@/components/sections/about/vision-mission-section';
 
 export const metadata: Metadata = {
-  title: 'Vision & Mission | About Us | ZOFT Corp',
+  title: 'Vision & Mission | About Us | Zoftcorp',
   description:
-    'Discover ZOFT Corp’s foundational mission to empower businesses through client-centric database engineering and our long-term vision for enterprise resilience and FinOps governance.',
+    'Discover Zoftcorp’s foundational mission to empower businesses through client-centric database engineering and our long-term vision for enterprise resilience and FinOps governance.',
   alternates: {
     canonical: 'https://zoftcorp.com/about-us/vision-mission',
   },
   openGraph: {
-    title: 'Vision & Mission | About Us | ZOFT Corp',
+    title: 'Vision & Mission | About Us | Zoftcorp',
     description:
-      'Discover ZOFT Corp’s foundational mission to empower businesses through client-centric database engineering and our long-term vision for enterprise resilience and FinOps governance.',
+      'Discover Zoftcorp’s foundational mission to empower businesses through client-centric database engineering and our long-term vision for enterprise resilience and FinOps governance.',
     url: 'https://zoftcorp.com/about-us/vision-mission',
-    siteName: 'ZOFT Corp',
+    siteName: 'Zoftcorp',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Vision & Mission | About Us | ZOFT Corp',
+    title: 'Vision & Mission | About Us | Zoftcorp',
     description:
-      'Discover ZOFT Corp’s foundational mission to empower businesses through client-centric database engineering and our long-term vision for enterprise resilience and FinOps governance.',
+      'Discover Zoftcorp’s foundational mission to empower businesses through client-centric database engineering and our long-term vision for enterprise resilience and FinOps governance.',
   },
 };
 
@@ -71,8 +71,8 @@ export default function VisionMissionPage() {
         </Container>
       </section>
 
-      {/* Vision & Mission Main Section */}
-      <VisionMissionSection id="company-vision-mission" />
+      {/* Vision & Mission Main Section with Centered Official Tagline */}
+      <VisionMissionSection id="company-vision-mission" showTagline={true} />
 
       {/* Connected Navigation & Action CTA */}
       <section
@@ -81,7 +81,7 @@ export default function VisionMissionPage() {
       >
         <Container size="wide" className="space-y-6 max-w-3xl mx-auto">
           <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-[#01153B] font-sans">
-            Explore More of ZOFT Corp
+            Explore More of Zoftcorp
           </h2>
           <p className="text-base text-slate-600 font-sans leading-relaxed">
             Discover our executive leadership team, the story behind our founding, or start a dialogue with our database and cloud advisory architects.

@@ -19,25 +19,25 @@ import { LeadershipSection } from '@/components/sections/about/leadership-sectio
 import { VisionMissionSection } from '@/components/sections/about/vision-mission-section';
 
 export const metadata: Metadata = {
-  title: 'About Us | ZOFT Corp',
+  title: 'About Us | Zoftcorp',
   description:
-    "Learn about ZOFT's technology perspective, engineering approach, capabilities, and technology ecosystem.",
+    "Learn about Zoftcorp's technology perspective, engineering approach, capabilities, and technology ecosystem.",
   alternates: {
     canonical: 'https://zoftcorp.com/about-us',
   },
   openGraph: {
-    title: 'About Us | ZOFT Corp',
+    title: 'About Us | Zoftcorp',
     description:
-      "Learn about ZOFT's technology perspective, engineering approach, capabilities, and technology ecosystem.",
+      "Learn about Zoftcorp's technology perspective, engineering approach, capabilities, and technology ecosystem.",
     url: 'https://zoftcorp.com/about-us',
-    siteName: 'ZOFT Corp',
+    siteName: 'Zoftcorp',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'About Us | ZOFT Corp',
+    title: 'About Us | Zoftcorp',
     description:
-      "Learn about ZOFT's technology perspective, engineering approach, capabilities, and technology ecosystem.",
+      "Learn about Zoftcorp's technology perspective, engineering approach, capabilities, and technology ecosystem.",
   },
 };
 
@@ -72,7 +72,7 @@ export default function AboutUsPage() {
               </h1>
 
               <p className="text-slate-300 text-base sm:text-lg lg:text-xl leading-relaxed max-w-2xl font-sans font-normal">
-                ZOFT helps organizations make better technology decisions and build reliable
+                Zoftcorp helps organizations make better technology decisions and build reliable
                 technology environments across cloud, databases, data, performance, and modern
                 architectures.
               </p>
@@ -87,7 +87,7 @@ export default function AboutUsPage() {
                     <span>ARCHITECTURAL BREADTH</span>
                   </div>
                   <span className="text-[10px] font-mono text-slate-400 uppercase tracking-widest bg-[#01153B] px-2 py-0.5 rounded border border-slate-750">
-                    ZOFT FRAMEWORK
+                    ZOFTCORP FRAMEWORK
                   </span>
                 </div>
 
@@ -156,11 +156,11 @@ export default function AboutUsPage() {
             {/* Right Supporting Copy with Vertical Rule Accent */}
             <div className="lg:col-span-6 pl-0 lg:pl-8 border-l-0 lg:border-l-2 border-slate-300 space-y-4">
               <p className="text-lg text-slate-700 leading-relaxed font-sans font-normal">
-                ZOFT&apos;s work sits at the intersection of architecture, databases, cloud, data,
+                Zoftcorp&apos;s work sits at the intersection of architecture, databases, cloud, data,
                 performance, and engineering. The focus is not technology for its own sake, but
                 technology that works in the environment where it is actually used.
               </p>
-              <p className="text-sm text-slate-500 font-mono">POSITIONING STATEMENT // ZOFT CORP</p>
+              <p className="text-sm text-slate-500 font-mono">POSITIONING STATEMENT // ZOFTCORP</p>
             </div>
           </div>
         </div>
@@ -405,10 +405,10 @@ export default function AboutUsPage() {
           <div className="max-w-3xl mb-16">
             <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-bold tracking-wider uppercase bg-[#00B3FF]/10 text-[#01153B] border border-[#00B3FF]/20 mb-4">
               <span className="w-1.5 h-1.5 rounded-full bg-[#00B3FF]" />
-              EXPLORE ABOUT ZOFT
+              EXPLORE ABOUT ZOFTCORP
             </span>
             <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#01153B] font-sans">
-              Explore About ZOFT
+              Explore About Zoftcorp
             </h2>
           </div>
 
@@ -488,7 +488,7 @@ export default function AboutUsPage() {
 
           <p className="text-base sm:text-lg text-slate-300 leading-relaxed font-sans max-w-2xl mx-auto">
             Have a technology challenge, architecture question, or modernization goal? Start a
-            conversation with ZOFT.
+            conversation with Zoftcorp.
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-5 pt-4">
@@ -496,7 +496,7 @@ export default function AboutUsPage() {
               href="/contact"
               className="inline-flex items-center justify-center px-8 py-4 rounded-lg bg-[#FF6F00] hover:bg-[#e66400] text-white font-semibold text-base transition-all duration-200 shadow-lg shadow-[#FF6F00]/20 focus-visible:outline-2 focus-visible:outline-[#00B3FF]"
             >
-              Talk to ZOFT
+              Talk to Zoftcorp
             </Link>
             <Link
               href="/consulting"

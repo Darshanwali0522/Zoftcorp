@@ -1,409 +1,204 @@
-'use client';
-
-import React, { useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import {
   ArrowLeft,
   ArrowRight,
-  Shield,
-  Layers,
-  Sparkles,
-  MessageSquare,
-  Users,
-  Lightbulb,
   Briefcase,
+  Quote,
+  ShieldCheck,
+  CheckCircle2,
+  Users,
+  TrendingUp,
+  Home,
+  PartyPopper,
+  Coins,
+  GraduationCap,
+  Globe,
+  Rocket,
+  Camera,
+  Sparkles,
+  MapPin,
+  Calendar,
 } from 'lucide-react';
 import {
   CAREER_HERO,
-  CAREER_TECHNOLOGIES,
-  CAREER_CONTRIBUTION_THEMES,
-  CAREER_VALUES,
-  CAREER_BENEFITS,
-  TECHNICAL_DEPTH_STACK,
+  CORE_VALUES,
+  EMPLOYEE_BENEFITS_SECTION,
   CAREER_OPENINGS_STATE,
+  EmployeeBenefit,
 } from '@/data/career';
 import { CareerApplicationForm } from '@/components/forms/career-application-form';
+import { getPublishedJobs } from '@/lib/supabase/jobs-service';
 
-export default function CareerPage() {
-  const [activeTechIndex, setActiveTechIndex] = useState(0);
+function formatDeadline(deadlineStr?: string | null): string {
+  if (!deadlineStr) return '';
+  try {
+    const d = new Date(deadlineStr);
+    if (isNaN(d.getTime())) return deadlineStr;
+    return d.toLocaleDateString('en-US', {
+      month: 'short',
+      day: 'numeric',
+      year: 'numeric',
+    });
+  } catch {
+    return deadlineStr;
+  }
+}
 
-  const activeTech = CAREER_TECHNOLOGIES[activeTechIndex];
+const BENEFIT_ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
+  'work-from-home': Home,
+  'special-day-off': PartyPopper,
+  'competitive-salary': Coins,
+  'learning-leave': GraduationCap,
+  'cultural-heritage-leave': Globe,
+  'insurance-coverage': ShieldCheck,
+  'employee-ownership-rsus': Rocket,
+};
 
+export default async function CareerPage() {
+  const jobs = await getPublishedJobs();
   return (
     <div className="w-full bg-white text-slate-900 selection:bg-[#00B3FF]/20 selection:text-[#01153B]">
-      {/* 1. HERO */}
-      <section className="relative w-full bg-[#01153B] text-white py-16 md:py-28 overflow-hidden border-b border-slate-800/80">
+      {/* =========================================================================
+          1. HERO & INTRODUCTION (Aligned with reference: Build Your Future With Us)
+          ========================================================================= */}
+      <section className="relative w-full bg-[#01153B] text-white py-16 md:py-24 overflow-hidden border-b border-slate-800">
+        {/* Subtle Architectural Blueprint Grid */}
         <div
           className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,#1e293b15_1px,transparent_1px),linear-gradient(to_bottom,#1e293b15_1px,transparent_1px)] bg-[size:4rem_4rem]"
           aria-hidden="true"
         />
+        {/* Ambient Glows */}
         <div
           className="pointer-events-none absolute top-0 right-1/4 w-[480px] h-[480px] bg-[#00B3FF]/15 blur-[150px] rounded-full"
           aria-hidden="true"
         />
+        <div
+          className="pointer-events-none absolute bottom-0 left-10 w-[360px] h-[360px] bg-[#031E4D]/80 blur-[120px] rounded-full"
+          aria-hidden="true"
+        />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          {/* Breadcrumb / Back Navigation */}
           <div className="mb-6">
             <Link
               href="/about-us"
-              className="inline-flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider text-[#00B3FF] hover:text-[#00B3FF]/80 transition-colors"
+              className="inline-flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider text-[#00B3FF] hover:text-[#00B3FF]/80 transition-colors group"
             >
-              <ArrowLeft className="w-3.5 h-3.5" />
+              <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-0.5 transition-transform" />
               <span>Back to About Us</span>
             </Link>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            {/* Left Hero Content */}
+            {/* Left Column: Heading and Intro */}
             <div className="lg:col-span-7 space-y-6 text-left">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider text-[#00B3FF] bg-[#00B3FF]/10 border border-[#00B3FF]/20">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider text-[#00B3FF] bg-[#00B3FF]/10 border border-[#00B3FF]/20 shadow-2xs">
                 <Briefcase className="w-3.5 h-3.5" />
                 <span>{CAREER_HERO.eyebrow}</span>
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.12] font-sans">
-                Build Technology That{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00B3FF] via-sky-200 to-[#FF6F00]">
-                  Matters.
-                </span>
+                {CAREER_HERO.h1}
               </h1>
 
               <p className="text-slate-300 text-base sm:text-lg lg:text-xl leading-relaxed max-w-2xl font-sans font-normal">
-                {CAREER_HERO.copy}
+                {CAREER_HERO.lead}
               </p>
+
+              <div className="flex flex-wrap items-center gap-4 pt-2">
+                <a
+                  href="#openings"
+                  className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-[#00B3FF] hover:bg-[#0099db] text-[#01153B] font-bold text-sm transition-all duration-200 shadow-md hover:-translate-y-0.5 active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-[#00B3FF]"
+                >
+                  View Current Openings
+                </a>
+                <a
+                  href="#candidate-application"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold text-white hover:bg-white/10 transition-all duration-200 border border-white/20 active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-[#00B3FF]"
+                >
+                  <span>Apply Directly</span>
+                  <ArrowRight className="w-4 h-4" />
+                </a>
+              </div>
             </div>
 
-            {/* Right Side Editorial Typographic Composition */}
+            {/* Right Column: Mission & Quote Card */}
             <div className="lg:col-span-5 w-full">
-              <div className="bg-[#031E4D]/90 border border-slate-800 rounded-2xl p-6 sm:p-8 space-y-5 shadow-2xl backdrop-blur-sm">
-                <div className="flex items-center justify-between border-b border-slate-800 pb-3">
-                  <div className="flex items-center gap-2 font-mono text-xs text-[#00B3FF]">
-                    <Sparkles className="w-4 h-4" />
-                    <span>WORK ENVIRONMENT</span>
-                  </div>
-                  <span className="text-[10px] font-mono text-slate-400 uppercase tracking-widest bg-[#01153B] px-2 py-0.5 rounded border border-slate-800">
-                    CULTIVATING IMPACT
+              <div className="bg-[#031E4D]/90 border border-slate-700/80 rounded-2xl p-6 sm:p-8 space-y-6 shadow-2xl backdrop-blur-sm">
+                {/* Quote Block */}
+                <div className="relative pl-6 border-l-2 border-[#00B3FF] space-y-3">
+                  <Quote className="w-6 h-6 text-[#00B3FF] opacity-40 absolute -top-1 -left-3 -translate-x-full" />
+                  <blockquote className="text-base sm:text-lg text-white font-sans italic leading-relaxed">
+                    &ldquo;{CAREER_HERO.quote.text}&rdquo;
+                  </blockquote>
+                  <p className="text-xs font-mono font-bold text-[#00B3FF] uppercase tracking-wider">
+                    &ndash; {CAREER_HERO.quote.author}
+                  </p>
+                </div>
+
+                {/* Mission Statement */}
+                <div className="pt-4 border-t border-slate-700/80 space-y-2">
+                  <span className="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-widest block">
+                    OUR FOUNDATIONAL COMMITMENT
                   </span>
-                </div>
-
-                {/* Conceptual Nodes Flow */}
-                <div className="space-y-3 font-mono text-xs">
-                  <div className="p-3 rounded-xl bg-[#01153B] border border-slate-800 flex items-center justify-between">
-                    <span className="text-[#FF6F00] font-bold">01 / PEOPLE</span>
-                    <span className="text-[11px] text-slate-400 font-sans">Curious Technologists</span>
-                  </div>
-
-                  <div className="text-center text-slate-500 text-xs py-0.5">+</div>
-
-                  <div className="p-3 rounded-xl bg-[#01153B] border border-slate-800 flex items-center justify-between">
-                    <span className="text-[#00B3FF] font-bold">02 / IDEAS</span>
-                    <span className="text-[11px] text-slate-400 font-sans">System-Level Thinking</span>
-                  </div>
-
-                  <div className="text-center text-slate-500 text-xs py-0.5">+</div>
-
-                  <div className="p-3 rounded-xl bg-[#01153B] border border-slate-800 flex items-center justify-between">
-                    <span className="text-sky-300 font-bold">03 / TECHNOLOGY</span>
-                    <span className="text-[11px] text-slate-400 font-sans">Data, Cloud & AI</span>
-                  </div>
-
-                  <div className="text-center text-slate-500 text-xs py-0.5">↓</div>
-
-                  <div className="p-3 rounded-xl bg-[#01153B] border border-[#00B3FF]/40 text-[#00B3FF] font-bold text-center font-sans tracking-wider">
-                    PRACTICAL TECHNICAL IMPACT
-                  </div>
-                </div>
-
-                <div className="pt-2 border-t border-slate-800 flex items-center justify-between text-[11px] font-mono text-slate-400">
-                  <span>BOUTIQUE ENVIRONMENT</span>
-                  <span className="text-[#00B3FF]">ENGINEERING DEPTH</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 2. INTRODUCTION */}
-      <section className="relative bg-slate-50/70 text-slate-900 py-20 md:py-28 border-b border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            {/* Left Headline */}
-            <div className="lg:col-span-6 space-y-4">
-              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-bold tracking-wider uppercase bg-[#00B3FF]/10 text-[#01153B] border border-[#00B3FF]/20">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#00B3FF]" />
-                THOUGHTFUL ENGINEERING
-              </span>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 font-sans leading-[1.15]">
-                Good Technology Starts With Good Thinking.
-              </h2>
-            </div>
-
-            {/* Right Supporting Copy */}
-            <div className="lg:col-span-6 pl-0 lg:pl-8 border-l-0 lg:border-l-2 border-slate-300 space-y-4">
-              <p className="text-lg text-slate-700 leading-relaxed font-sans">
-                ZOFT works across complex technology environments where understanding the problem
-                matters as much as choosing the technology.
-              </p>
-              <div className="grid grid-cols-2 gap-3 pt-2 font-mono text-xs font-bold text-slate-800">
-                <div className="p-2.5 rounded bg-white border border-slate-200 hover:border-[#00B3FF]/30 transition-colors">
-                  01 / ASK BETTER QUESTIONS
-                </div>
-                <div className="p-2.5 rounded bg-white border border-slate-200 hover:border-[#00B3FF]/30 transition-colors">
-                  02 / UNDERSTAND THE SYSTEM
-                </div>
-                <div className="p-2.5 rounded bg-white border border-slate-200 hover:border-[#00B3FF]/30 transition-colors">
-                  03 / BUILD PRACTICALLY
-                </div>
-                <div className="p-2.5 rounded bg-white border border-slate-200 hover:border-[#00B3FF]/30 transition-colors">
-                  04 / KEEP IMPROVING
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 3. WHAT YOU CAN WORK ON (INTERACTIVE EXPLORER) */}
-      <section className="relative bg-white text-slate-900 py-20 md:py-28 border-b border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-16">
-            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-bold tracking-wider uppercase bg-[#00B3FF]/10 text-[#01153B] border border-[#00B3FF]/20 mb-4">
-              <Sparkles className="w-3.5 h-3.5 text-[#00B3FF]" />
-              TECHNOLOGY EXPLORER
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 font-sans">
-              Explore the Technology Around ZOFT
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-            {/* Left Navigation Tabs */}
-            <div
-              className="lg:col-span-5 space-y-2.5"
-              role="tablist"
-              aria-label="Technology areas around ZOFT"
-            >
-              {CAREER_TECHNOLOGIES.map((tech, index) => {
-                const isActive = activeTechIndex === index;
-                return (
-                  <button
-                    key={tech.id}
-                    id={`tech-tab-${index}`}
-                    role="tab"
-                    aria-selected={isActive}
-                    aria-controls={`tech-panel-${index}`}
-                    onClick={() => setActiveTechIndex(index)}
-                    className={`w-full text-left p-4 sm:p-5 rounded-2xl transition-all duration-200 flex items-center justify-between border focus-visible:outline-2 focus-visible:outline-[#00B3FF] ${
-                      isActive
-                        ? 'bg-[#01153B] text-white border-[#00B3FF]/40 shadow-lg'
-                        : 'bg-slate-50 text-slate-800 border-slate-200/90 hover:border-[#00B3FF]/40'
-                    }`}
-                  >
-                    <div className="flex items-center gap-4">
-                      <span
-                        className={`font-mono text-xs font-bold px-2.5 py-1 rounded ${
-                          isActive
-                            ? 'bg-[#00B3FF]/20 text-[#00B3FF] border border-[#00B3FF]/30'
-                            : 'bg-slate-200 text-slate-700'
-                        }`}
-                      >
-                        {tech.number}
-                      </span>
-                      <span className="text-base font-bold font-sans tracking-tight">
-                        {tech.title}
-                      </span>
-                    </div>
-                    <ArrowRight
-                      className={`w-4 h-4 transition-transform ${
-                        isActive ? 'text-[#00B3FF] translate-x-1' : 'text-slate-400'
-                      }`}
-                    />
-                  </button>
-                );
-              })}
-            </div>
-
-            {/* Right Display Panel */}
-            <div className="lg:col-span-7">
-              <div
-                id={`tech-panel-${activeTechIndex}`}
-                role="tabpanel"
-                aria-labelledby={`tech-tab-${activeTechIndex}`}
-                className="bg-slate-50 border border-slate-200 rounded-3xl p-8 sm:p-12 space-y-6 shadow-sm min-h-[380px] flex flex-col justify-between"
-              >
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between border-b border-slate-200 pb-4">
-                    <span className="font-mono text-xs font-bold text-[#01153B] bg-[#00B3FF]/10 px-3 py-1 rounded border border-[#00B3FF]/20 uppercase tracking-wider">
-                      DOMAIN {activeTech.number}
-                    </span>
-                    <span className="font-mono text-xs text-slate-500 font-semibold uppercase tracking-wider">
-                      {activeTech.tagline}
-                    </span>
-                  </div>
-
-                  <h3 className="text-3xl font-extrabold text-slate-900 font-sans tracking-tight">
-                    {activeTech.title}
-                  </h3>
-
-                  <p className="text-lg text-slate-800 font-semibold font-sans leading-relaxed">
-                    {activeTech.description}
-                  </p>
-
-                  <p className="text-base text-slate-600 font-sans leading-relaxed pt-2">
-                    {activeTech.details}
+                  <p className="text-sm text-slate-200 font-sans leading-relaxed">
+                    {CAREER_HERO.mission}
                   </p>
                 </div>
-
-                <div className="pt-6 border-t border-slate-200 text-xs font-mono text-slate-500">
-                  TECHNICAL SPECTRUM // ZOFT
-                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 4. HOW PEOPLE CAN CONTRIBUTE */}
-      <section className="relative bg-slate-50/70 text-slate-900 py-20 md:py-28 border-b border-slate-200/80">
+      {/* =========================================================================
+          2. OUR CORE VALUES (All eight values from original website)
+          ========================================================================= */}
+      <section id="values" className="relative bg-slate-50/70 text-slate-900 py-16 md:py-24 border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-16">
-            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-bold tracking-wider uppercase bg-[#00B3FF]/10 text-[#01153B] border border-[#00B3FF]/20 mb-4">
-              <Users className="w-3.5 h-3.5 text-[#00B3FF]" />
-              CONTRIBUTION THEMES
+          <div className="max-w-3xl mb-12 sm:mb-16">
+            <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-bold tracking-wider uppercase bg-[#00B3FF]/10 text-[#01153B] border border-[#00B3FF]/20 mb-3 shadow-2xs">
+              <ShieldCheck className="w-3.5 h-3.5 text-[#00B3FF]" />
+              FOUNDATIONAL PRINCIPLES
             </span>
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 font-sans">
-              Bring Your Perspective to the Work.
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 font-sans">
+              OUR CORE VALUES
             </h2>
+            <p className="text-base sm:text-lg text-slate-600 font-sans mt-3 max-w-2xl">
+              Zoftcorp is grounded in its values and driven by a mission to cultivate responsible individuals who take ownership, lead with integrity, and deliver meaningful innovation.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {CAREER_CONTRIBUTION_THEMES.map((theme) => (
+          {/* Responsive Grid for all 8 Core Values */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {CORE_VALUES.map((val) => (
               <div
-                key={theme.number}
-                className="bg-white p-8 rounded-3xl border border-slate-200/90 shadow-sm space-y-4 flex flex-col justify-between hover:border-[#00B3FF]/30 transition-colors"
+                key={val.id}
+                className="bg-white p-6 sm:p-7 rounded-2xl border border-slate-200/90 shadow-sm space-y-3.5 flex flex-col justify-between hover:border-[#00B3FF]/40 hover:shadow-md transition-all duration-200 ease-out"
               >
-                <div className="space-y-3">
+                <div className="space-y-2.5">
                   <div className="flex items-center justify-between">
-                    <span className="font-mono text-xs font-bold text-[#01153B] bg-[#00B3FF]/10 px-2.5 py-1 rounded border border-[#00B3FF]/20 uppercase tracking-wider">
-                      {theme.number}
+                    <span className="font-mono text-xs font-bold text-[#00B3FF] bg-[#00B3FF]/10 px-2.5 py-0.5 rounded border border-[#00B3FF]/20">
+                      {val.number}
                     </span>
                     <span className="text-[10px] font-mono text-slate-400 uppercase tracking-widest">
-                      {theme.tagline}
+                      CORE VALUE
                     </span>
                   </div>
 
-                  <h3 className="text-xl font-bold text-slate-900 font-sans uppercase">
-                    {theme.title}
+                  <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 font-sans tracking-tight">
+                    {val.title}
                   </h3>
+
                   <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-sans">
-                    {theme.description}
-                  </p>
-                </div>
-                <div className="pt-4 border-t border-slate-100 text-[11px] font-mono text-slate-400">
-                  CONTRIBUTION THEME
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 5. TECHNICAL DEPTH */}
-      <section className="relative bg-white text-slate-900 py-20 md:py-28 border-b border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-16">
-            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-bold tracking-wider uppercase bg-[#00B3FF]/10 text-[#01153B] border border-[#00B3FF]/20 mb-4">
-              <Layers className="w-3.5 h-3.5 text-[#00B3FF]" />
-              FULL-STACK DEPTH
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 font-sans">
-              Depth Matters.
-            </h2>
-            <p className="text-base text-slate-600 leading-relaxed font-sans mt-4">
-              ZOFT&apos;s work spans multiple connected layers of modern technology—from strategy
-              and architecture down to database query buffers and cloud infrastructure nodes.
-            </p>
-          </div>
-
-          {/* Visual Stack Diagram */}
-          <div className="max-w-2xl mx-auto space-y-2 font-mono text-xs">
-            {TECHNICAL_DEPTH_STACK.map((layer, idx) => (
-              <React.Fragment key={layer}>
-                <div className="p-4 rounded-xl bg-slate-50 border border-slate-200/90 text-center font-bold text-slate-900 font-sans flex items-center justify-between px-6 shadow-sm hover:border-[#00B3FF]/30 transition-colors">
-                  <span className="text-[#00B3FF] font-mono text-xs">0{idx + 1}</span>
-                  <span>{layer}</span>
-                  <span className="text-slate-400 font-mono text-[10px]">LAYER</span>
-                </div>
-                {idx < TECHNICAL_DEPTH_STACK.length - 1 && (
-                  <div className="text-center text-slate-400 py-0.5">↓</div>
-                )}
-              </React.Fragment>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 6. LEARNING + CURIOSITY */}
-      <section className="relative bg-slate-50/70 text-slate-900 py-20 md:py-28 border-b border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            <div className="lg:col-span-6 space-y-4">
-              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-bold tracking-wider uppercase bg-[#00B3FF]/10 text-[#01153B] border border-[#00B3FF]/20">
-                <Lightbulb className="w-3.5 h-3.5 text-[#00B3FF]" />
-                TECHNICAL CURIOSITY
-              </span>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 font-sans leading-[1.15]">
-                Stay Curious About How Things Work.
-              </h2>
-            </div>
-
-            <div className="lg:col-span-6 space-y-4">
-              <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-sans">
-                Technology evolves constantly. The most meaningful work comes from asking better
-                questions, understanding system internals, exploring emerging paradigms, and improving
-                technical solutions over time.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 7. CORE VALUES */}
-      <section className="relative bg-white text-slate-900 py-20 md:py-28 border-b border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-16">
-            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-bold tracking-wider uppercase bg-[#00B3FF]/10 text-[#01153B] border border-[#00B3FF]/20 mb-4">
-              <Shield className="w-3.5 h-3.5 text-[#00B3FF]" />
-              CORE VALUES
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 font-sans">
-              Core Values That Guide Our Engineering
-            </h2>
-            <p className="text-base text-slate-600 font-sans mt-3">
-              Our engineering culture is guided by transparent, foundational principles that govern how we interact with technology, our clients, and each other.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {CAREER_VALUES.map((val) => (
-              <div
-                key={val.name}
-                className="bg-slate-50 p-8 rounded-3xl border border-slate-200/90 shadow-sm space-y-4 flex flex-col justify-between hover:border-[#00B3FF]/30 transition-colors"
-              >
-                <div className="space-y-3">
-                  <span className="text-xs font-mono font-bold text-[#00B3FF] uppercase tracking-wider block">
-                    FOUNDATIONAL PILLAR
-                  </span>
-                  <h3 className="text-2xl font-extrabold text-slate-900 font-sans tracking-tight">
-                    {val.name}
-                  </h3>
-                  <p className="text-sm text-slate-600 leading-relaxed font-sans">
                     {val.description}
                   </p>
                 </div>
-                <div className="pt-4 border-t border-slate-200 text-[11px] font-mono text-slate-400">
-                  VERIFIED ZOFTCORP STANDARD
+
+                <div className="pt-3 border-t border-slate-100 flex items-center gap-1.5 text-[11px] font-mono text-slate-400">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
+                  <span>Verified Standard</span>
                 </div>
               </div>
             ))}
@@ -411,218 +206,300 @@ export default function CareerPage() {
         </div>
       </section>
 
-      {/* 8. EMPLOYEE BENEFITS & CULTURE */}
-      <section className="relative bg-slate-50/70 text-slate-900 py-20 md:py-28 border-b border-slate-200/80">
+      {/* =========================================================================
+          3. PERKS AND BENEFITS (Client-specified 7 benefits)
+          ========================================================================= */}
+      <section id="benefits" className="relative bg-white text-slate-900 py-16 md:py-24 border-b border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-16">
-            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-bold tracking-wider uppercase bg-[#00B3FF]/10 text-[#01153B] border border-[#00B3FF]/20 mb-4">
-              <Sparkles className="w-3.5 h-3.5 text-[#00B3FF]" />
-              EMPLOYEE BENEFITS
+          <div className="max-w-3xl mb-12 sm:mb-16">
+            <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-bold tracking-wider uppercase bg-[#00B3FF]/10 text-[#01153B] border border-[#00B3FF]/20 mb-3 shadow-2xs">
+              <TrendingUp className="w-3.5 h-3.5 text-[#00B3FF]" aria-hidden="true" />
+              PEOPLE &amp; CULTURE
             </span>
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 font-sans">
-              Why Build Your Career at Zoftcorp
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 font-sans">
+              {EMPLOYEE_BENEFITS_SECTION.heading}
             </h2>
-            <p className="text-base text-slate-600 font-sans mt-3">
-              We offer a professional environment built for practitioners who appreciate true systems depth, collaborative learning, and tangible engineering impact.
+            <p className="text-xl sm:text-2xl font-bold text-slate-800 font-sans mt-2">
+              {EMPLOYEE_BENEFITS_SECTION.subheading}
+            </p>
+            <p className="text-base sm:text-lg text-slate-600 font-sans mt-3 max-w-2xl leading-relaxed">
+              {EMPLOYEE_BENEFITS_SECTION.introduction}
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {CAREER_BENEFITS.map((b) => (
-              <div
-                key={b.title}
-                className="bg-white p-7 rounded-2xl border border-slate-200/90 shadow-sm space-y-3 hover:border-[#00B3FF]/40 transition-colors flex flex-col justify-between"
-              >
-                <div className="space-y-2">
-                  <span className="font-mono text-[10px] font-bold text-[#00B3FF] uppercase tracking-wider block">
-                    {b.tagline}
-                  </span>
-                  <h3 className="text-lg font-bold text-slate-900 font-sans">
-                    {b.title}
-                  </h3>
-                  <p className="text-xs text-slate-600 leading-relaxed font-sans">
-                    {b.description}
-                  </p>
+          {/* 7-Card Responsive Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {EMPLOYEE_BENEFITS_SECTION.benefits.map((benefit: EmployeeBenefit, idx: number) => {
+              const IconComponent = BENEFIT_ICONS[benefit.id] || Sparkles;
+
+              return (
+                <div
+                  key={benefit.id}
+                  className="bg-slate-50 p-6 sm:p-7 rounded-2xl border border-slate-200/90 shadow-sm space-y-4 flex flex-col justify-between hover:border-[#00B3FF]/40 hover:shadow-md transition-all duration-200 ease-out group"
+                >
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between">
+                      <div
+                        className="w-11 h-11 rounded-xl bg-[#00B3FF]/10 text-[#00B3FF] flex items-center justify-center border border-[#00B3FF]/20 shadow-2xs group-hover:scale-105 transition-transform"
+                        aria-hidden="true"
+                      >
+                        <IconComponent className="w-5 h-5" />
+                      </div>
+                      <span className="text-xl" role="img" aria-label={benefit.title}>
+                        {benefit.emoji}
+                      </span>
+                    </div>
+
+                    <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 font-sans tracking-tight">
+                      {benefit.title}
+                    </h3>
+
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-sans">
+                      {benefit.description}
+                    </p>
+                  </div>
+
+                  <div className="pt-3 border-t border-slate-200/70 flex items-center justify-between text-[11px] font-mono text-slate-400">
+                    <span>BENEFIT 0{idx + 1}</span>
+                    <span className="text-[#00B3FF] font-semibold">ZOFTCORP</span>
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* 9. CAREER OPPORTUNITIES */}
-      <section className="relative bg-white text-slate-900 py-20 md:py-28 border-b border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-12">
-            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-bold tracking-wider uppercase bg-[#00B3FF]/10 text-[#01153B] border border-[#00B3FF]/20 mb-4">
-              <Briefcase className="w-3.5 h-3.5 text-[#00B3FF]" />
-              CAREER OPPORTUNITIES
+      {/* =========================================================================
+          4. LIFE AT ZOFTCORP (Engineering Culture & Team Showcase)
+          ========================================================================= */}
+      <section id="life-at-zoftcorp" className="relative bg-[#01153B] text-white py-16 md:py-24 border-b border-slate-800 overflow-hidden">
+        <div
+          className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,#00B3FF08_1px,transparent_1px),linear-gradient(to_bottom,#00B3FF08_1px,transparent_1px)] bg-[size:36px_36px]"
+          aria-hidden="true"
+        />
+        <div
+          className="pointer-events-none absolute top-1/2 right-1/4 -translate-y-1/2 w-[500px] h-[500px] bg-[#00B3FF]/10 blur-[150px] rounded-full"
+          aria-hidden="true"
+        />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="max-w-3xl mb-12 sm:mb-16">
+            <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-bold tracking-wider uppercase bg-[#00B3FF]/15 text-[#00B3FF] border border-[#00B3FF]/30 mb-3 shadow-2xs">
+              <Users className="w-3.5 h-3.5" aria-hidden="true" />
+              LIFE AT ZOFTCORP
             </span>
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 font-sans">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white font-sans">
+              Our Culture in Action
+            </h2>
+            <p className="text-base sm:text-lg text-slate-300 font-sans mt-3 max-w-2xl leading-relaxed">
+              We bring together deep database specialists, cloud architects, and principled engineers who take pride in mission-critical craftsmanship and continuous growth.
+            </p>
+          </div>
+
+          {/* Genuine Workplace / Engineering Culture Placeholders */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="relative rounded-2xl bg-[#031E4D]/90 border border-slate-700/80 p-6 flex flex-col justify-between shadow-xl min-h-[260px] overflow-hidden group hover:border-[#00B3FF]/50 transition-colors">
+              <div className="space-y-3">
+                <div className="w-10 h-10 rounded-xl bg-[#00B3FF]/15 text-[#00B3FF] flex items-center justify-center border border-[#00B3FF]/30">
+                  <Camera className="w-5 h-5" aria-hidden="true" />
+                </div>
+                <h3 className="text-lg font-bold text-white font-sans">
+                  Architecture &amp; Design Sessions
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans">
+                  Cross-functional whiteboard reviews and complex query plan deep dives solving enterprise database challenges.
+                </p>
+              </div>
+              <div className="pt-4 border-t border-slate-700/70 text-[11px] font-mono text-[#00B3FF]">
+                [ Client Photography Placeholder: Engineering Sessions ]
+              </div>
+            </div>
+
+            <div className="relative rounded-2xl bg-[#031E4D]/90 border border-slate-700/80 p-6 flex flex-col justify-between shadow-xl min-h-[260px] overflow-hidden group hover:border-[#00B3FF]/50 transition-colors">
+              <div className="space-y-3">
+                <div className="w-10 h-10 rounded-xl bg-[#00B3FF]/15 text-[#00B3FF] flex items-center justify-center border border-[#00B3FF]/30">
+                  <GraduationCap className="w-5 h-5" aria-hidden="true" />
+                </div>
+                <h3 className="text-lg font-bold text-white font-sans">
+                  Learning &amp; Certification Labs
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans">
+                  Dedicated paid learning time, cloud lab environments, and peer mentoring to stay ahead of the technology curve.
+                </p>
+              </div>
+              <div className="pt-4 border-t border-slate-700/70 text-[11px] font-mono text-[#00B3FF]">
+                [ Client Photography Placeholder: Learning &amp; Labs ]
+              </div>
+            </div>
+
+            <div className="relative rounded-2xl bg-[#031E4D]/90 border border-slate-700/80 p-6 flex flex-col justify-between shadow-xl min-h-[260px] overflow-hidden group hover:border-[#00B3FF]/50 transition-colors">
+              <div className="space-y-3">
+                <div className="w-10 h-10 rounded-xl bg-[#00B3FF]/15 text-[#00B3FF] flex items-center justify-center border border-[#00B3FF]/30">
+                  <PartyPopper className="w-5 h-5" aria-hidden="true" />
+                </div>
+                <h3 className="text-lg font-bold text-white font-sans">
+                  Milestones &amp; Celebrations
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans">
+                  Celebrating life’s moments, cultural heritage occasions, and team accomplishments with genuine connection.
+                </p>
+              </div>
+              <div className="pt-4 border-t border-slate-700/70 text-[11px] font-mono text-[#00B3FF]">
+                [ Client Photography Placeholder: Team Gatherings ]
+              </div>
+            </div>
+          </div>
+
+          <p className="mt-6 text-xs font-mono text-slate-400 text-center sm:text-left">
+            * Note: Approved team photographs from Zoftcorp will be populated in these designated exhibition frames upon client supply. No stock or AI-generated people are used.
+          </p>
+        </div>
+      </section>
+
+      {/* =========================================================================
+          4. CURRENT OPENINGS (Preserving existing job-openings architecture)
+          ========================================================================= */}
+      <section id="openings" className="relative bg-slate-50/70 text-slate-900 py-16 md:py-24 border-b border-slate-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mb-10 sm:mb-12">
+            <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-bold tracking-wider uppercase bg-[#00B3FF]/10 text-[#01153B] border border-[#00B3FF]/20 mb-3 shadow-2xs">
+              <Briefcase className="w-3.5 h-3.5 text-[#00B3FF]" />
+              OPPORTUNITIES
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 font-sans">
               {CAREER_OPENINGS_STATE.title}
             </h2>
-            <p className="text-base text-slate-600 leading-relaxed font-sans mt-4">
+            <p className="text-base text-slate-600 leading-relaxed font-sans mt-3 max-w-2xl">
               {CAREER_OPENINGS_STATE.copy}
             </p>
           </div>
 
-          {/* Content-Ready State Container */}
-          <div className="bg-slate-50 rounded-3xl p-8 sm:p-14 border border-slate-200/90 text-center max-w-3xl mx-auto space-y-6">
-            <div className="w-12 h-12 rounded-2xl bg-[#00B3FF]/10 text-[#01153B] flex items-center justify-center mx-auto border border-[#00B3FF]/20">
-              <Briefcase className="w-6 h-6 text-[#00B3FF]" />
+          {/* Job List / Verified Empty State */}
+          {jobs.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {jobs.map((job) => (
+                <article
+                  key={job.id}
+                  className="bg-white p-6 sm:p-7 rounded-2xl border border-slate-200/90 shadow-sm hover:border-[#00B3FF]/50 hover:shadow-md transition-all duration-200 flex flex-col justify-between group"
+                >
+                  <div className="space-y-4">
+                    {/* Header Badges: Department, Work Mode, Employment Type */}
+                    <div className="flex flex-wrap items-center gap-2">
+                      <span className="text-xs font-mono font-bold text-[#00B3FF] bg-[#00B3FF]/10 px-2.5 py-1 rounded border border-[#00B3FF]/20">
+                        {job.department}
+                      </span>
+                      <span className="text-xs font-mono font-semibold text-slate-700 bg-slate-100 px-2.5 py-1 rounded">
+                        {job.work_mode}
+                      </span>
+                      <span className="text-xs font-mono font-semibold text-slate-700 bg-slate-100 px-2.5 py-1 rounded">
+                        {job.job_type}
+                      </span>
+                    </div>
+
+                    {/* Job Title & Metadata */}
+                    <div>
+                      <h3 className="text-xl font-bold text-slate-900 font-sans tracking-tight group-hover:text-[#00B3FF] transition-colors">
+                        <Link href={`/careers/${job.slug}`}>
+                          {job.title}
+                        </Link>
+                      </h3>
+                      <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-mono text-slate-500 mt-2">
+                        <span className="flex items-center gap-1">
+                          <MapPin className="w-3.5 h-3.5 text-[#00B3FF]" />
+                          {job.location}
+                        </span>
+                        <span>·</span>
+                        <span>{job.experience_level}</span>
+                      </div>
+                    </div>
+
+                    {/* Short Description */}
+                    <p className="text-sm text-slate-600 leading-relaxed font-sans line-clamp-3">
+                      {job.description}
+                    </p>
+
+                    {/* Application Deadline when available */}
+                    {job.application_deadline && (
+                      <div className="flex items-center gap-1.5 text-xs font-mono text-slate-500 pt-1">
+                        <Calendar className="w-3.5 h-3.5 text-[#00B3FF]" />
+                        <span>Deadline: {formatDeadline(job.application_deadline)}</span>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Actions: View Details / Apply Now */}
+                  <div className="pt-5 mt-5 border-t border-slate-100 flex items-center justify-between gap-3">
+                    <Link
+                      href={`/careers/${job.slug}`}
+                      className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-[#01153B] hover:text-[#00B3FF] uppercase tracking-wider transition-colors"
+                    >
+                      <span>View Details</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </Link>
+                    <Link
+                      href={`/careers/${job.slug}#apply`}
+                      className="inline-flex items-center justify-center px-4 py-2 rounded-lg bg-[#00B3FF] hover:bg-[#0099db] text-[#01153B] font-bold text-xs font-mono uppercase tracking-wider transition-all shadow-2xs hover:-translate-y-0.5 active:scale-[0.98]"
+                    >
+                      Apply Now
+                    </Link>
+                  </div>
+                </article>
+              ))}
             </div>
+          ) : (
+            <div className="bg-slate-50 rounded-2xl p-8 sm:p-12 border border-slate-200/90 text-center max-w-3xl mx-auto space-y-5">
+              <div className="w-12 h-12 rounded-xl bg-[#00B3FF]/10 text-[#00B3FF] flex items-center justify-center mx-auto border border-[#00B3FF]/20 shadow-2xs">
+                <Briefcase className="w-6 h-6" />
+              </div>
 
-            <h3 className="text-2xl font-bold text-slate-900 font-sans tracking-tight">
-              OPEN TECHNICAL APPLICATION
-            </h3>
+              <div className="space-y-2">
+                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 font-sans tracking-tight">
+                  Open Candidate Submissions
+                </h3>
+                <p className="text-sm sm:text-base text-slate-600 font-sans leading-relaxed max-w-xl mx-auto">
+                  {CAREER_OPENINGS_STATE.emptyNotice} We welcome spontaneous applications from motivated technologists across cloud, databases, and platform architecture.
+                </p>
+              </div>
 
-            <p className="text-base text-slate-600 font-sans leading-relaxed max-w-xl mx-auto">
-              We review candidate applications continuously. If you specialize in database engineering, cloud architecture, or data platforms, submit your CV below.
-            </p>
-
-            <div className="pt-2">
-              <a
-                href="#candidate-application"
-                className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl bg-[#01153B] hover:bg-[#031E4D] text-white font-semibold text-sm transition-all duration-200 shadow-md focus-visible:outline-2 focus-visible:outline-[#00B3FF]"
-              >
-                <span>Jump to Application Form</span>
-                <ArrowRight className="w-4 h-4" />
-              </a>
+              <div className="pt-2">
+                <a
+                  href="#candidate-application"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-[#01153B] hover:bg-[#031E4D] text-white font-semibold text-sm transition-all duration-200 shadow-sm focus-visible:outline-2 focus-visible:outline-[#00B3FF]"
+                >
+                  <span>Submit Application Form</span>
+                  <ArrowRight className="w-4 h-4" />
+                </a>
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </section>
 
-      {/* 10. CANDIDATE APPLICATION FORM */}
-      <section id="candidate-application" className="relative bg-slate-50/70 text-slate-900 py-20 md:py-28 border-b border-slate-200/80 scroll-mt-16">
+      {/* =========================================================================
+          5. CANDIDATE APPLICATION FORM (Enhanced application experience preserved)
+          ========================================================================= */}
+      <section
+        id="candidate-application"
+        className="relative bg-slate-50/70 text-slate-900 py-16 md:py-24 border-b border-slate-200/80 scroll-mt-16"
+      >
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-12 space-y-3">
-            <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-bold tracking-wider uppercase bg-[#00B3FF]/10 text-[#01153B] border border-[#00B3FF]/20">
+          <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-12 space-y-3">
+            <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-bold tracking-wider uppercase bg-[#00B3FF]/10 text-[#01153B] border border-[#00B3FF]/20 shadow-2xs">
               <Briefcase className="w-3.5 h-3.5 text-[#00B3FF]" />
               APPLY FOR A ROLE
             </span>
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 font-sans">
+            <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 font-sans">
               Candidate Application Form
             </h2>
             <p className="text-sm sm:text-base text-slate-600 font-sans leading-relaxed">
-              Submit your contact details, desired engineering role, and upload your resume. All submissions are transmitted securely and stored in private corporate storage.
+              Submit your contact details, desired engineering role, and upload your resume. All submissions are transmitted securely to our recruitment team.
             </p>
           </div>
 
+          {/* Interactive Form Component */}
           <div className="bg-white p-6 sm:p-10 rounded-2xl border border-slate-200/90 shadow-sm">
             <CareerApplicationForm />
-          </div>
-        </div>
-      </section>
-
-      {/* 11. CAREER + ABOUT US NAVIGATION */}
-      <section className="relative bg-white text-slate-900 py-16 border-b border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <Link
-              href="/about-us/leadership"
-              className="bg-slate-50 p-6 rounded-2xl border border-slate-200/90 shadow-sm space-y-2 hover:border-[#00B3FF]/40 transition-colors group"
-            >
-              <h3 className="text-lg font-bold text-slate-900 font-sans group-hover:text-[#00B3FF] transition-colors">
-                Leadership
-              </h3>
-              <p className="text-xs text-slate-600">Meet our technical leaders.</p>
-            </Link>
-
-            <Link
-              href="/about-us/vision-mission"
-              className="bg-slate-50 p-6 rounded-2xl border border-slate-200/90 shadow-sm space-y-2 hover:border-[#00B3FF]/40 transition-colors group"
-            >
-              <h3 className="text-lg font-bold text-slate-900 font-sans group-hover:text-[#00B3FF] transition-colors">
-                Vision & Mission
-              </h3>
-              <p className="text-xs text-slate-600">Our engineering commitments.</p>
-            </Link>
-
-            <Link
-              href="/about-us/partnerships"
-              className="bg-slate-50 p-6 rounded-2xl border border-slate-200/90 shadow-sm space-y-2 hover:border-[#00B3FF]/40 transition-colors group"
-            >
-              <h3 className="text-lg font-bold text-slate-900 font-sans group-hover:text-[#00B3FF] transition-colors">
-                Partnerships
-              </h3>
-              <p className="text-xs text-slate-600">Explore our technology ecosystem.</p>
-            </Link>
-
-            <div className="bg-[#01153B] text-white p-6 rounded-2xl border border-slate-800 shadow-md space-y-2">
-              <span className="text-[10px] font-mono text-[#00B3FF] font-bold uppercase tracking-widest bg-[#031E4D] px-2 py-0.5 rounded border border-slate-800 inline-block">
-                CURRENT PAGE
-              </span>
-              <h3 className="text-lg font-bold text-white font-sans">Career</h3>
-              <p className="text-xs text-slate-300">Opportunities and technology work.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 12. VISUAL BREAK */}
-      <section className="relative bg-[#01153B] text-white py-20 md:py-28 overflow-hidden border-b border-slate-800/80">
-        <div
-          className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,#1e293b15_1px,transparent_1px),linear-gradient(to_bottom,#1e293b15_1px,transparent_1px)] bg-[size:3rem_3rem]"
-          aria-hidden="true"
-        />
-        <div
-          className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[#00B3FF]/10 blur-[150px] rounded-full"
-          aria-hidden="true"
-        />
-
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 space-y-6">
-          <blockquote className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-[1.2] font-sans">
-            “Curiosity Builds Perspective. Perspective Builds Better Technology.”
-          </blockquote>
-        </div>
-      </section>
-
-      {/* 13. FINAL CTA */}
-      <section
-        aria-label="Build Whats Next With ZOFT"
-        className="relative bg-[#01153B] text-white py-24 md:py-32 overflow-hidden border-t border-slate-800"
-      >
-        <div
-          className="pointer-events-none absolute bottom-0 right-0 w-[550px] h-[550px] bg-[#00B3FF]/10 blur-[150px] rounded-full"
-          aria-hidden="true"
-        />
-
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-8">
-          <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-bold tracking-wider uppercase bg-[#00B3FF]/10 text-[#00B3FF] border border-[#00B3FF]/20">
-            <MessageSquare className="w-3.5 h-3.5" />
-            START A CONVERSATION
-          </span>
-
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white font-sans leading-[1.12]">
-            Build What&apos;s Next With ZOFT.
-          </h2>
-
-          <p className="text-base sm:text-lg text-slate-300 leading-relaxed font-sans max-w-2xl mx-auto">
-            Have the experience, curiosity, or technical perspective to contribute? Let&apos;s
-            start a conversation.
-          </p>
-
-          <div className="flex flex-wrap items-center justify-center gap-5 pt-4">
-            <a
-              href="#candidate-application"
-              className="inline-flex items-center justify-center px-8 py-4 rounded-lg bg-[#00B3FF] hover:bg-[#0099db] text-[#01153B] font-bold text-base transition-all duration-200 shadow-lg shadow-[#00B3FF]/25 focus-visible:outline-2 focus-visible:outline-[#00B3FF]"
-            >
-              Apply for a Role
-            </a>
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center px-8 py-4 rounded-lg bg-[#FF6F00] hover:bg-[#e66400] text-white font-semibold text-base transition-all duration-200 shadow-lg shadow-[#FF6F00]/25 focus-visible:outline-2 focus-visible:outline-[#FF6F00]"
-            >
-              Talk to ZOFT
-            </Link>
-            <Link
-              href="/about-us"
-              className="inline-flex items-center gap-2 px-6 py-4 rounded-lg text-base font-semibold text-white hover:bg-white/10 transition-all duration-200 border border-white/20 focus-visible:outline-2 focus-visible:outline-[#00B3FF]"
-            >
-              <span>Explore ZOFT</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
           </div>
         </div>
       </section>

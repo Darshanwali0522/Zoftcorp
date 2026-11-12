@@ -28,31 +28,31 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "./",
   },
-  title: "ZOFT Corp | Enterprise Technology & Database Advisory",
+  title: "Zoftcorp | Enterprise Technology & Database Advisory",
   description:
-    "ZOFT Corp delivers enterprise-grade cloud architecture, high-availability database performance tuning, and technical advisory.",
+    "Zoftcorp delivers enterprise-grade cloud architecture, high-availability database performance tuning, and technical advisory.",
   keywords: [
-    "ZOFT Corp",
+    "Zoftcorp",
     "Cloud Advisory",
     "Database Tuning",
     "Enterprise Systems",
     "Database Consulting",
   ],
-  authors: [{ name: "ZOFT Corp" }],
+  authors: [{ name: "Zoftcorp" }],
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://zoftcorp.com",
-    siteName: "ZOFT Corp",
-    title: "ZOFT Corp | Enterprise Technology & Database Advisory",
+    siteName: "Zoftcorp",
+    title: "Zoftcorp | Enterprise Technology & Database Advisory",
     description:
-      "ZOFT Corp delivers enterprise-grade cloud architecture, high-availability database performance tuning, and technical advisory.",
+      "Zoftcorp delivers enterprise-grade cloud architecture, high-availability database performance tuning, and technical advisory.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "ZOFT Corp | Enterprise Technology & Database Advisory",
+    title: "Zoftcorp | Enterprise Technology & Database Advisory",
     description:
-      "ZOFT Corp delivers enterprise-grade cloud architecture, high-availability database performance tuning, and technical advisory.",
+      "Zoftcorp delivers enterprise-grade cloud architecture, high-availability database performance tuning, and technical advisory.",
   },
 };
 

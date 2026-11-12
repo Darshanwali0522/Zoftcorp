@@ -4,11 +4,11 @@ export const OrganizationJsonLd: React.FC = () => {
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'ZOFT Corp',
+    name: 'Zoftcorp',
     url: 'https://zoftcorp.com',
     logo: 'https://zoftcorp.com/brand/zoft-logo.png',
     description:
-      'ZOFT Corp delivers enterprise-grade cloud architecture, high-availability database performance tuning, and technical advisory.',
+      'Zoftcorp delivers enterprise-grade cloud architecture, high-availability database performance tuning, and technical advisory.',
   };
 
   return (
@@ -23,7 +23,7 @@ export const WebSiteJsonLd: React.FC = () => {
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    name: 'ZOFT Corp',
+    name: 'Zoftcorp',
     url: 'https://zoftcorp.com',
   };
 
@@ -50,7 +50,7 @@ export const ServiceJsonLd: React.FC<ServiceJsonLdProps> = ({ name, description,
     url,
     provider: {
       '@type': 'Organization',
-      name: 'ZOFT Corp',
+      name: 'Zoftcorp',
       url: 'https://zoftcorp.com',
     },
   };

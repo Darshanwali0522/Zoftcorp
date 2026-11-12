@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
-import { Menu } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { MAIN_NAVIGATION } from "@/data/navigation";
 import { LogoWrapper } from "@/components/layout/logo-wrapper";
@@ -23,6 +23,10 @@ export const Navbar: React.FC = () => {
   }, []);
 
   const hamburgerRef = useRef<HTMLButtonElement>(null);
+
+  const handleCloseMobileMenu = useCallback(() => {
+    setIsMobileMenuOpen(false);
+  }, []);
 
   // Split navigation items: main center items vs right contact item
   const centerNavItems = MAIN_NAVIGATION.filter((item) => item.id !== "contact");
@@ -70,12 +74,17 @@ export const Navbar: React.FC = () => {
           <button
             ref={hamburgerRef}
             type="button"
-            onClick={() => setIsMobileMenuOpen(true)}
-            className="p-2.5 rounded-lg text-slate-700 hover:text-[#01153B] bg-white border border-slate-200 hover:border-slate-300 transition-colors focus-visible:outline-2 focus-visible:outline-[#00B3FF] active:scale-95"
-            aria-label="Open Navigation Menu"
+            onClick={() => setIsMobileMenuOpen((prev) => !prev)}
+            className="min-w-[44px] min-h-[44px] flex items-center justify-center p-2.5 rounded-lg text-slate-700 hover:text-[#01153B] bg-white border border-slate-200 hover:border-slate-300 transition-colors focus-visible:outline-2 focus-visible:outline-[#00B3FF] active:scale-95 touch-manipulation cursor-pointer"
+            aria-label={isMobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
             aria-expanded={isMobileMenuOpen}
+            aria-controls="mobile-navigation-drawer"
           >
-            <Menu className="w-5 h-5" />
+            {isMobileMenuOpen ? (
+              <X className="w-5 h-5 text-slate-800" aria-hidden="true" />
+            ) : (
+              <Menu className="w-5 h-5 text-slate-800" aria-hidden="true" />
+            )}
           </button>
         </div>
       </div>
@@ -83,7 +92,7 @@ export const Navbar: React.FC = () => {
       {/* MOBILE DRAWER */}
       <MobileMenu
         isOpen={isMobileMenuOpen}
-        onClose={() => setIsMobileMenuOpen(false)}
+        onClose={handleCloseMobileMenu}
         triggerRef={hamburgerRef}
       />
     </header>

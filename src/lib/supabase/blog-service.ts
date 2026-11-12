@@ -82,40 +82,51 @@ function formatDate(dateStr?: string | null): string {
   }
 }
 
+function sanitizeCompanyName(val?: string | null): string {
+  if (!val) return '';
+  return val
+    .replace(/\bZOFT\s+CORP\b/g, 'ZOFTCORP')
+    .replace(/\bZOFT\s+Corp\b/g, 'Zoftcorp')
+    .replace(/\bZoft\s+Corp\b/g, 'Zoftcorp')
+    .replace(/\bZoftCorp\b/g, 'Zoftcorp');
+}
+
 // Convert a database record into a standardized DynamicBlogPost
 function mapRecordToPost(record: RawPostRecord): DynamicBlogPost {
-
   const publishedDate = record.published_at || record.created_at || new Date().toISOString();
   const formatted = formatDate(publishedDate);
 
   // Default image fallback if none provided
   const image = record.featured_image || '/images/blogs/failover-cluster-slipstream.jpg';
 
+  const rawAuthorName = record.author_name || 'Zoftcorp Engineering Team';
+  const authorName = sanitizeCompanyName(rawAuthorName);
+
   return {
     id: record.id,
     slug: record.slug,
-    title: record.title,
-    excerpt: record.excerpt || '',
-    content: record.content || '',
+    title: sanitizeCompanyName(record.title),
+    excerpt: sanitizeCompanyName(record.excerpt || ''),
+    content: sanitizeCompanyName(record.content || ''),
     category: record.category || 'General',
     categorySlug: record.category_slug || 'general',
     author: {
-      name: record.author_name || 'ZoftCorp Engineering Team',
-      role: 'ZoftCorp Engineering Team',
+      name: authorName,
+      role: 'Zoftcorp Engineering Team',
     },
     publishedAt: publishedDate.split('T')[0],
     formattedDate: formatted,
     readingTime: record.reading_time || '3 min read',
     image: image,
     featured: Boolean(record.featured),
-    metaDescription: record.seo_description || record.excerpt || record.title,
+    metaDescription: sanitizeCompanyName(record.seo_description || record.excerpt || record.title),
     tags: Array.isArray(record.tags) ? record.tags : [],
     status: record.status,
-    seoTitle: record.seo_title || undefined,
-    seoDescription: record.seo_description || undefined,
+    seoTitle: record.seo_title ? sanitizeCompanyName(record.seo_title) : undefined,
+    seoDescription: record.seo_description ? sanitizeCompanyName(record.seo_description) : undefined,
     canonicalUrl: record.canonical_url || undefined,
-    ogTitle: record.og_title || undefined,
-    ogDescription: record.og_description || undefined,
+    ogTitle: record.og_title ? sanitizeCompanyName(record.og_title) : undefined,
+    ogDescription: record.og_description ? sanitizeCompanyName(record.og_description) : undefined,
     ogImage: record.og_image || undefined,
     schemaType: record.schema_type || 'BlogPosting',
   };
@@ -170,7 +181,15 @@ export async function getPublishedPosts(): Promise<DynamicBlogPost[]> {
       if (res.ok) {
         const data = await res.json();
         if (Array.isArray(data) && data.length > 0) {
-          return data.map(mapRecordToPost);
+          const dbPosts = data.map(mapRecordToPost);
+          const dbSlugs = new Set(dbPosts.map((p) => p.slug));
+          const fallbackStatic = (BLOG_POSTS as StaticBlogPost[])
+            .filter((sp) => !dbSlugs.has(sp.slug))
+            .map((sp) => ({
+              ...sp,
+              content: '',
+            }));
+          return [...dbPosts, ...fallbackStatic];
         }
       } else {
         console.warn(`[Supabase] HTTP ${res.status} error fetching published posts, falling back to static`);
@@ -209,10 +228,9 @@ export async function getPostBySlug(slug: string): Promise<DynamicBlogPost | nul
         if (Array.isArray(data) && data.length > 0) {
           return mapRecordToPost(data[0]);
         }
-        // If Supabase returned 0 published records:
-        // Allow legacy static article not in DB (azure-sql-managed-instance-pool), otherwise null
+        // If not in Supabase posts, check static fallback BLOG_POSTS
         const staticMatch = BLOG_POSTS.find((p) => p.slug === slug);
-        if (staticMatch && staticMatch.slug === 'azure-sql-managed-instance-pool') {
+        if (staticMatch) {
           return {
             ...staticMatch,
             content: '',

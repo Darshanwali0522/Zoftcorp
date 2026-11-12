@@ -16,23 +16,23 @@ import { Container } from '@/components/ui/container';
 import { ServiceJsonLd, BreadcrumbJsonLd } from '@/components/seo/json-ld';
 
 export const metadata: Metadata = {
-  title: 'Faster Queries. Lower Costs. Better Business. | Performance Tuning | ZOFT Corp',
+  title: 'Faster Queries. Lower Costs. Better Business. | Performance Tuning | Zoftcorp',
   description:
     'When execution paths degrade, queries spike, and technical debt compounds, the bottleneck isn’t just code — it impacts cost, compliance, and customer trust. We tune databases to deliver speed, resilience, and measurable outcomes.',
   alternates: {
     canonical: 'https://zoftcorp.com/offerings/performance-tuning-delivery',
   },
   openGraph: {
-    title: 'Performance Tuning | ZOFT Corp',
+    title: 'Performance Tuning | Zoftcorp',
     description:
       'Faster Queries. Lower Costs. Better Business. We tune databases to deliver speed, resilience, and measurable outcomes.',
     url: 'https://zoftcorp.com/offerings/performance-tuning-delivery',
-    siteName: 'ZOFT Corp',
+    siteName: 'Zoftcorp',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Performance Tuning | ZOFT Corp',
+    title: 'Performance Tuning | Zoftcorp',
     description:
       'Faster Queries. Lower Costs. Better Business. We tune databases to deliver speed, resilience, and measurable outcomes.',
   },
@@ -130,7 +130,7 @@ export default function PerformanceTuningServicesPage() {
   return (
     <div className="w-full bg-white text-[#01153B] font-sans selection:bg-[#00B3FF]/20 selection:text-[#01153B]">
       <ServiceJsonLd
-        name="Performance Tuning | ZOFT Corp"
+        name="Performance Tuning | Zoftcorp"
         description="Faster Queries. Lower Costs. Better Business. When execution paths degrade, queries spike, and technical debt compounds, we tune databases to deliver speed, resilience, and measurable outcomes."
         url={pageUrl}
       />

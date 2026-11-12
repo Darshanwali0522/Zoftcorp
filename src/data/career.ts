@@ -1,16 +1,7 @@
-export interface CareerTechDomain {
+export interface CoreValue {
   id: string;
   number: string;
   title: string;
-  tagline: string;
-  description: string;
-  details: string;
-}
-
-export interface ContributionTheme {
-  number: string;
-  title: string;
-  tagline: string;
   description: string;
 }
 
@@ -25,158 +16,146 @@ export interface JobOpening {
 
 export const CAREER_HERO = {
   eyebrow: 'CAREER',
-  h1: 'Build Technology That Matters.',
-  copy: 'Work alongside experienced technologists solving real problems across data, AI, cloud, databases, architecture, and digital engineering.',
+  h1: 'Build Your Future With Us.',
+  lead: "Embark on your professional journey at Zoftcorp today, and let's unlock your complete potential.",
+  quote: {
+    text: "You don't build a business, you build people, then people build the business.",
+    author: 'Zig Ziglar',
+  },
+  mission: 'Zoftcorp is grounded in its values and driven by a mission to cultivate responsible individuals.',
 };
 
-export const CAREER_TECHNOLOGIES: CareerTechDomain[] = [
+export const CORE_VALUES: CoreValue[] = [
   {
-    id: 'data',
+    id: 'integrity',
     number: '01',
-    title: 'DATA',
-    tagline: 'STRATEGY & ENGINEERING',
-    description: 'Data platform strategy, pipeline engineering, modernization, and analytics.',
-    details:
-      'Designing and building scalable analytical pipelines, lakehouse architectures, and real-time processing systems that turn data into operational assets.',
+    title: 'INTEGRITY',
+    description:
+      'Zoftcorp strongly believes in integrity in every business transaction. Therefore, our guiding principle is to say "No" more often than "Yes," emphasizing a commitment to ethical and principled decision-making.',
   },
   {
-    id: 'ai',
+    id: 'innovation',
     number: '02',
-    title: 'AI',
-    tagline: 'INTELLIGENT WORKLOADS',
-    description: 'Modern AI-oriented architecture and data integration capabilities.',
-    details:
-      'Integrating vector databases, semantic indexing, and retrieval architectures into enterprise platforms for production AI workloads.',
+    title: 'INNOVATION',
+    description:
+      'We believe that innovation is the key to success, both for ourselves and our valued customers. We are steadfastly committed to a culture of constant innovation.',
   },
   {
-    id: 'cloud',
+    id: 'take-ownership',
     number: '03',
-    title: 'CLOUD',
-    tagline: 'INFRASTRUCTURE & FINOPS',
-    description: 'Cloud strategy, migration, FinOps governance, and infrastructure considerations.',
-    details:
-      'Evaluating cloud platforms, optimizing workload performance, and building resilient infrastructure across multi-cloud environments.',
+    title: 'TAKE OWNERSHIP',
+    description:
+      'We adhere to the principle of taking ownership and being accountable for the commitments we make.',
   },
   {
-    id: 'databases',
+    id: 'respectful',
     number: '04',
-    title: 'DATABASES',
-    tagline: 'MULTI-ENGINE DEPTH',
-    description: 'SQL Server, PostgreSQL, MySQL, database architecture, performance, and operations.',
-    details:
-      'Deep query optimization, buffer tuning, high-availability architecture, schema transformations, and managed DBA operations.',
+    title: 'RESPECTFUL',
+    description:
+      'We hold equal respect for all our employees, partners, and clients. We believe that fostering a respectful environment is crucial for the successful collaboration of individuals.',
   },
   {
-    id: 'architecture',
+    id: 'customer-centric',
     number: '05',
-    title: 'ARCHITECTURE',
-    tagline: 'STRATEGIC DECISION-MAKING',
-    description: 'Technology decision-making, architectural strategy, and technical roadmapping.',
-    details:
-      'Aligning application requirements, security posture, and data structures with long-term enterprise technology goals.',
+    title: 'CUSTOMER CENTRIC',
+    description:
+      'Our approach is rooted in a "help first" attitude, with a primary focus on comprehending and resolving customer problems. We bring to the table strong attributes of listening, learning, and leading.',
   },
   {
-    id: 'engineering',
+    id: 'team-work',
     number: '06',
-    title: 'ENGINEERING',
-    tagline: 'PRACTICAL TECHNICAL DELIVERY',
-    description: 'Digital engineering, implementation, and structured technical delivery.',
-    details:
-      'Turning architectural blueprints and data models into reliable software, automated pipelines, and operational systems.',
+    title: 'TEAM WORK',
+    description:
+      'Accomplishing remarkable feats is never the sole effort of individuals; it is the outcome of effective teamwork. Zoftcorp highly values and appreciates the spirit of collaboration!',
+  },
+  {
+    id: 'empathetic',
+    number: '07',
+    title: 'EMPATHETIC',
+    description:
+      'Zoftcorp consistently endeavors to comprehend and empathize with the sentiments of our customers, partners, and employees.',
+  },
+  {
+    id: 'empower',
+    number: '08',
+    title: 'EMPOWER',
+    description:
+      'Empowering people to perform to their fullest potential is the most challenging task. People are not merely resources; they are valuable human beings. We believe that fostering a culture of constant empowerment is integral to Zoftcorp.',
   },
 ];
 
-export const CAREER_CONTRIBUTION_THEMES: ContributionTheme[] = [
-  {
-    number: '01',
-    title: 'UNDERSTAND',
-    tagline: 'PROBLEM FIRST',
-    description: 'Explore the problem, requirements, and constraints before jumping to solutions.',
-  },
-  {
-    number: '02',
-    title: 'ARCHITECT',
-    tagline: 'LONG-TERM VISION',
-    description: 'Think about systems, trade-offs, governance, and long-term technical direction.',
-  },
-  {
-    number: '03',
-    title: 'ENGINEER',
-    tagline: 'PRACTICAL DELIVERY',
-    description: 'Turn ideas into practical, reliable, and enterprise-grade technology.',
-  },
-  {
-    number: '04',
-    title: 'IMPROVE',
-    tagline: 'CONTINUOUS EVOLUTION',
-    description: 'Keep learning, measuring performance, and refining what has been built over time.',
-  },
-];
-
-export const CAREER_VALUES = [
-  {
-    name: 'HONESTY',
-    description: 'Transparent and straightforward technical relationships.',
-  },
-  {
-    name: 'HARD WORK',
-    description: 'Commitment to doing the technical work properly and thoroughly.',
-  },
-  {
-    name: 'TRUST',
-    description: 'Long-term relationships built through reliability and integrity.',
-  },
-];
-
-export const TECHNICAL_DEPTH_STACK = [
-  'BUSINESS NEEDS',
-  'APPLICATIONS',
-  'DATA',
-  'DATABASES',
-  'CLOUD',
-  'INFRASTRUCTURE',
-  'ARCHITECTURE',
-];
-
-export const CAREER_OPENINGS_STATE = {
-  title: 'Explore Opportunities at ZOFT',
-  copy: 'We’re always interested in connecting with people who enjoy solving complex technology problems and building practical solutions.',
-  emptyNotice: 'Career opportunities will appear here when available.',
-  jobs: [] as JobOpening[], // Structured empty array to ensure 0 fabricated job vacancies
-};
-
-export interface CareerBenefit {
+export interface EmployeeBenefit {
+  id: string;
+  emoji: string;
   title: string;
-  tagline: string;
   description: string;
 }
 
-export const CAREER_BENEFITS: CareerBenefit[] = [
-  {
-    title: 'High-Impact Enterprise Systems',
-    tagline: 'REAL-WORLD WORKLOADS',
-    description:
-      'Work directly on mission-critical databases, cloud infrastructure, and large-scale analytical pipelines that power real enterprises.',
-  },
-  {
-    title: 'Multi-Platform Engineering Breadth',
-    tagline: 'CROSS-ECOSYSTEM EXPOSURE',
-    description:
-      'Gain deep, practical expertise across AWS, Azure, Google Cloud, Oracle, PostgreSQL, and modern distributed data platforms.',
-  },
-  {
-    title: 'Engineering Depth Over Hype',
-    tagline: 'EVIDENCE-BASED PRACTICE',
-    description:
-      'Collaborate in an environment that values rigorous problem investigation, query internals, and verifiable system outcomes.',
-  },
-  {
-    title: 'Collaborative Technologist Culture',
-    tagline: 'DIRECT MENTORSHIP',
-    description:
-      'Engage directly with experienced architects and practice leaders committed to honest technical exchange and continuous technical growth.',
-  },
-];
+export const EMPLOYEE_BENEFITS_SECTION = {
+  heading: 'Perks and Benefits',
+  subheading: 'Grow Your Skills. Make an Impact.',
+  introduction:
+    'At Zoftcorp, work is driven by outcomes, continuous learning, and shared success. We provide comprehensive benefits and flexibility designed to empower exceptional talent.',
+  benefits: [
+    {
+      id: 'work-from-home',
+      emoji: '🏡',
+      title: 'Work from Home',
+      description:
+        "Enjoy the flexibility to work from wherever you're most productive. We believe great work is driven by outcomes, not location, enabling you to maintain a healthy work-life balance.",
+    },
+    {
+      id: 'special-day-off',
+      emoji: '🎉',
+      title: 'Special Day Off',
+      description:
+        "Celebrate life's special moments with paid leave on your Birthday, Marriage Anniversary, or other significant occasions. Because milestones deserve to be enjoyed, not missed.",
+    },
+    {
+      id: 'competitive-salary',
+      emoji: '💰',
+      title: 'Competitive Salary',
+      description:
+        'We recognize and reward talent with market-aligned compensation designed to attract, retain, and motivate exceptional professionals.',
+    },
+    {
+      id: 'learning-leave',
+      emoji: '📚',
+      title: 'Learning Leave',
+      description:
+        'Continuous learning is part of our culture. Employees receive dedicated paid learning leave to pursue certifications, training programs, workshops, and skill development initiatives.',
+    },
+    {
+      id: 'cultural-heritage-leave',
+      emoji: '🌏',
+      title: 'Cultural Heritage Leave',
+      description:
+        'We celebrate diversity and respect individual traditions. Employees can avail Cultural Heritage Leave to observe important festivals and cultural events connected to their place of birth, community, or heritage.',
+    },
+    {
+      id: 'insurance-coverage',
+      emoji: '🛡️',
+      title: 'Insurance Coverage',
+      description:
+        "Your well-being matters. We provide comprehensive health insurance coverage to support you and your family's medical needs and offer peace of mind.",
+    },
+    {
+      id: 'employee-ownership-rsus',
+      emoji: '🚀',
+      title: 'Employee Ownership (RSUs)',
+      description:
+        'We believe in shared success. Eligible employees may receive Restricted Stock Units (RSUs), allowing them to participate in the company\'s long-term growth and value creation.',
+    },
+  ] as EmployeeBenefit[],
+};
+
+export const CAREER_OPENINGS_STATE = {
+  title: 'Current Openings',
+  subtitle: 'Explore Opportunities at Zoftcorp',
+  copy: 'We are always interested in connecting with talented professionals who share our values and commitment to engineering excellence.',
+  emptyNotice: 'Career opportunities will appear here when available.',
+  jobs: [] as JobOpening[], // Structured empty array to ensure 0 fabricated job vacancies
+};
 
 export const CAREER_ROLES_OPTIONS = [
   'Senior Database Administrator (SQL Server / PostgreSQL / MySQL)',
@@ -187,4 +166,3 @@ export const CAREER_ROLES_OPTIONS = [
   'Resilience, Disaster Recovery & High-Availability Engineer',
   'Other / Open Technical Role',
 ] as const;
-

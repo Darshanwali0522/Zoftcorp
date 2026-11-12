@@ -30,23 +30,23 @@ export async function generateMetadata({ params }: SubPageProps): Promise<Metada
   if (resolvedParams.slug === 'cloud-finops') {
     const pageUrl = `https://zoftcorp.com/consulting/cloud-finops`;
     return {
-      title: 'Cloud & Database FinOps | ZOFT Corp',
+      title: 'Cloud & Database FinOps | Zoftcorp',
       description:
         "FinOps goes beyond savings. It’s the discipline of turning technology spend into measurable business value. We don’t just optimize or manage costs — we embed FinOps culture.",
       alternates: {
         canonical: pageUrl,
       },
       openGraph: {
-        title: 'Cloud & Database FinOps | ZOFT Corp',
+        title: 'Cloud & Database FinOps | Zoftcorp',
         description:
           "FinOps goes beyond savings. It’s the discipline of turning technology spend into measurable business value. We don’t just optimize or manage costs — we embed FinOps culture.",
         url: pageUrl,
-        siteName: 'ZOFT Corp',
+        siteName: 'Zoftcorp',
         type: 'website',
       },
       twitter: {
         card: 'summary_large_image',
-        title: 'Cloud & Database FinOps | ZOFT Corp',
+        title: 'Cloud & Database FinOps | Zoftcorp',
         description:
           "FinOps goes beyond savings. It’s the discipline of turning technology spend into measurable business value. We don’t just optimize or manage costs — we embed FinOps culture.",
       },
@@ -56,23 +56,23 @@ export async function generateMetadata({ params }: SubPageProps): Promise<Metada
   if (resolvedParams.slug === 'compliance-governance') {
     const pageUrl = `https://zoftcorp.com/consulting/compliance-governance`;
     return {
-      title: 'DPDP Compliance | ZOFT Corp',
+      title: 'DPDP Compliance | Zoftcorp',
       description:
         'We help enterprises align with India’s Digital Personal Data Protection Act (DPDP) — embedding compliance into databases, cloud platforms, and business processes so you stay secure, resilient, and penalty-proof.',
       alternates: {
         canonical: pageUrl,
       },
       openGraph: {
-        title: 'DPDP Compliance | ZOFT Corp',
+        title: 'DPDP Compliance | Zoftcorp',
         description:
           'We help enterprises align with India’s Digital Personal Data Protection Act (DPDP) — embedding compliance into databases, cloud platforms, and business processes so you stay secure, resilient, and penalty-proof.',
         url: pageUrl,
-        siteName: 'ZOFT Corp',
+        siteName: 'Zoftcorp',
         type: 'website',
       },
       twitter: {
         card: 'summary_large_image',
-        title: 'DPDP Compliance | ZOFT Corp',
+        title: 'DPDP Compliance | Zoftcorp',
         description:
           'We help enterprises align with India’s Digital Personal Data Protection Act (DPDP) — embedding compliance into databases, cloud platforms, and business processes so you stay secure, resilient, and penalty-proof.',
       },
@@ -83,28 +83,28 @@ export async function generateMetadata({ params }: SubPageProps): Promise<Metada
 
   if (!capability) {
     return {
-      title: 'Consulting | ZOFT Corp',
+      title: 'Consulting | Zoftcorp',
     };
   }
 
   const pageUrl = `https://zoftcorp.com/consulting/${capability.id}`;
 
   return {
-    title: `${capability.name} | ZOFT Corp`,
+    title: `${capability.name} | Zoftcorp`,
     description: capability.description,
     alternates: {
       canonical: pageUrl,
     },
     openGraph: {
-      title: `${capability.name} | ZOFT Corp`,
+      title: `${capability.name} | Zoftcorp`,
       description: capability.description,
       url: pageUrl,
-      siteName: 'ZOFT Corp',
+      siteName: 'Zoftcorp',
       type: 'website',
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${capability.name} | ZOFT Corp`,
+      title: `${capability.name} | Zoftcorp`,
       description: capability.description,
     },
   };

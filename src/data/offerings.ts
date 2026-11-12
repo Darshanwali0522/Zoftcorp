@@ -241,7 +241,7 @@ export const OFFERINGS_DATA: OfferingDetailItem[] = [
     alt: 'High-performance enterprise infrastructure and database performance tuning environment',
     overviewHeadline: 'Turn Performance Findings Into Practical Technical Improvements.',
     overviewCopy:
-      'Performance tuning is most valuable when analysis leads to action. ZOFT works across database configuration, queries, indexing, workload behavior, and infrastructure considerations to implement practical improvements and validate their effect within the technology environment.',
+      'Performance tuning is most valuable when analysis leads to action. Zoftcorp works across database configuration, queries, indexing, workload behavior, and infrastructure considerations to implement practical improvements and validate their effect within the technology environment.',
     calloutTitle: 'Measure, Tune, Validate',
     calloutCopy:
       'Effective performance engineering requires evidence before change and validation after it. Understanding workload behavior helps identify where technical improvements can make the greatest difference without introducing unnecessary complexity.',
@@ -377,7 +377,7 @@ export const OFFERINGS_DATA: OfferingDetailItem[] = [
     alt: 'Enterprise database operations, monitoring, and operational administration environment',
     overviewHeadline: 'Keep Database Operations Reliable, Visible, and Well Managed.',
     overviewCopy:
-      'Database environments require ongoing attention long after implementation. ZOFT provides managed database support focused on administration, monitoring, maintenance, operational health, and technical guidance so organizations can maintain greater visibility and discipline across their database environments.',
+      'Database environments require ongoing attention long after implementation. Zoftcorp provides managed database support focused on administration, monitoring, maintenance, operational health, and technical guidance so organizations can maintain greater visibility and discipline across their database environments.',
     calloutTitle: 'Operational Discipline Matters',
     calloutCopy:
       'Reliable database operations come from consistent monitoring, maintenance, documentation, access management, backup practices, and timely technical attention. Managed services provide an ongoing operational layer around the database environment.',
@@ -515,7 +515,7 @@ export const OFFERINGS_DATA: OfferingDetailItem[] = [
     alt: 'Modern data infrastructure, data pipelines, analytics architecture, and enterprise data environment',
     overviewHeadline: 'Build the Data Foundation Behind Better Decisions.',
     overviewCopy:
-      'Analytics depends on the quality, structure, availability, and reliability of the data underneath it. ZOFT helps organizations design and improve data engineering capabilities that move information from source systems through reliable pipelines and into environments where it can be analyzed and used effectively.',
+      'Analytics depends on the quality, structure, availability, and reliability of the data underneath it. Zoftcorp helps organizations design and improve data engineering capabilities that move information from source systems through reliable pipelines and into environments where it can be analyzed and used effectively.',
     calloutTitle: 'Analytics Starts With the Data Foundation',
     calloutCopy:
       'Useful analytics requires more than a reporting layer. Data needs to be collected, transformed, validated, modeled, and delivered in ways that support the workloads and decisions it is intended to serve.',
@@ -667,7 +667,7 @@ export const OFFERINGS_DATA: OfferingDetailItem[] = [
     consultingEyebrow: 'FROM STRATEGY TO DATA ENGINEERING',
     consultingHeadline: 'Need to Define the Right Data Architecture First?',
     consultingCopy:
-      'ZOFT Consulting can help evaluate architecture, technology direction, governance, and workload requirements. Data Engineering and Analytics provides the engineering capabilities needed to build practical data pipelines, platforms, and analytical foundations.',
+      'Zoftcorp Consulting can help evaluate architecture, technology direction, governance, and workload requirements. Data Engineering and Analytics provides the engineering capabilities needed to build practical data pipelines, platforms, and analytical foundations.',
     consultingDescription:
       'Architecture, strategy, governance, assessment, and technical direction.',
     activeOfferingDescription:

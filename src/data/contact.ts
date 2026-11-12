@@ -19,7 +19,7 @@ export interface ConversationArea {
 export const CONTACT_HERO = {
   eyebrow: 'CONTACT',
   h1: 'Let’s Talk About What You’re Building.',
-  copy: 'Whether you’re navigating a cloud decision, database challenge, modernization initiative, data opportunity, or broader technology question, start the conversation with ZOFT.',
+  copy: 'Whether you’re navigating a cloud decision, database challenge, modernization initiative, data opportunity, or broader technology question, start the conversation with Zoftcorp.',
   flow: [
     { step: '01', title: 'QUESTION', desc: 'Framing the core technical challenge' },
     { step: '02', title: 'CONTEXT', desc: 'Understanding environment & constraints' },
@@ -125,6 +125,6 @@ export const EXPECTATION_STEPS = [
 export const CONTACT_NAVIGATION = [
   { label: 'Consulting', href: '/consulting', desc: 'Strategic technical advisory & audits' },
   { label: 'Our Offerings', href: '/offerings', desc: 'Specialized delivery & DBA services' },
-  { label: 'Insights', href: '/insights', desc: 'Technical articles, case studies & meetups' },
+  { label: 'Insights', href: '/insights', desc: 'Technical articles, case studies, white papers & meetups' },
   { label: 'About Us', href: '/about-us', desc: 'Our background, values & story' },
 ];

@@ -25,7 +25,7 @@ export function ConsultingDetailApproach({ capability }: Props) {
             {capability.approach.headline}
           </h2>
           <p className="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl font-sans">
-            ZOFT guides organizations through a structured technical process to bring clarity to complex architecture decisions.
+            Zoftcorp guides organizations through a structured technical process to bring clarity to complex architecture decisions.
           </p>
         </div>
 

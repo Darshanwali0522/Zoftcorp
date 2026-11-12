@@ -6,11 +6,16 @@ import { CAREER_ROLES_OPTIONS } from '@/data/career';
 
 const MAX_FILE_SIZE_BYTES = 5 * 1024 * 1024; // 5MB
 
-export function CareerApplicationForm() {
+export interface CareerApplicationFormProps {
+  initialRole?: string;
+  jobSlug?: string;
+}
+
+export function CareerApplicationForm({ initialRole, jobSlug }: CareerApplicationFormProps = {}) {
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
-  const [role, setRole] = useState('');
+  const [role, setRole] = useState(initialRole || '');
   const [customRole, setCustomRole] = useState('');
   const [notes, setNotes] = useState('');
   const [file, setFile] = useState<File | null>(null);
@@ -113,6 +118,7 @@ export function CareerApplicationForm() {
       if (notes.trim()) formData.append('notes', notes.trim());
       if (file) formData.append('resume', file);
       if (honeypot) formData.append('hp_field', honeypot);
+      if (jobSlug) formData.append('jobSlug', jobSlug);
 
       const res = await fetch('/api/careers', {
         method: 'POST',
@@ -134,7 +140,7 @@ export function CareerApplicationForm() {
       setFullName('');
       setEmail('');
       setPhone('');
-      setRole('');
+      setRole(initialRole || '');
       setCustomRole('');
       setNotes('');
       setFile(null);
@@ -295,6 +301,11 @@ export function CareerApplicationForm() {
             }`}
           >
             <option value="" disabled>Select desired role *</option>
+            {initialRole && !(CAREER_ROLES_OPTIONS as readonly string[]).includes(initialRole) && (
+              <option value={initialRole}>
+                {initialRole}
+              </option>
+            )}
             {CAREER_ROLES_OPTIONS.map((opt) => (
               <option key={opt} value={opt}>
                 {opt}
@@ -329,7 +340,10 @@ export function CareerApplicationForm() {
 
       {/* Row 3: Resume Upload */}
       <div>
-        <label className="block text-xs font-mono font-bold text-slate-800 uppercase tracking-wider mb-2">
+        <label
+          htmlFor="careers-resume-input"
+          className="block text-xs font-mono font-bold text-slate-800 uppercase tracking-wider mb-2"
+        >
           CV / Resume <span className="text-[#FF6F00]">*</span>
           <span className="text-slate-400 font-normal lowercase ml-2 font-mono">(PDF or DOCX, max 5MB)</span>
         </label>

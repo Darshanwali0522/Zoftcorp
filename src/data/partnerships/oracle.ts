@@ -16,7 +16,7 @@ export interface RelatedLinkItem {
 export const ORACLE_PARTNERSHIP_HERO = {
   eyebrow: 'ORACLE',
   h1: 'Database Architecture With Oracle. Guided by Technical Expertise.',
-  copy: 'ZOFT\'s work across Oracle environments brings together database architecture, cloud, data, performance, and engineering considerations to help organizations make practical technology decisions.',
+  copy: 'Zoftcorp\'s work across Oracle environments brings together database architecture, cloud, data, performance, and engineering considerations to help organizations make practical technology decisions.',
   logoPath: '/platforms/oracle.svg',
 };
 

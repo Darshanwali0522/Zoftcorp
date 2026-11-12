@@ -164,17 +164,18 @@ export const NavItem: React.FC<NavItemProps> = ({ item }) => {
       </button>
 
       {/* Dropdown / Mega-Menu Container with Safe Hover Bridge */}
-      {isOpen && (
-        <div
-          id={`menu-dropdown-${item.id}`}
-          className={cn(
-            "absolute top-full left-0 mt-2 z-50 rounded-xl bg-white border border-slate-200 shadow-xl p-6 text-slate-900 animate-dropdownIn",
-            "before:content-[''] before:absolute before:-top-3 before:left-0 before:right-0 before:h-3",
-            item.type === "mega-menu"
-              ? "w-[720px] left-0 grid grid-cols-12 gap-6"
-              : "w-[380px]"
-          )}
-        >
+      <div
+        id={`menu-dropdown-${item.id}`}
+        hidden={!isOpen}
+        className={cn(
+          "absolute top-full left-0 mt-2 z-50 rounded-xl bg-white border border-slate-200 shadow-xl p-6 text-slate-900 animate-dropdownIn",
+          "before:content-[''] before:absolute before:-top-3 before:left-0 before:right-0 before:h-3",
+          item.type === "mega-menu"
+            ? "w-[720px] left-0 grid grid-cols-12 gap-6"
+            : "w-[380px]",
+          !isOpen && "hidden"
+        )}
+      >
           <div
             className={cn(
               item.type === "mega-menu"
@@ -280,7 +281,6 @@ export const NavItem: React.FC<NavItemProps> = ({ item }) => {
             </div>
           )}
         </div>
-      )}
-    </div>
+      </div>
   );
 };

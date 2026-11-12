@@ -24,7 +24,7 @@ export const EXPERTISE_DATA: ExpertiseSectionData = {
   headlineLine1: 'Deep Expertise.',
   headlineLine2: 'Built for Critical Systems.',
   supportingCopy:
-    'ZOFT combines database, cloud, and data engineering expertise to help organizations build, modernize, and operate technology environments they can depend on.',
+    'Zoftcorp combines database, cloud, and data engineering expertise to help organizations build, modernize, and operate technology environments they can depend on.',
   heroImage: {
     src: '/images/expertise/hero.jpg',
     alt: 'Enterprise technology infrastructure showing high-density server environments and precision engineering',

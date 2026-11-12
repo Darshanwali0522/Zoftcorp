@@ -7,18 +7,18 @@ import { Container } from '@/components/ui/container';
 import { ServiceJsonLd, BreadcrumbJsonLd } from '@/components/seo/json-ld';
 
 export const metadata: Metadata = {
-  title: 'Optimizing Cloud Expenses – FinOps Services | ZOFT Corp',
+  title: 'Optimizing Cloud Expenses – FinOps Services | Zoftcorp',
   description:
     'Cloud adoption brings scalability and agility, but without proper governance, costs can spiral out of control. Our FinOps (Cloud Financial Operations) Services help organizations gain visibility, accountability, and efficiency in cloud spending.',
   alternates: {
     canonical: 'https://zoftcorp.com/optimizing-cloud-expenses/',
   },
   openGraph: {
-    title: 'Optimizing Cloud Expenses – FinOps Services | ZOFT Corp',
+    title: 'Optimizing Cloud Expenses – FinOps Services | Zoftcorp',
     description:
-      'Gain clear visibility, budget control, and resource efficiency with ZOFT Corp certified FinOps services.',
+      'Gain clear visibility, budget control, and resource efficiency with Zoftcorp certified FinOps services.',
     url: 'https://zoftcorp.com/optimizing-cloud-expenses/',
-    siteName: 'ZOFT Corp',
+    siteName: 'Zoftcorp',
     type: 'website',
     images: [
       {
@@ -31,9 +31,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Optimizing Cloud Expenses – FinOps Services | ZOFT Corp',
+    title: 'Optimizing Cloud Expenses – FinOps Services | Zoftcorp',
     description:
-      'Gain clear visibility, budget control, and resource efficiency with ZOFT Corp certified FinOps services.',
+      'Gain clear visibility, budget control, and resource efficiency with Zoftcorp certified FinOps services.',
     images: ['/images/finops/zoftcorp-finOps-services-scaled.png'],
   },
 };

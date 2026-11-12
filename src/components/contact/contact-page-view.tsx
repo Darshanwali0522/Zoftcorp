@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { ArrowRight, ChevronRight, MessageSquare, ArrowUpRight } from 'lucide-react';
+import { ArrowRight, ChevronRight, MessageSquare, ArrowUpRight, Building2 } from 'lucide-react';
 import { Container } from '@/components/ui/container';
 import { ContactForm } from '@/components/contact/contact-form';
 import {
@@ -78,7 +78,7 @@ export function ContactPageView({ reviews = [] }: ContactPageViewProps) {
               <div className="bg-[#031E4D]/90 border border-slate-800 rounded-2xl p-6 sm:p-8 backdrop-blur-sm space-y-4 shadow-2xl">
                 <div className="text-xs font-mono font-semibold uppercase tracking-wider text-slate-400 pb-2 border-b border-slate-800 flex items-center justify-between">
                   <span>CONVERSATION FLOW</span>
-                  <span className="text-[#00B3FF]">ZOFT ADVISORY</span>
+                  <span className="text-[#00B3FF]">ZOFTCORP ADVISORY</span>
                 </div>
 
                 <div className="space-y-3">
@@ -210,6 +210,23 @@ export function ContactPageView({ reviews = [] }: ContactPageViewProps) {
                   </div>
                 </div>
               </div>
+
+              {/* Registered Address (Corporate / Legal) */}
+              <div className="pt-6 border-t border-slate-200/80">
+                <div className="p-4 sm:p-5 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-2">
+                  <p className="text-[11px] font-mono font-bold uppercase tracking-wider text-slate-500">
+                    Registered Address
+                  </p>
+                  <div className="flex items-start gap-2.5 text-slate-600">
+                    <Building2 className="w-4 h-4 text-slate-400 shrink-0 mt-0.5" aria-hidden="true" />
+                    <address className="not-italic text-xs leading-relaxed font-sans text-slate-600">
+                      Flat No. 5E-1008, Provident Sunworth,<br />
+                      Venkatapura, Kengeri,<br />
+                      Bengaluru, Karnataka 560060, India
+                    </address>
+                  </div>
+                </div>
+              </div>
             </div>
 
             {/* Right Column: ContactForm Component */}
@@ -258,7 +275,7 @@ export function ContactPageView({ reviews = [] }: ContactPageViewProps) {
         <Container>
           <div className="max-w-3xl space-y-4 mb-12">
             <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-bold tracking-wider uppercase bg-[#00B3FF]/10 text-[#01153B] border border-[#00B3FF]/20">
-              EXPLORE ZOFT
+              EXPLORE ZOFTCORP
             </span>
             <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">
               Explore Before You Reach Out
@@ -335,7 +352,7 @@ export function ContactPageView({ reviews = [] }: ContactPageViewProps) {
                 href="/about-us"
                 className="inline-flex items-center gap-2 px-6 py-3.5 rounded-lg bg-white/10 hover:bg-white/20 text-white font-semibold text-sm transition-all duration-200 border border-white/20 focus-visible:outline-2 focus-visible:outline-[#00B3FF]"
               >
-                <span>Explore ZOFT</span>
+                <span>Explore Zoftcorp</span>
               </Link>
             </div>
           </div>

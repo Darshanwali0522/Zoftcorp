@@ -73,52 +73,52 @@ export const HeroVisual: React.FC = () => {
             </svg>
 
             {/* Header Telemetry Bar */}
-            <div className="relative z-10 flex items-center justify-between pb-3 border-b border-[#031E4D]">
-              <div className="flex items-center gap-2.5">
-                <span className="flex h-2 w-2 relative">
+            <div className="relative z-10 flex flex-wrap items-center justify-between gap-1.5 pb-2.5 sm:pb-3 border-b border-[#031E4D]">
+              <div className="flex items-center gap-2 min-w-0">
+                <span className="flex h-2 w-2 relative shrink-0">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00B3FF] opacity-75" />
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-[#00B3FF]" />
                 </span>
-                <span className="text-[11px] font-mono font-bold tracking-wider text-slate-200 uppercase">
-                  TOPOLOGY MODEL // DISTRIBUTED ARCHITECTURE
+                <span className="text-[10px] sm:text-[11px] font-mono font-bold tracking-wider text-slate-200 uppercase truncate">
+                  TOPOLOGY MODEL // ARCHITECTURE
                 </span>
               </div>
-              <span className="text-[10px] font-mono font-semibold text-[#00B3FF] bg-[#031E4D] border border-[#00B3FF]/40 px-2 py-0.5 rounded">
-                ILLUSTRATIVE MODEL
+              <span className="text-[9px] sm:text-[10px] font-mono font-semibold text-[#00B3FF] bg-[#031E4D] border border-[#00B3FF]/40 px-1.5 py-0.5 rounded shrink-0">
+                ILLUSTRATIVE
               </span>
             </div>
 
             {/* Core Topology Cards Display */}
-            <div className="relative z-10 my-auto py-2 grid grid-cols-12 gap-3 items-center">
+            <div className="relative z-10 my-auto py-2 grid grid-cols-12 gap-2 sm:gap-3 items-center">
               {/* Card 1: Core Transaction Engine */}
-              <div className="col-span-6 p-3 rounded-lg bg-[#031E4D]/90 border border-slate-700/80 space-y-1.5 backdrop-blur-xs">
+              <div className="col-span-6 p-2.5 sm:p-3 rounded-lg bg-[#031E4D]/90 border border-slate-700/80 space-y-1.5 backdrop-blur-xs">
                 <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-mono font-bold tracking-wider text-[#00B3FF] uppercase">
-                    NODE 01 // ENGINE
+                  <span className="text-[9px] sm:text-[10px] font-mono font-bold tracking-wider text-[#00B3FF] uppercase truncate">
+                    01 // ENGINE
                   </span>
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#00B3FF]" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#00B3FF] shrink-0" />
                 </div>
-                <div className="text-xs font-bold text-slate-100">
-                  Primary Transaction Fabric
+                <div className="text-[11px] sm:text-xs font-bold text-slate-100 truncate">
+                  Transaction Fabric
                 </div>
-                <div className="space-y-1 pt-1">
+                <div className="space-y-1 pt-0.5">
                   <div className="h-1.5 rounded bg-[#00B3FF]/60 w-full" />
                   <div className="h-1.5 rounded bg-[#00B3FF]/30 w-4/5" />
                 </div>
               </div>
 
               {/* Card 2: Vector & Analytics Index */}
-              <div className="col-span-6 p-3 rounded-lg bg-[#031E4D]/90 border border-slate-700/80 space-y-1.5 backdrop-blur-xs">
+              <div className="col-span-6 p-2.5 sm:p-3 rounded-lg bg-[#031E4D]/90 border border-slate-700/80 space-y-1.5 backdrop-blur-xs">
                 <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-mono font-bold tracking-wider text-[#FF6F00] uppercase">
-                    NODE 02 // VECTOR
+                  <span className="text-[9px] sm:text-[10px] font-mono font-bold tracking-wider text-[#FF6F00] uppercase truncate">
+                    02 // VECTOR
                   </span>
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#FF6F00]" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#FF6F00] shrink-0" />
                 </div>
-                <div className="text-xs font-bold text-slate-100">
-                  Embedding Index Matrix
+                <div className="text-[11px] sm:text-xs font-bold text-slate-100 truncate">
+                  Embedding Matrix
                 </div>
-                <div className="space-y-1 pt-1">
+                <div className="space-y-1 pt-0.5">
                   <div className="h-1.5 rounded bg-[#FF6F00]/60 w-full" />
                   <div className="h-1.5 rounded bg-[#FF6F00]/30 w-3/4" />
                 </div>
@@ -126,28 +126,28 @@ export const HeroVisual: React.FC = () => {
             </div>
 
             {/* Architectural Profile HUD Strip (Accurate conceptual indicators without unverified performance statistics) */}
-            <div className="relative z-10 pt-3 border-t border-[#031E4D] grid grid-cols-3 gap-2 text-left">
+            <div className="relative z-10 pt-2.5 sm:pt-3 border-t border-[#031E4D] grid grid-cols-3 gap-1 sm:gap-2 text-left">
               <div>
-                <span className="text-[9px] font-mono text-slate-400 uppercase block tracking-wider">
+                <span className="text-[8px] sm:text-[9px] font-mono text-slate-400 uppercase block tracking-wider">
                   WORKLOAD
                 </span>
-                <span className="text-xs font-mono font-bold text-slate-100">
+                <span className="text-[10px] sm:text-xs font-mono font-bold text-slate-100 block truncate">
                   HIGH CONCURRENCY
                 </span>
               </div>
               <div>
-                <span className="text-[9px] font-mono text-slate-400 uppercase block tracking-wider">
+                <span className="text-[8px] sm:text-[9px] font-mono text-slate-400 uppercase block tracking-wider">
                   MEMORY TIER
                 </span>
-                <span className="text-xs font-mono font-bold text-[#00B3FF]">
+                <span className="text-[10px] sm:text-xs font-mono font-bold text-[#00B3FF] block truncate">
                   BUFFER OPTIMIZED
                 </span>
               </div>
               <div>
-                <span className="text-[9px] font-mono text-slate-400 uppercase block tracking-wider">
+                <span className="text-[8px] sm:text-[9px] font-mono text-slate-400 uppercase block tracking-wider">
                   AVAILABILITY
                 </span>
-                <span className="text-xs font-mono font-bold text-[#00B3FF]">
+                <span className="text-[10px] sm:text-xs font-mono font-bold text-[#00B3FF] block truncate">
                   SYNCHRONOUS MESH
                 </span>
               </div>
@@ -155,13 +155,13 @@ export const HeroVisual: React.FC = () => {
           </div>
 
           {/* Minimal Engineering Layer Markers */}
-          <div className="pt-2 flex items-center justify-between text-[11px] font-mono font-semibold text-slate-600 tracking-wider px-1">
+          <div className="pt-2 flex flex-wrap sm:flex-nowrap items-center justify-between text-[10px] sm:text-[11px] font-mono font-semibold text-slate-600 tracking-wider px-1 gap-1">
             <span className="text-[#01153B] font-bold">01 CLOUD</span>
-            <span className="text-slate-300">•</span>
+            <span className="text-slate-300 hidden sm:inline">•</span>
             <span className="text-[#01153B] font-bold">02 DATABASE</span>
-            <span className="text-slate-300">•</span>
+            <span className="text-slate-300 hidden sm:inline">•</span>
             <span className="text-[#01153B] font-bold">03 DATA</span>
-            <span className="text-slate-300">•</span>
+            <span className="text-slate-300 hidden sm:inline">•</span>
             <span className="text-[#01153B] font-bold">04 RELIABILITY</span>
           </div>
         </div>

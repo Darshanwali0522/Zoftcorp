@@ -29,23 +29,23 @@ import { Container } from '@/components/ui/container';
 import { ServiceJsonLd, BreadcrumbJsonLd } from '@/components/seo/json-ld';
 
 export const metadata: Metadata = {
-  title: 'Data Engineering Services | ZOFT Corp',
+  title: 'Data Engineering Services | Zoftcorp',
   description:
     'In today’s digital economy, data is the most valuable asset—but raw data alone doesn’t drive decisions. Our Data Engineering Services transform fragmented, complex datasets into structured, actionable insights. By designing modern data pipelines, warehouses, and platforms, we help organizations unlock the full potential of their data for analytics, AI, and business growth.',
   alternates: {
     canonical: 'https://zoftcorp.com/data-engineering/',
   },
   openGraph: {
-    title: 'Data Engineering Services | ZOFT Corp',
+    title: 'Data Engineering Services | Zoftcorp',
     description:
       'Turn your data into a competitive advantage. Our Data Engineering Services build scalable, future-ready data pipelines and analytics solutions.',
     url: 'https://zoftcorp.com/data-engineering/',
-    siteName: 'ZOFT Corp',
+    siteName: 'Zoftcorp',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Data Engineering Services | ZOFT Corp',
+    title: 'Data Engineering Services | Zoftcorp',
     description:
       'Turn your data into a competitive advantage. Our Data Engineering Services build scalable, future-ready data pipelines and analytics solutions.',
   },

@@ -271,7 +271,7 @@ export default async function PartnershipsPage() {
               href="/contact"
               className="inline-flex items-center justify-center px-7 py-3.5 rounded-lg bg-[#FF6F00] hover:bg-[#e66400] text-white font-semibold text-sm transition-all duration-200 shadow-md shadow-[#FF6F00]/25 focus-visible:outline-2 focus-visible:outline-[#FF6F00]"
             >
-              Talk to ZOFT
+              Talk to Zoftcorp
             </Link>
             <Link
               href="/consulting"

@@ -16,18 +16,18 @@ export const HomeHero: React.FC = () => {
           {/* Left Column: Editorial Value Proposition & Actions */}
           <div className="lg:col-span-7 space-y-8 text-left">
             {/* Architectural Telemetry Eyebrow */}
-            <div className="inline-flex items-center gap-2">
-              <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-bold tracking-wider uppercase bg-[#00B3FF]/10 text-[#01153B] border border-[#00B3FF]/30 shadow-2xs">
-                <span className="flex h-2 w-2 relative">
+            <div className="inline-flex items-center gap-2 max-w-full">
+              <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-[10px] sm:text-xs font-mono font-bold tracking-wider uppercase bg-[#00B3FF]/10 text-[#01153B] border border-[#00B3FF]/30 shadow-2xs max-w-full truncate">
+                <span className="flex h-2 w-2 relative shrink-0">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00B3FF] opacity-75" />
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-[#00B3FF]" />
                 </span>
-                <span>ENTERPRISE CLOUD &amp; DATABASE ADVISORY</span>
+                <span className="truncate">ENTERPRISE CLOUD &amp; DATABASE EXPERTS</span>
               </span>
             </div>
 
             {/* Main Headline with Confident Editorial Scale */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-[62px] font-extrabold text-[#01153B] tracking-tight leading-[1.08] max-w-2xl font-sans">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl xl:text-[62px] font-extrabold text-[#01153B] tracking-tight leading-[1.1] max-w-2xl font-sans">
               Cloud and Database Experts <br className="hidden sm:inline" />
               Powered by AI
             </h1>
@@ -38,15 +38,15 @@ export const HomeHero: React.FC = () => {
             </p>
 
             {/* CTA Group with High-Contrast Hierarchy (Brand Orange Primary Action) */}
-            <div className="flex flex-wrap items-center gap-4 pt-2">
-              <Link href="/contact">
-                <Button variant="primary" size="lg" className="min-w-[210px] text-base font-semibold shadow-md hover:shadow-lg">
+            <div className="flex flex-wrap items-center gap-3 sm:gap-4 pt-2">
+              <Link href="/contact" className="w-full sm:w-auto">
+                <Button variant="primary" size="lg" className="w-full sm:min-w-[210px] text-base font-semibold shadow-md hover:shadow-lg">
                   Get a Free consultation
                 </Button>
               </Link>
               <Link
                 href="/offerings"
-                className="inline-flex items-center gap-2 text-base font-semibold text-[#01153B] hover:text-[#00B3FF] transition-colors py-3 px-3 group rounded-lg focus-visible:outline-2 focus-visible:outline-[#00B3FF] hover:bg-slate-100/70"
+                className="inline-flex items-center gap-2 text-base font-semibold text-[#01153B] hover:text-[#00B3FF] transition-colors py-2.5 px-3 group rounded-lg focus-visible:outline-2 focus-visible:outline-[#00B3FF] hover:bg-slate-100/70"
               >
                 <span>Explore Our Capabilities</span>
                 <ArrowRight className="w-4 h-4 text-[#00B3FF] group-hover:translate-x-1 transition-transform duration-200" />
@@ -57,7 +57,7 @@ export const HomeHero: React.FC = () => {
             <div className="pt-8 border-t border-slate-200/90">
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 lg:gap-5 max-w-3xl">
                 {/* Benefit 1: FinOps 20–30% Savings */}
-                <div className="group relative flex flex-col justify-between p-6 sm:p-7 rounded-2xl bg-gradient-to-br from-[#01153B] via-[#021B4D] to-[#02255E] border border-[#0066CC]/30 hover:border-[#00B3FF]/70 shadow-lg shadow-[#01153B]/10 hover:shadow-2xl hover:shadow-[#0066CC]/20 hover:-translate-y-1.5 transition-all duration-300 ease-out overflow-hidden">
+                <div className="group relative flex flex-col justify-between p-5 sm:p-7 rounded-2xl bg-gradient-to-br from-[#01153B] via-[#021B4D] to-[#02255E] border border-[#0066CC]/30 hover:border-[#00B3FF]/70 shadow-lg shadow-[#01153B]/10 hover:shadow-2xl hover:shadow-[#0066CC]/20 hover:-translate-y-1.5 transition-all duration-300 ease-out overflow-hidden">
                   <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#0066CC] via-[#00B3FF] to-sky-400 opacity-80 group-hover:opacity-100 transition-opacity duration-300" />
                   <div
                     className="pointer-events-none absolute -bottom-10 -right-10 w-32 h-32 bg-[#00B3FF]/10 rounded-full blur-2xl group-hover:bg-[#00B3FF]/20 transition-all duration-500"
@@ -82,7 +82,7 @@ export const HomeHero: React.FC = () => {
                 </div>
 
                 {/* Benefit 2: Performance Faster Databases */}
-                <div className="group relative flex flex-col justify-between p-6 sm:p-7 rounded-2xl bg-gradient-to-br from-[#01153B] via-[#021B4D] to-[#02255E] border border-[#0066CC]/30 hover:border-[#00B3FF]/70 shadow-lg shadow-[#01153B]/10 hover:shadow-2xl hover:shadow-[#0066CC]/20 hover:-translate-y-1.5 transition-all duration-300 ease-out overflow-hidden">
+                <div className="group relative flex flex-col justify-between p-5 sm:p-7 rounded-2xl bg-gradient-to-br from-[#01153B] via-[#021B4D] to-[#02255E] border border-[#0066CC]/30 hover:border-[#00B3FF]/70 shadow-lg shadow-[#01153B]/10 hover:shadow-2xl hover:shadow-[#0066CC]/20 hover:-translate-y-1.5 transition-all duration-300 ease-out overflow-hidden">
                   <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#0066CC] via-[#00B3FF] to-sky-400 opacity-80 group-hover:opacity-100 transition-opacity duration-300" />
                   <div
                     className="pointer-events-none absolute -bottom-10 -right-10 w-32 h-32 bg-[#00B3FF]/10 rounded-full blur-2xl group-hover:bg-[#00B3FF]/20 transition-all duration-500"
@@ -107,7 +107,7 @@ export const HomeHero: React.FC = () => {
                 </div>
 
                 {/* Benefit 3: Compliance Stay Secure & Compliant */}
-                <div className="group relative flex flex-col justify-between p-6 sm:p-7 rounded-2xl bg-gradient-to-br from-[#01153B] via-[#021B4D] to-[#02255E] border border-[#0066CC]/30 hover:border-[#00B3FF]/70 shadow-lg shadow-[#01153B]/10 hover:shadow-2xl hover:shadow-[#0066CC]/20 hover:-translate-y-1.5 transition-all duration-300 ease-out overflow-hidden">
+                <div className="group relative flex flex-col justify-between p-5 sm:p-7 rounded-2xl bg-gradient-to-br from-[#01153B] via-[#021B4D] to-[#02255E] border border-[#0066CC]/30 hover:border-[#00B3FF]/70 shadow-lg shadow-[#01153B]/10 hover:shadow-2xl hover:shadow-[#0066CC]/20 hover:-translate-y-1.5 transition-all duration-300 ease-out overflow-hidden">
                   <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#0066CC] via-[#00B3FF] to-sky-400 opacity-80 group-hover:opacity-100 transition-opacity duration-300" />
                   <div
                     className="pointer-events-none absolute -bottom-10 -right-10 w-32 h-32 bg-[#00B3FF]/10 rounded-full blur-2xl group-hover:bg-[#00B3FF]/20 transition-all duration-500"
@@ -127,7 +127,7 @@ export const HomeHero: React.FC = () => {
                     </h2>
                   </div>
                   <p className="relative z-10 text-sm text-slate-300 mt-3 leading-relaxed font-sans font-medium">
-                    with resilience built in
+                    with resilience built-in
                   </p>
                 </div>
               </div>

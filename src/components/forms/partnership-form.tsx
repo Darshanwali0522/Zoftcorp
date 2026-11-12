@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { Send, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
-import { PARTNERSHIP_TYPES } from '@/app/api/partnerships/route';
+import { PARTNERSHIP_TYPES } from '@/data/partnerships';
 
 interface FormState {
   companyName: string;
@@ -179,7 +179,7 @@ export function PartnershipForm() {
               }}
               aria-invalid={!!errors.companyName}
               aria-describedby={errors.companyName ? 'p-company-error' : undefined}
-              className={`w-full bg-[#01153B] border rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-[#00B3FF] focus:border-transparent transition-all ${
+              className={`w-full bg-[#01153B] border rounded-xl px-4 py-3 text-base sm:text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-[#00B3FF] focus:border-transparent transition-all ${
                 errors.companyName ? 'border-red-500/80 bg-red-950/20' : 'border-slate-700'
               }`}
             />
@@ -210,7 +210,7 @@ export function PartnershipForm() {
               }}
               aria-invalid={!!errors.contactName}
               aria-describedby={errors.contactName ? 'p-contact-error' : undefined}
-              className={`w-full bg-[#01153B] border rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-[#00B3FF] focus:border-transparent transition-all ${
+              className={`w-full bg-[#01153B] border rounded-xl px-4 py-3 text-base sm:text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-[#00B3FF] focus:border-transparent transition-all ${
                 errors.contactName ? 'border-red-500/80 bg-red-950/20' : 'border-slate-700'
               }`}
             />
@@ -243,7 +243,7 @@ export function PartnershipForm() {
               }}
               aria-invalid={!!errors.businessEmail}
               aria-describedby={errors.businessEmail ? 'p-email-error' : undefined}
-              className={`w-full bg-[#01153B] border rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-[#00B3FF] focus:border-transparent transition-all ${
+              className={`w-full bg-[#01153B] border rounded-xl px-4 py-3 text-base sm:text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-[#00B3FF] focus:border-transparent transition-all ${
                 errors.businessEmail ? 'border-red-500/80 bg-red-950/20' : 'border-slate-700'
               }`}
             />
@@ -272,7 +272,7 @@ export function PartnershipForm() {
               }}
               aria-invalid={!!errors.partnershipType}
               aria-describedby={errors.partnershipType ? 'p-type-error' : undefined}
-              className={`w-full bg-[#01153B] border rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:ring-2 focus:ring-[#00B3FF] focus:border-transparent transition-all ${
+              className={`w-full bg-[#01153B] border rounded-xl px-4 py-3 text-base sm:text-sm text-white focus:outline-none focus:ring-2 focus:ring-[#00B3FF] focus:border-transparent transition-all ${
                 errors.partnershipType ? 'border-red-500/80 bg-red-950/20' : 'border-slate-700'
               }`}
             >
@@ -313,7 +313,7 @@ export function PartnershipForm() {
             }}
             aria-invalid={!!errors.message}
             aria-describedby={errors.message ? 'p-message-error' : undefined}
-            className={`w-full bg-[#01153B] border rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-[#00B3FF] focus:border-transparent transition-all ${
+            className={`w-full bg-[#01153B] border rounded-xl px-4 py-3 text-base sm:text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-[#00B3FF] focus:border-transparent transition-all ${
               errors.message ? 'border-red-500/80 bg-red-950/20' : 'border-slate-700'
             }`}
           />

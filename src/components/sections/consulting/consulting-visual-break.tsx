@@ -23,7 +23,7 @@ export function ConsultingVisualBreak() {
         <div className="w-16 h-0.5 bg-gradient-to-r from-[#00B3FF] to-[#FF6F00] mx-auto my-8 rounded-full" />
 
         <p className="text-slate-300 text-base sm:text-lg font-sans max-w-xl mx-auto leading-relaxed">
-          ZOFT combines deep engineering knowledge with practical advisory to help enterprise leaders eliminate complexity and execute with clarity.
+          Zoftcorp combines deep engineering knowledge with practical advisory to help enterprise leaders eliminate complexity and execute with clarity.
         </p>
       </div>
     </section>

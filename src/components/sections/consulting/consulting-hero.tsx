@@ -26,7 +26,7 @@ export function ConsultingHero() {
             </h1>
 
             <p className="text-slate-600 text-lg sm:text-xl font-normal leading-relaxed max-w-xl font-sans">
-              ZOFT helps organizations make better technology decisions across cloud, databases, performance, governance, and modern data architectures.
+              Zoftcorp helps organizations make better technology decisions across cloud, databases, performance, governance, and modern data architectures.
             </p>
 
             <div className="flex flex-wrap items-center gap-5 pt-2">

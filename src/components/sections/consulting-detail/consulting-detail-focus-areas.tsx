@@ -19,7 +19,7 @@ export function ConsultingDetailFocusAreas({ capability }: Props) {
             {capability.whatWeAddressHeadline || 'Technical Focus Areas'}
           </h2>
           <p className="text-base text-slate-600 mt-3 font-sans">
-            ZOFT evaluates and guides technical implementations across four core architectural domains:
+            Zoftcorp evaluates and guides technical implementations across four core architectural domains:
           </p>
         </div>
 

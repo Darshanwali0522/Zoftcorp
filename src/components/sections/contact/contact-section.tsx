@@ -197,7 +197,7 @@ export function ContactSection() {
                     Thank You, {formData.firstName}!
                   </h3>
                   <p className="text-slate-300 text-sm max-w-md mx-auto leading-relaxed font-sans">
-                    Your enquiry regarding <span className="text-[#00B3FF] font-semibold">{formData.topic}</span> has been received. A ZOFT Corp specialist will be in touch with you at <span className="text-white font-medium">{formData.workEmail}</span>.
+                    Your enquiry regarding <span className="text-[#00B3FF] font-semibold">{formData.topic}</span> has been received. A Zoftcorp specialist will be in touch with you at <span className="text-white font-medium">{formData.workEmail}</span>.
                   </p>
                   <button
                     onClick={handleReset}

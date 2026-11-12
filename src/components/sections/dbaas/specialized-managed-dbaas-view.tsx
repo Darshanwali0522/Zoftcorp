@@ -39,7 +39,7 @@ export function SpecializedManagedDBaaSView({
   return (
     <div className="w-full bg-white text-[#01153B] selection:bg-[#00B3FF]/20 selection:text-[#01153B]">
       <ServiceJsonLd
-        name="Specialized Managed Services (DBaaS) | ZOFT Corp"
+        name="Specialized Managed Services (DBaaS) | Zoftcorp"
         description="Zoftcorp provides next gen database-as-a-service (DBaaS) for SQL Server, MySQL, PostgreSQL, NoSQL, and Vector databases across on-premises, cloud, and hybrid environments."
         url={pageUrl}
       />
@@ -280,7 +280,7 @@ export function SpecializedManagedDBaaSView({
               </p>
               <p>
                 We support a wide spectrum of engines — from SQL and NoSQL to Vector databases —
-                including Microsoft SQL Server, MySQL, PostgreSQL with pgvector..
+                including Microsoft SQL Server, MySQL, PostgreSQL with pgvector.
               </p>
               <p>
                 Through a unified console or REST APIs, Zoftcorp delivers end‑to‑end lifecycle
@@ -658,7 +658,7 @@ export function SpecializedManagedDBaaSView({
                   <BarChart3 className="w-4 h-4 text-[#00B3FF]" />
                 </div>
                 <h3 className="text-lg sm:text-xl font-bold text-white font-sans leading-snug">
-                  Unified Dashboard of your database estates in multiple platforms
+                  Unified dashboard of your database estates in multiple platforms
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans">
                   Centralized visibility and unified operational control across on-premises, AWS, Azure, GCP, and public cloud environments.

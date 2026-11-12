@@ -1,35 +1,36 @@
 import { Metadata } from 'next';
 import { BlogListing } from '@/components/blog/blog-listing';
 import { getPublishedPosts, getBlogCategories } from '@/lib/supabase/blog-service';
-export const instant = false;
+import { getPublishedPublications } from '@/lib/supabase/publications-service';
 
 export const metadata: Metadata = {
-  title: 'Expert Knowledge. Real-World Solutions. | Insights | ZOFT Corp',
+  title: 'Case Studies, White Papers & Blogs | Insights | Zoftcorp',
   description:
-    'Explore our latest blogs, technical guides, and expert insights on databases, cloud, performance tuning, and modern data platforms.',
+    'Explore verified engineering case studies, white papers, real-world outcomes, and technical blogs across databases, cloud architecture, performance tuning, and high availability.',
   alternates: {
     canonical: 'https://zoftcorp.com/insights/blogs',
   },
   openGraph: {
-    title: 'Expert Knowledge. Real-World Solutions. | Blogs | ZOFT Corp',
+    title: 'Case Studies, White Papers & Blogs | Insights | Zoftcorp',
     description:
-      'Explore our latest blogs, technical guides, and expert insights on databases, cloud, performance tuning, and modern data platforms.',
+      'Explore verified engineering case studies, white papers, real-world outcomes, and technical blogs across databases, cloud architecture, performance tuning, and high availability.',
     url: 'https://zoftcorp.com/insights/blogs',
-    siteName: 'ZOFT Corp',
+    siteName: 'Zoftcorp',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Expert Knowledge. Real-World Solutions. | Blogs | ZOFT Corp',
+    title: 'Case Studies, White Papers & Blogs | Insights | Zoftcorp',
     description:
-      'Explore our latest blogs, technical guides, and expert insights on databases, cloud, performance tuning, and modern data platforms.',
+      'Explore verified engineering case studies, white papers, real-world outcomes, and technical blogs across databases, cloud architecture, performance tuning, and high availability.',
   },
 };
 
 export default async function BlogsPage() {
-  const [posts, categories] = await Promise.all([
+  const [posts, categories, publications] = await Promise.all([
     getPublishedPosts(),
     getBlogCategories(),
+    getPublishedPublications(),
   ]);
 
   return (
@@ -37,6 +38,7 @@ export default async function BlogsPage() {
       baseRoute="/insights/blogs"
       initialPosts={posts}
       initialCategories={categories}
+      initialPublications={publications}
     />
   );
 }
