@@ -285,9 +285,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 </li>
                 <li className="text-slate-400">/</li>
                 <li>
-                  <Link href="/insights" className="hover:text-[#00B3FF] transition-colors">
+                  <span className="text-slate-600">
                     Insights
-                  </Link>
+                  </span>
                 </li>
                 <li className="text-slate-400">/</li>
                 <li>
@@ -552,9 +552,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               </li>
               <li className="text-slate-400">/</li>
               <li>
-                <Link href="/insights" className="hover:text-[#00B3FF] transition-colors">
+                <span className="text-slate-600">
                   Insights
-                </Link>
+                </span>
               </li>
               <li className="text-slate-400">/</li>
               <li>

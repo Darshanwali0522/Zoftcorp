@@ -99,7 +99,7 @@ export const Footer: React.FC = () => {
             </div>
 
             <div className="flex flex-wrap items-center gap-4 text-xs font-semibold text-[#00B3FF] pt-1">
-              <Link href="/about-us" className="hover:text-white transition-colors">
+              <Link href="/" className="hover:text-white transition-colors">
                 Zoftcorp Innovations Private Limited
               </Link>
               <span className="w-1 h-1 rounded-full bg-slate-600" />
@@ -199,35 +199,11 @@ export const Footer: React.FC = () => {
           <p>© 2026 Zoftcorp Innovations Private Limited. All rights reserved.</p>
           <div className="flex flex-wrap items-center gap-4">
             <Link
-              href="/about-us/partnerships/aws"
+              href="/about-us/partnerships"
               className="hover:text-[#00B3FF] transition-colors focus-visible:outline-2 focus-visible:outline-[#00B3FF] rounded px-0.5"
-              aria-label="AWS Technology Ecosystem"
+              aria-label="Technology Ecosystem Partnerships"
             >
-              AWS
-            </Link>
-            <span className="w-1 h-1 rounded-full bg-slate-600" aria-hidden="true" />
-            <Link
-              href="/about-us/partnerships/azure"
-              className="hover:text-[#00B3FF] transition-colors focus-visible:outline-2 focus-visible:outline-[#00B3FF] rounded px-0.5"
-              aria-label="Microsoft Azure Technology Ecosystem"
-            >
-              Azure
-            </Link>
-            <span className="w-1 h-1 rounded-full bg-slate-600" aria-hidden="true" />
-            <Link
-              href="/about-us/partnerships/gcp"
-              className="hover:text-[#00B3FF] transition-colors focus-visible:outline-2 focus-visible:outline-[#00B3FF] rounded px-0.5"
-              aria-label="Google Cloud Technology Ecosystem"
-            >
-              Google Cloud
-            </Link>
-            <span className="w-1 h-1 rounded-full bg-slate-600" aria-hidden="true" />
-            <Link
-              href="/about-us/partnerships/oracle"
-              className="hover:text-[#00B3FF] transition-colors focus-visible:outline-2 focus-visible:outline-[#00B3FF] rounded px-0.5"
-              aria-label="Oracle Technology Ecosystem"
-            >
-              Oracle
+              Technology Ecosystem Partnerships
             </Link>
           </div>
         </div>

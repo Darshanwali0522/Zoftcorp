@@ -31,7 +31,7 @@ export function OfferingDetailHero({ offering }: Props) {
         <nav aria-label="Breadcrumb" className="mb-4 flex flex-wrap items-center gap-2 text-xs font-mono text-slate-400">
           <Link href="/" className="hover:text-[#00B3FF] transition-colors">Home</Link>
           <span className="text-slate-600">/</span>
-          <Link href="/offerings" className="hover:text-[#00B3FF] transition-colors">Our Offerings</Link>
+          <span className="text-slate-400">Our Offerings</span>
           <span className="text-slate-600">/</span>
           <span className="text-slate-200 truncate">{offering.title}</span>
         </nav>
@@ -39,11 +39,11 @@ export function OfferingDetailHero({ offering }: Props) {
         {/* Back Link */}
         <div className="mb-8">
           <Link
-            href="/offerings"
+            href="/"
             className="inline-flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider text-[#00B3FF] hover:text-[#00B3FF]/80 transition-colors group"
           >
             <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-0.5 transition-transform" />
-            <span>Back to Offerings</span>
+            <span>Back to Home</span>
           </Link>
         </div>
 
@@ -76,10 +76,10 @@ export function OfferingDetailHero({ offering }: Props) {
                 Talk to an Expert
               </Link>
               <Link
-                href="/offerings"
+                href="/contact"
                 className="inline-flex items-center gap-2 px-5 py-3.5 rounded-lg text-sm font-semibold text-white hover:bg-white/10 transition-all duration-200 border border-white/20 active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-[#00B3FF] group"
               >
-                <span>Explore Other Offerings</span>
+                <span>Talk to an Expert</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
               </Link>
             </div>

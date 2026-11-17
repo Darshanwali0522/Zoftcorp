@@ -36,11 +36,11 @@ export default async function PartnershipsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="mb-6">
             <Link
-              href="/about-us"
+              href="/"
               className="inline-flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider text-[#00B3FF] hover:text-[#00B3FF]/80 transition-colors focus-visible:outline-2 focus-visible:outline-[#00B3FF] rounded px-1 py-0.5"
             >
               <ArrowLeft className="w-3.5 h-3.5" />
-              <span>Back to About Us</span>
+              <span>Back to Home</span>
             </Link>
           </div>
 
@@ -161,14 +161,14 @@ export default async function PartnershipsPage() {
                   <span className="text-xs font-mono text-slate-400">
                     {partner.shortName} Advisory
                   </span>
-                  <Link
+                  <a
                     href={partner.detailRoute}
                     className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#0066CC] hover:text-[#004C99] group-hover:translate-x-0.5 transition-all focus-visible:outline-2 focus-visible:outline-[#00B3FF] rounded px-1.5 py-0.5"
-                    aria-label={`Explore ${partner.name} Details`}
+                    aria-label={`Inquire about ${partner.name} Advisory`}
                   >
-                    <span>Explore {partner.shortName} Details</span>
+                    <span>Inquire About {partner.shortName}</span>
                     <ArrowRight className="w-4 h-4" />
-                  </Link>
+                  </a>
                 </div>
               </div>
             ))}
@@ -274,10 +274,10 @@ export default async function PartnershipsPage() {
               Talk to Zoftcorp
             </Link>
             <Link
-              href="/consulting"
+              href="/consulting/cloud-finops"
               className="inline-flex items-center gap-2 px-6 py-3.5 rounded-lg text-sm font-semibold text-white hover:bg-white/10 transition-all duration-200 border border-white/20 focus-visible:outline-2 focus-visible:outline-[#00B3FF]"
             >
-              <span>Explore Consulting</span>
+              <span>Explore Cloud FinOps</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>

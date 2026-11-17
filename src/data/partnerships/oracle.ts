@@ -93,9 +93,9 @@ export const ORACLE_RELATED_CONSULTING: RelatedLinkItem[] = [
     href: '/consulting/cloud-database-strategy',
   },
   {
-    title: 'Performance Audits',
-    description: 'Identify database and architecture bottlenecks affecting operational efficiency.',
-    href: '/consulting/performance-audits',
+    title: 'Resilience & Compliance',
+    description: 'Mission-critical database resilience, high-availability architecture, and statutory compliance.',
+    href: '/consulting/resilience-compliance',
   },
   {
     title: 'AI-Ready Architectures',

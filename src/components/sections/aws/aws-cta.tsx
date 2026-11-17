@@ -40,10 +40,10 @@ export const AwsCta: React.FC = () => {
           </Link>
 
           <Link
-            href="/consulting"
+            href="/consulting/cloud-finops"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-slate-200 bg-[#031E4D] hover:bg-[#042866] border border-slate-700/80 hover:border-[#00B3FF]/50 transition-all duration-200 focus-visible:outline-2 focus-visible:outline-[#00B3FF] focus-visible:outline-offset-2"
           >
-            <span>Explore Consulting Capabilities</span>
+            <span>Explore Cloud FinOps</span>
           </Link>
         </div>
 

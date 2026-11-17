@@ -4,6 +4,9 @@ const nextConfig: NextConfig = {
   output: 'standalone',
   cacheComponents: true,
   partialPrefetching: true,
+  experimental: {
+    cpus: 1,
+  },
   async redirects() {
     return [
       {
@@ -42,26 +45,23 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
-        source: '/about-us/company-story',
-        destination: '/about-us',
-        permanent: true,
-      },
-      {
-        source: '/about-us/why-zoftcorp',
-        destination: '/about-us',
-        permanent: true,
-      },
-      {
-        source: '/offerings/vector-db-integration',
-        destination: '/offerings',
-        permanent: true,
-      },
-      {
         source: '/offerings/data-engineering-and-analytics/industries',
         destination: '/offerings/data-engineering-and-analytics',
         permanent: true,
       },
     ];
+  },
+  async rewrites() {
+    return {
+      beforeFiles: [
+        {
+          source: '/consulting/performance-audits',
+          destination: '/_not-found',
+        },
+      ],
+      afterFiles: [],
+      fallback: [],
+    };
   },
   images: {
     remotePatterns: [
@@ -75,14 +75,6 @@ const nextConfig: NextConfig = {
         hostname: 'images.unsplash.com',
       },
     ],
-  },
-  turbopack: {
-    rules: {
-      "*.css": {
-        loaders: ["@tailwindcss/turbopack"],
-        as: "*.css",
-      },
-    },
   },
 };
 

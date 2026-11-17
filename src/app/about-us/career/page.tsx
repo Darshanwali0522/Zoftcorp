@@ -82,11 +82,11 @@ export default async function CareerPage() {
           {/* Breadcrumb / Back Navigation */}
           <div className="mb-6">
             <Link
-              href="/about-us"
+              href="/"
               className="inline-flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider text-[#00B3FF] hover:text-[#00B3FF]/80 transition-colors group"
             >
               <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-0.5 transition-transform" />
-              <span>Back to About Us</span>
+              <span>Back to Home</span>
             </Link>
           </div>
 

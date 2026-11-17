@@ -169,21 +169,19 @@ export default function PerformanceTuningServicesPage() {
               Home
             </Link>
             <span className="text-slate-600">/</span>
-            <Link href="/offerings" className="hover:text-[#00B3FF] transition-colors">
-              Our Offerings
-            </Link>
+            <span className="text-slate-400">Our Offerings</span>
             <span className="text-slate-600">/</span>
             <span className="text-slate-200 truncate">Performance Tuning</span>
           </nav>
 
-          {/* Back to Offerings Link */}
+          {/* Back Link */}
           <div className="mb-8">
             <Link
-              href="/offerings"
+              href="/"
               className="inline-flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider text-[#00B3FF] hover:text-[#00B3FF]/80 transition-colors group"
             >
               <ArrowRight className="w-3.5 h-3.5 rotate-180 group-hover:-translate-x-0.5 transition-transform" />
-              <span>Back to Offerings Overview</span>
+              <span>Back to Home</span>
             </Link>
           </div>
 
@@ -924,10 +922,10 @@ export default function PerformanceTuningServicesPage() {
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
             <Link
-              href="/offerings"
+              href="/contact"
               className="inline-flex items-center gap-2 px-6 py-4 rounded-xl text-base font-semibold text-slate-300 hover:text-white hover:bg-white/5 transition-all duration-200 border border-slate-800 active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-[#00B3FF]"
             >
-              <span>Explore Our Offerings</span>
+              <span>Talk to an Expert</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>

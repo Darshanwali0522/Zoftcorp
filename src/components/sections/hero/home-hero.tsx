@@ -45,7 +45,7 @@ export const HomeHero: React.FC = () => {
                 </Button>
               </Link>
               <Link
-                href="/offerings"
+                href="#services"
                 className="inline-flex items-center gap-2 text-base font-semibold text-[#01153B] hover:text-[#00B3FF] transition-colors py-2.5 px-3 group rounded-lg focus-visible:outline-2 focus-visible:outline-[#00B3FF] hover:bg-slate-100/70"
               >
                 <span>Explore Our Capabilities</span>

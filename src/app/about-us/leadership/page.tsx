@@ -37,7 +37,6 @@ export default async function LeadershipPage() {
   const pageUrl = 'https://zoftcorp.com/about-us/leadership';
   const breadcrumbItems = [
     { name: 'Home', url: 'https://zoftcorp.com' },
-    { name: 'About Us', url: 'https://zoftcorp.com/about-us' },
     { name: 'Leadership', url: pageUrl },
   ];
 
@@ -56,20 +55,18 @@ export default async function LeadershipPage() {
               Home
             </Link>
             <span className="text-slate-600">/</span>
-            <Link href="/about-us" className="hover:text-[#00B3FF] transition-colors">
-              About Us
-            </Link>
+            <span className="text-slate-400">About Us</span>
             <span className="text-slate-600">/</span>
             <span className="text-slate-200 truncate">Leadership</span>
           </nav>
 
           <div>
             <Link
-              href="/about-us"
+              href="/"
               className="inline-flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider text-[#00B3FF] hover:text-[#00B3FF]/80 transition-colors group"
             >
               <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-0.5 transition-transform" />
-              <span>Back to About Us</span>
+              <span>Back to Home</span>
             </Link>
           </div>
         </Container>

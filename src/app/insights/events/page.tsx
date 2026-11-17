@@ -66,11 +66,11 @@ export default async function EventsAndMeetupsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="mb-6">
             <Link
-              href="/insights"
+              href="/"
               className="inline-flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider text-[#00B3FF] hover:text-[#00B3FF]/80 transition-colors focus-visible:outline-2 focus-visible:outline-[#00B3FF] rounded px-1 py-0.5"
             >
               <ArrowLeft className="w-3.5 h-3.5" />
-              <span>Back to Insights</span>
+              <span>Back to Home</span>
             </Link>
           </div>
 
@@ -477,10 +477,10 @@ export default async function EventsAndMeetupsPage() {
               Talk to Zoftcorp
             </Link>
             <Link
-              href="/offerings"
+              href="/offerings/performance-tuning-delivery"
               className="inline-flex items-center gap-2 px-6 py-3.5 rounded-lg text-sm font-semibold text-white hover:bg-white/10 transition-all duration-200 border border-white/20 focus-visible:outline-2 focus-visible:outline-[#00B3FF]"
             >
-              <span>Explore Offerings</span>
+              <span>Explore Performance Tuning</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>

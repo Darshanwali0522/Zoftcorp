@@ -34,11 +34,10 @@ export const FAQSection: React.FC = () => {
     return (
       <div
         key={item.id}
-        className={`rounded-2xl border transition-all duration-200 overflow-hidden ${
-          isOpen
+        className={`rounded-2xl border transition-all duration-200 overflow-hidden ${isOpen
             ? "bg-white border-[#00B3FF]/40 shadow-xs ring-1 ring-[#00B3FF]/20"
             : "bg-white border-slate-200/90 hover:border-slate-300 shadow-2xs hover:shadow-xs"
-        }`}
+          }`}
       >
         <button
           type="button"
@@ -53,11 +52,10 @@ export const FAQSection: React.FC = () => {
           </span>
 
           <span
-            className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 transition-transform duration-200 ${
-              isOpen
+            className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 transition-transform duration-200 ${isOpen
                 ? "bg-[#00B3FF]/15 text-[#00B3FF] rotate-180"
                 : "bg-slate-100 text-slate-500 group-hover:bg-slate-200"
-            }`}
+              }`}
             aria-hidden="true"
           >
             <ChevronDown className="w-4 h-4" />
@@ -69,9 +67,8 @@ export const FAQSection: React.FC = () => {
           role="region"
           aria-labelledby={questionId}
           hidden={!isOpen}
-          className={`px-5 pb-5 sm:px-6 sm:pb-6 pt-1 text-slate-600 text-sm sm:text-base font-normal leading-relaxed font-sans border-t border-slate-100 mt-1 ${
-            !isOpen ? "hidden" : "block"
-          }`}
+          className={`px-5 pb-5 sm:px-6 sm:pb-6 pt-1 text-slate-600 text-sm sm:text-base font-normal leading-relaxed font-sans border-t border-slate-100 mt-1 ${!isOpen ? "hidden" : "block"
+            }`}
         >
           <p>{item.answer}</p>
         </div>

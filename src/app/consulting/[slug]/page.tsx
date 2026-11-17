@@ -82,9 +82,7 @@ export async function generateMetadata({ params }: SubPageProps): Promise<Metada
   const capability = CONSULTING_CAPABILITIES_DATA.find((c) => c.id === resolvedParams.slug);
 
   if (!capability) {
-    return {
-      title: 'Consulting | Zoftcorp',
-    };
+    notFound();
   }
 
   const pageUrl = `https://zoftcorp.com/consulting/${capability.id}`;
@@ -130,7 +128,6 @@ export default async function ConsultingSubPage({ params }: SubPageProps) {
   const pageUrl = `https://zoftcorp.com/consulting/${capability.id}`;
   const breadcrumbItems = [
     { name: 'Home', url: 'https://zoftcorp.com' },
-    { name: 'Consulting', url: 'https://zoftcorp.com/consulting' },
     { name: capability.name, url: pageUrl },
   ];
 

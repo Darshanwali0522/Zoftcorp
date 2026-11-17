@@ -32,7 +32,7 @@ export const MAIN_NAVIGATION: NavItem[] = [
   {
     id: 'offerings',
     label: 'Our Offerings',
-    href: '/offerings',
+    href: '#',
     type: 'mega-menu',
     categories: [
       {
@@ -85,7 +85,7 @@ export const MAIN_NAVIGATION: NavItem[] = [
   {
     id: 'insights',
     label: 'Insights',
-    href: '/insights',
+    href: '#',
     type: 'dropdown',
     categories: [
       {
@@ -114,7 +114,7 @@ export const MAIN_NAVIGATION: NavItem[] = [
   {
     id: 'company',
     label: 'Company',
-    href: '/about-us',
+    href: '#',
     type: 'dropdown',
     categories: [
       {

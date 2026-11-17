@@ -406,105 +406,8 @@ export const CONSULTING_CAPABILITIES_DATA: ConsultingCapabilityDetail[] = [
     },
   },
   {
-    id: 'performance-audits',
-    number: '05',
-    name: 'Performance Audits',
-    description:
-      'Identify the database, infrastructure, and architecture factors affecting performance, reliability, and operational efficiency.',
-    ctaText: 'Explore Performance Audits →',
-    href: '/consulting/performance-audits',
-    image: '/images/consulting/performance-audits.jpg',
-    alt: 'High-density server infrastructure and database performance diagnostic environment',
-    overviewHeadline: 'Overview & Deliverables',
-    overviewCopy:
-      'Zoftcorp evaluates database, infrastructure, and workload behavior to identify performance constraints and provide practical recommendations for improving the technology environment.',
-    whyMatters: {
-      eyebrow: 'WHY PERFORMANCE AUDITS',
-      headline: 'Find the Bottlenecks Behind the Symptoms.',
-      copy: 'Performance problems are often symptoms of deeper interactions between queries, database configuration, infrastructure resources, workload behavior, and application patterns. A structured audit helps separate symptoms from underlying technical constraints.',
-      calloutTitle: 'Measure Before You Optimize',
-      calloutCopy:
-        'Effective performance work starts with evidence. Understanding workload behavior, resource utilization, query patterns, and system constraints provides a stronger foundation for technical decisions.',
-    },
-    whatWeAddressHeadline: 'Performance Across the Technology Stack.',
-    whatWeAddress: [
-      {
-        number: '01',
-        title: 'Database & Query Performance',
-        description:
-          'Review query behavior, execution patterns, indexing considerations, locking, waits, and database configuration.',
-      },
-      {
-        number: '02',
-        title: 'Workload Analysis',
-        description:
-          'Examine workload characteristics, concurrency, peak behavior, and resource consumption.',
-      },
-      {
-        number: '03',
-        title: 'Infrastructure Performance',
-        description:
-          'Evaluate compute, memory, storage, network, and infrastructure factors that may influence system performance.',
-      },
-      {
-        number: '04',
-        title: 'Bottleneck & Root-Cause Analysis',
-        description:
-          'Correlate technical signals to identify likely performance constraints and prioritize areas for investigation.',
-      },
-    ],
-    visualBreak: 'Performance is a System Property.',
-    visualBreakCopy:
-      'Database performance rarely exists in isolation. Queries, data models, infrastructure resources, application behavior, and workload patterns can all influence how a system performs under real conditions.',
-    approach: {
-      eyebrow: 'OUR APPROACH',
-      headline: 'From Performance Symptoms to Technical Clarity.',
-      stages: [
-        {
-          number: '01',
-          title: 'Observe',
-          description:
-            'Review available workload data, system behavior, performance signals, and operational context.',
-        },
-        {
-          number: '02',
-          title: 'Diagnose',
-          description:
-            'Investigate database, infrastructure, query, and workload factors that may contribute to observed issues.',
-        },
-        {
-          number: '03',
-          title: 'Prioritize',
-          description:
-            'Separate high-impact findings from lower-priority observations and identify areas requiring deeper investigation.',
-        },
-        {
-          number: '04',
-          title: 'Recommend',
-          description:
-            'Translate findings into practical technical recommendations and potential next steps.',
-        },
-      ],
-    },
-    deliverablesHeadline: 'Evidence-Based Performance Guidance',
-    deliverablesIntro:
-      "Potential deliverables can be tailored to the organization's database environment, workload characteristics, infrastructure, and performance objectives.",
-    deliverables: [
-      'Database and workload performance assessment',
-      'Query and execution-pattern analysis',
-      'Infrastructure and resource utilization review',
-      'Performance bottleneck and root-cause findings',
-      'Prioritized technical recommendations',
-    ],
-    cta: {
-      eyebrow: 'TALK TO AN EXPERT',
-      headline: "Ready to Understand What's Holding Performance Back?",
-      copy: 'Bring us your database performance concerns, workload challenges, infrastructure bottlenecks, or recurring system issues. We’ll help identify where deeper technical investigation may be useful.',
-    },
-  },
-  {
     id: 'fractional-architect',
-    number: '06',
+    number: '05',
     name: 'Fractional Architect',
     description:
       'Access experienced architecture leadership when you need senior technical guidance without adding a full-time architecture role.',
@@ -601,7 +504,7 @@ export const CONSULTING_CAPABILITIES_DATA: ConsultingCapabilityDetail[] = [
   },
   {
     id: 'resilience-compliance',
-    number: '07',
+    number: '06',
     name: 'Resilience & Compliance',
     description:
       'High-availability database architecture, disaster recovery automation, and operational security controls to ensure mission-critical resilience and business continuity.',

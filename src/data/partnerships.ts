@@ -32,8 +32,8 @@ export const PARTNERS: PartnerEcosystem[] = [
     details:
       'Designing, modernizing, and optimizing AWS cloud architecture, database workloads, data engineering pipelines, and operational resilience.',
     logoPath: '/platforms/aws.svg',
-    detailRoute: '/about-us/partnerships/aws',
-    connectedAreas: ['Cloud Architecture', 'Database Migration', 'Data Engineering', 'Performance Audits', 'FinOps Governance'],
+    detailRoute: '#partnership-inquiry',
+    connectedAreas: ['Cloud Architecture', 'Database Migration', 'Data Engineering', 'Performance Tuning', 'FinOps Governance'],
   },
   {
     id: 'azure',
@@ -44,7 +44,7 @@ export const PARTNERS: PartnerEcosystem[] = [
     details:
       'Architecting and managing enterprise Microsoft Azure environments, SQL Server workloads, data platforms, and cloud infrastructure optimization.',
     logoPath: '/platforms/azure.svg',
-    detailRoute: '/about-us/partnerships/azure',
+    detailRoute: '#partnership-inquiry',
     connectedAreas: ['Azure Infrastructure', 'SQL Server Optimization', 'Data Lakehouse', 'Security Governance', 'Workload Scaling'],
   },
   {
@@ -56,7 +56,7 @@ export const PARTNERS: PartnerEcosystem[] = [
     details:
       'Leveraging Google Cloud infrastructure for analytical workloads, vector database integration, modern data pipelines, and scalable cloud services.',
     logoPath: '/platforms/gcp.svg',
-    detailRoute: '/about-us/partnerships/gcp',
+    detailRoute: '#partnership-inquiry',
     connectedAreas: ['Analytics Platforms', 'Vector DB Integration', 'Cloud Migration', 'Performance Tuning', 'AI Readiness'],
   },
   {
@@ -68,7 +68,7 @@ export const PARTNERS: PartnerEcosystem[] = [
     details:
       'Deep technical advisory, database administration, high-availability architecture, and performance tuning across enterprise Oracle environments.',
     logoPath: '/platforms/oracle.svg',
-    detailRoute: '/about-us/partnerships/oracle',
+    detailRoute: '#partnership-inquiry',
     connectedAreas: ['Oracle DB Advisory', 'High Availability', 'Performance Tuning', 'Managed DBA Services', 'Schema Transformation'],
   },
 ];

@@ -45,7 +45,7 @@ export interface AwsCredibilityItem {
 export const AWS_HERO_CONTENT = {
   breadcrumb: [
     { label: 'Home', href: '/' },
-    { label: 'AWS', href: '/about-us/partnerships/aws' },
+    { label: 'Partnerships', href: '/about-us/partnerships' },
   ],
   title: 'AWS Cloud Consulting Services',
   headingPrefix: 'AWS Cloud',
@@ -291,9 +291,9 @@ export const AWS_RELATED_CONSULTING: RelatedLinkItem[] = [
     href: '/consulting/ai-ready-architectures',
   },
   {
-    title: 'Performance Audits',
-    description: 'Identify database and architecture bottlenecks affecting operational efficiency.',
-    href: '/consulting/performance-audits',
+    title: 'Resilience & Compliance',
+    description: 'Mission-critical database resilience, high-availability architecture, and statutory compliance.',
+    href: '/consulting/resilience-compliance',
   },
 ];
 

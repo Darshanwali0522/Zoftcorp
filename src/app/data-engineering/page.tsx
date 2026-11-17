@@ -403,12 +403,9 @@ export default function DataEngineeringPage() {
                 /
               </li>
               <li>
-                <Link
-                  href="/offerings"
-                  className="text-slate-600 hover:text-[#00B3FF] transition-colors focus-visible:outline-2 focus-visible:outline-[#00B3FF] rounded px-1"
-                >
+                <span className="text-slate-600 px-1">
                   Our Offerings
-                </Link>
+                </span>
               </li>
               <li className="text-slate-400" aria-hidden="true">
                 /

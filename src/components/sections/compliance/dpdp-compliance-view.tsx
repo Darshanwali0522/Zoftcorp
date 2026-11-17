@@ -21,7 +21,6 @@ export function DPDPComplianceView() {
   const pageUrl = "https://zoftcorp.com/consulting/compliance-governance";
   const breadcrumbItems = [
     { name: "Home", url: "https://zoftcorp.com" },
-    { name: "Consulting", url: "https://zoftcorp.com/consulting" },
     { name: "DPDP Compliance", url: pageUrl },
   ];
 
@@ -67,12 +66,7 @@ export function DPDPComplianceView() {
               Home
             </Link>
             <span className="text-slate-600">/</span>
-            <Link
-              href="/consulting"
-              className="hover:text-[#00B3FF] transition-colors"
-            >
-              Consulting
-            </Link>
+            <span className="text-slate-400">Consulting</span>
             <span className="text-slate-600">/</span>
             <span className="text-slate-200 truncate">
               DPDP Compliance
@@ -82,11 +76,11 @@ export function DPDPComplianceView() {
           {/* Back Link */}
           <div className="mb-8">
             <Link
-              href="/consulting"
+              href="/"
               className="inline-flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider text-[#00B3FF] hover:text-[#00B3FF]/80 transition-colors group"
             >
               <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-0.5 transition-transform" />
-              <span>Back to Consulting Overview</span>
+              <span>Back to Home</span>
             </Link>
           </div>
 

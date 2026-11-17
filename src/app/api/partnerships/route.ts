@@ -5,7 +5,7 @@ import { sendPartnershipEmails } from '@/lib/email/mailer';
 const EMAIL_REGEX = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
 
 import { PARTNERSHIP_TYPES } from '@/data/partnerships';
-export { PARTNERSHIP_TYPES };
+
 
 interface ValidatedPartnershipPayload {
   companyName: string;

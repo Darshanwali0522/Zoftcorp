@@ -223,9 +223,9 @@ export default async function CaseStudyDetailPage({ params }: CaseStudyPageProps
               </li>
               <li className="text-slate-400">/</li>
               <li>
-                <Link href="/insights" className="hover:text-[#00B3FF] transition-colors">
+                <span className="text-slate-600">
                   Insights
-                </Link>
+                </span>
               </li>
               <li className="text-slate-400">/</li>
               <li>

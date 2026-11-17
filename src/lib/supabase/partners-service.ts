@@ -38,7 +38,7 @@ function getHeaders(key: string) {
 }
 
 const KNOWN_AREAS: Record<string, string[]> = {
-  aws: ['Cloud Architecture', 'Database Migration', 'Data Engineering', 'Performance Audits', 'FinOps Governance'],
+  aws: ['Cloud Architecture', 'Database Migration', 'Data Engineering', 'Performance Tuning', 'FinOps Governance'],
   azure: ['Azure Infrastructure', 'SQL Server Optimization', 'Data Lakehouse', 'Security Governance', 'Workload Scaling'],
   gcp: ['Analytics Platforms', 'Vector DB Integration', 'Cloud Migration', 'Performance Tuning', 'AI Readiness'],
   oracle: ['Oracle DB Advisory', 'High Availability', 'Performance Tuning', 'Managed DBA Services', 'Schema Transformation'],
@@ -55,10 +55,7 @@ function mapRecordToPartner(record: RawPartnerRecord, index: number): PartnerEco
   const slug = (record.slug || '').toLowerCase();
   const indexStr = String(index + 1).padStart(2, '0');
 
-  const isCore = ['aws', 'azure', 'gcp', 'oracle'].includes(slug);
-  const detailRoute = isCore
-    ? `/about-us/partnerships/${slug}`
-    : `/about-us/partnerships#partner-${slug}`;
+  const detailRoute = '#partnership-inquiry';
 
   const shortName = KNOWN_SHORT_NAMES[slug] || record.name;
   const connectedAreas = KNOWN_AREAS[slug] || [

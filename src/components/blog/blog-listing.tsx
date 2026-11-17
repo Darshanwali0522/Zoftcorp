@@ -776,10 +776,10 @@ export function BlogListing({
               Talk to Zoftcorp
             </Link>
             <Link
-              href="/about-us"
+              href="/about-us/vision-mission"
               className="inline-flex items-center gap-2 px-6 py-3.5 rounded-lg text-sm font-semibold text-slate-200 hover:text-white hover:bg-white/10 transition-all duration-200 border border-slate-700 active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-[#00B3FF]"
             >
-              <span>Explore About Us</span>
+              <span>Our Vision &amp; Mission</span>
               <ArrowRight className="w-4 h-4 text-[#00B3FF]" />
             </Link>
           </div>

@@ -123,8 +123,8 @@ export const EXPECTATION_STEPS = [
 ];
 
 export const CONTACT_NAVIGATION = [
-  { label: 'Consulting', href: '/consulting', desc: 'Strategic technical advisory & audits' },
-  { label: 'Our Offerings', href: '/offerings', desc: 'Specialized delivery & DBA services' },
-  { label: 'Insights', href: '/insights', desc: 'Technical articles, case studies, white papers & meetups' },
-  { label: 'About Us', href: '/about-us', desc: 'Our background, values & story' },
+  { label: 'Cloud & Data FinOps', href: '/consulting/cloud-finops', desc: 'Strategic cloud spend governance & right-sizing' },
+  { label: 'Performance Tuning', href: '/offerings/performance-tuning-delivery', desc: 'Specialized delivery & deep query optimization' },
+  { label: 'Case Studies & Blogs', href: '/insights/blogs', desc: 'Technical articles, benchmarks & architecture analyses' },
+  { label: 'Vision & Mission', href: '/about-us/vision-mission', desc: 'Our foundational commitment, leadership & story' },
 ];

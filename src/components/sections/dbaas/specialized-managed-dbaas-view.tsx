@@ -32,7 +32,6 @@ export function SpecializedManagedDBaaSView({
 }: SpecializedManagedDBaaSViewProps) {
   const breadcrumbItems = [
     { name: 'Home', url: 'https://zoftcorp.com' },
-    { name: 'Our Offerings', url: 'https://zoftcorp.com/offerings' },
     { name: 'Specialized Managed Services (DBaaS)', url: pageUrl },
   ];
 
@@ -78,9 +77,7 @@ export function SpecializedManagedDBaaSView({
               Home
             </Link>
             <span className="text-slate-600">/</span>
-            <Link href="/offerings" className="hover:text-[#00B3FF] transition-colors">
-              Our Offerings
-            </Link>
+            <span className="text-slate-400">Our Offerings</span>
             <span className="text-slate-600">/</span>
             <span className="text-slate-200 truncate">Specialized Managed Services (DBaaS)</span>
           </nav>
@@ -88,11 +85,11 @@ export function SpecializedManagedDBaaSView({
           {/* Back Link */}
           <div className="mb-8">
             <Link
-              href="/offerings"
+              href="/"
               className="inline-flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider text-[#00B3FF] hover:text-[#00B3FF]/80 transition-colors group"
             >
               <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-0.5 transition-transform" />
-              <span>Back to Offerings Overview</span>
+              <span>Back to Home</span>
             </Link>
           </div>
 

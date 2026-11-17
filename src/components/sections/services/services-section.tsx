@@ -146,7 +146,7 @@ export function ServicesSection() {
           <div className="lg:col-span-8 xl:col-span-8 sticky top-24">
             {VERIFIED_SERVICES.map((service) => {
               const isActive = service.id === activeId;
-              const href = SERVICE_HREFS[service.id] || '/offerings';
+              const href = SERVICE_HREFS[service.id] || '/offerings/performance-tuning-delivery';
 
               return (
                 <div
@@ -238,7 +238,7 @@ export function ServicesSection() {
         {/* Mobile & Tablet Stacked Layout (< 1024px) */}
         <div className="lg:hidden space-y-10">
           {VERIFIED_SERVICES.map((service) => {
-            const href = SERVICE_HREFS[service.id] || '/offerings';
+            const href = SERVICE_HREFS[service.id] || '/offerings/performance-tuning-delivery';
 
             return (
               <article

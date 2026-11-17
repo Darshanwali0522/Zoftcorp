@@ -14,45 +14,35 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: number;
     changeFrequency: MetadataRoute.Sitemap[number]['changeFrequency'];
   }[] = [
-    // 1. Core
-    { path: '', priority: 1.0, changeFrequency: 'daily' },
-    { path: '/contact', priority: 0.8, changeFrequency: 'monthly' },
+      // 1. Core
+      { path: '', priority: 1.0, changeFrequency: 'daily' },
+      { path: '/contact', priority: 0.8, changeFrequency: 'monthly' },
 
-    // 2. About Us
-    { path: '/about-us', priority: 0.8, changeFrequency: 'monthly' },
-    { path: '/about-us/career', priority: 0.7, changeFrequency: 'monthly' },
-    { path: '/about-us/partnerships', priority: 0.8, changeFrequency: 'monthly' },
-    { path: '/about-us/partnerships/aws', priority: 0.7, changeFrequency: 'monthly' },
-    { path: '/about-us/partnerships/azure', priority: 0.7, changeFrequency: 'monthly' },
-    { path: '/about-us/partnerships/gcp', priority: 0.7, changeFrequency: 'monthly' },
-    { path: '/about-us/partnerships/oracle', priority: 0.7, changeFrequency: 'monthly' },
-    { path: '/aws-2', priority: 0.8, changeFrequency: 'monthly' },
+      // 2. About Us
+      { path: '/about-us/career', priority: 0.7, changeFrequency: 'monthly' },
+      { path: '/about-us/partnerships', priority: 0.8, changeFrequency: 'monthly' },
 
-    // 3. Consulting
-    { path: '/consulting', priority: 0.9, changeFrequency: 'weekly' },
-    { path: '/consulting/ai-ready-architectures', priority: 0.8, changeFrequency: 'monthly' },
-    { path: '/consulting/cloud-database-strategy', priority: 0.8, changeFrequency: 'monthly' },
-    { path: '/consulting/cloud-finops', priority: 0.8, changeFrequency: 'monthly' },
-    { path: '/consulting/compliance-governance', priority: 0.8, changeFrequency: 'monthly' },
-    { path: '/consulting/performance-audits', priority: 0.8, changeFrequency: 'monthly' },
-    { path: '/consulting/fractional-architect', priority: 0.8, changeFrequency: 'monthly' },
+      // 3. Consulting
+      { path: '/consulting/ai-ready-architectures', priority: 0.8, changeFrequency: 'monthly' },
+      { path: '/consulting/cloud-database-strategy', priority: 0.8, changeFrequency: 'monthly' },
+      { path: '/consulting/cloud-finops', priority: 0.8, changeFrequency: 'monthly' },
+      { path: '/consulting/compliance-governance', priority: 0.8, changeFrequency: 'monthly' },
+      { path: '/consulting/fractional-architect', priority: 0.8, changeFrequency: 'monthly' },
+      { path: '/consulting/resilience-compliance', priority: 0.8, changeFrequency: 'monthly' },
 
-    // 4. Offerings & Solutions
-    { path: '/offerings', priority: 0.9, changeFrequency: 'weekly' },
-    { path: '/offerings/data-engineering-and-analytics', priority: 0.8, changeFrequency: 'monthly' },
-    { path: '/offerings/database-migrations-and-transformations', priority: 0.8, changeFrequency: 'monthly' },
-    { path: '/offerings/managed-dba-services', priority: 0.8, changeFrequency: 'monthly' },
-    { path: '/offerings/performance-tuning-delivery', priority: 0.8, changeFrequency: 'monthly' },
-    { path: '/data-engineering', priority: 0.8, changeFrequency: 'monthly' },
-    { path: '/database-support-services', priority: 0.8, changeFrequency: 'monthly' },
-    { path: '/performance-tuning-services', priority: 0.8, changeFrequency: 'monthly' },
-    { path: '/optimizing-cloud-expenses', priority: 0.8, changeFrequency: 'monthly' },
+      // 4. Offerings & Solutions
+      { path: '/offerings/data-engineering-and-analytics', priority: 0.8, changeFrequency: 'monthly' },
+      { path: '/offerings/database-migrations-and-transformations', priority: 0.8, changeFrequency: 'monthly' },
+      { path: '/offerings/managed-dba-services', priority: 0.8, changeFrequency: 'monthly' },
+      { path: '/offerings/performance-tuning-delivery', priority: 0.8, changeFrequency: 'monthly' },
+      { path: '/data-engineering', priority: 0.8, changeFrequency: 'monthly' },
+      { path: '/database-support-services', priority: 0.8, changeFrequency: 'monthly' },
+      { path: '/performance-tuning-services', priority: 0.8, changeFrequency: 'monthly' },
 
-    // 5. Insights
-    { path: '/insights', priority: 0.8, changeFrequency: 'weekly' },
-    { path: '/insights/blogs', priority: 0.9, changeFrequency: 'daily' },
-    { path: '/insights/events', priority: 0.8, changeFrequency: 'weekly' },
-  ];
+      // 5. Insights
+      { path: '/insights/blogs', priority: 0.9, changeFrequency: 'daily' },
+      { path: '/insights/events', priority: 0.8, changeFrequency: 'weekly' },
+    ];
 
   const staticEntries: MetadataRoute.Sitemap = staticRoutes.map((route) => ({
     url: `${baseUrl}${route.path}`,

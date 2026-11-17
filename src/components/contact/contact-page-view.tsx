@@ -349,7 +349,7 @@ export function ContactPageView({ reviews = [] }: ContactPageViewProps) {
               </button>
 
               <Link
-                href="/about-us"
+                href="/about-us/vision-mission"
                 className="inline-flex items-center gap-2 px-6 py-3.5 rounded-lg bg-white/10 hover:bg-white/20 text-white font-semibold text-sm transition-all duration-200 border border-white/20 focus-visible:outline-2 focus-visible:outline-[#00B3FF]"
               >
                 <span>Explore Zoftcorp</span>
